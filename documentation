@@ -1,0 +1,14 @@
+1. Open https://console.developers.google.com/apis/credentials?pli=1
+2. Select or create a project
+3. Choose "credentials" on the left then create a credential "Oauth Client ID"
+4. You may need to first configure "consent screen"
+5. Choose "Other" as the application type for the credential being created.
+6. Copy out the "client id" and "client secret" then close
+7. Run "git clone https://github.com/googleads/googleads-php-lib.git" in your command prompt. You will get a googleads-php-lib directory. Navigate to it by running "cd googleads-php-lib".
+8. Run "php composer.phar install". This will install all dependencies needed for running examples.
+9. Run "cd examples/Auth/" then run "php GetRefreshToken.php" and follow the prompts
+10. Copy out the refresh token
+11. Open Adwords Account Manager https://adwords.google.com/um/identity
+12. Make sure you have chosen the same email account as for the Auth process initially created, can change from the top right dropdown
+13. Fill the form (note that only few currencies are supported for test API)
+11. Set up your adsapi_php.ini file with the credential
