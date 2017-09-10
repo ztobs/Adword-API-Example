@@ -53,7 +53,8 @@ final class ConfigurationLoader {
   public function fromFile($configIniFilePath) {
     if (!file_exists($configIniFilePath)) {
       try {
-        $home = $this->environmentalVariables->getHome();
+        //$home = $this->environmentalVariables->getHome();
+        $home = "..\\";
         $homeConfigIniFilePath = $home
             . DIRECTORY_SEPARATOR
             . pathinfo($configIniFilePath, PATHINFO_BASENAME);
