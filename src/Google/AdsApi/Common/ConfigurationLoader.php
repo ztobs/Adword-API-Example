@@ -54,7 +54,7 @@ final class ConfigurationLoader {
     if (!file_exists($configIniFilePath)) {
       try {
         //$home = $this->environmentalVariables->getHome();
-        $home = "..\\";
+        $home = "..";
         $homeConfigIniFilePath = $home
             . DIRECTORY_SEPARATOR
             . pathinfo($configIniFilePath, PATHINFO_BASENAME);
