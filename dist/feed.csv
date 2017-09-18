@@ -1,0 +1,3 @@
+"id","name","price","description","category","stock level","discount","discount percent","keywords","image","url","tags","status"
+"100","bosch grinder","1000","Fast Grinder","Power > Handtools","3","100","10","Grinder;Driller;Blender","http://imageurl.com","http://producturl.com/grinder/1","industrial,Office,factory","active"
+"101","bosch grinder grip","1500","Fast Grinder with grip","Power > Handtools","3","100","15","Grinder;Driller;Blender","http://imageurl1.com","http://producturl1.com/grinder/2","industrial,Office,factory","active"

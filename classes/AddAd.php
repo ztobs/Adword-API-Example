@@ -25,36 +25,34 @@ class AddAd {
 
 
     public static function run(AdWordsServices $adWordsServices,
-                                      AdWordsSession $session, $adGroupId, $ads) {
+                                      AdWordsSession $session, $adGroupId, $ad) {
         $adGroupAdService =
             $adWordsServices->get($session, AdGroupAdService::class);
 
         $operations = [];
 
-        foreach ($ads as $ad)
-        {
-            // Create an expanded text ad.
-            $expandedTextAd = new ExpandedTextAd();
-            $expandedTextAd->setHeadlinePart1($ad->headline1);
-            $expandedTextAd->setHeadlinePart2($ad->headline2);
-            $expandedTextAd->setDescription($ad->description);
-            $expandedTextAd->setFinalUrls($ad->finalUrls);
-            $expandedTextAd->setPath1($ad->path1);
-            $expandedTextAd->setPath2($ad->path2);
+         // Create an expanded text ad.
+        $expandedTextAd = new ExpandedTextAd();
+        $expandedTextAd->setHeadlinePart1($ad->headline1);
+        $expandedTextAd->setHeadlinePart2($ad->headline2);
+        $expandedTextAd->setDescription($ad->description);
+        $expandedTextAd->setFinalUrls($ad->finalUrls);
+        $expandedTextAd->setPath1($ad->path1);
+        $expandedTextAd->setPath2($ad->path2);
 
-            // Create ad group ad.
-            $adGroupAd = new AdGroupAd();
-            $adGroupAd->setAdGroupId($adGroupId);
-            $adGroupAd->setAd($expandedTextAd);
-            // Optional: Set additional settings.
-            //$adGroupAd->setStatus(AdGroupAdStatus::PAUSED);
+        // Create ad group ad.
+        $adGroupAd = new AdGroupAd();
+        $adGroupAd->setAdGroupId($adGroupId);
+        $adGroupAd->setAd($expandedTextAd);
+        // Optional: Set additional settings.
+        if($ad->status != "active") $adGroupAd->setStatus(AdGroupAdStatus::PAUSED);
 
-            // Create ad group ad operation and add it to the list.
-            $operation = new AdGroupAdOperation();
-            $operation->setOperand($adGroupAd);
-            $operation->setOperator(Operator::ADD);
-            $operations[] = $operation;
-        }
+        // Create ad group ad operation and add it to the list.
+        $operation = new AdGroupAdOperation();
+        $operation->setOperand($adGroupAd);
+        $operation->setOperator(Operator::ADD);
+        $operations[] = $operation;
+
 
 
 
@@ -63,11 +61,14 @@ class AddAd {
 
         // Create the expanded text ads on the server and print out some information
         // for each created expanded text ad.
+        $cc = 0;
         foreach ($result->getValue() as $adGroupAd) {
                 $addId = $adGroupAd->getAd()->getId();
+                $results = array("id"=>$adGroupAd->getAd()->getId(), "name"=>$ad->headline1);
+                $cc++;
         }
 
-        return $result->getValue();
+        return $results;
     }
 
 

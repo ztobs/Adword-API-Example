@@ -27,7 +27,7 @@ class GetCampaigns {
         // Create selector.
         $selector = new Selector();
         $selector->setFields(['Id', 'Name']);
-        $selector->setOrdering([new OrderBy('Name', SortOrder::ASCENDING)]);
+        //$selector->setOrdering([new OrderBy('Name', SortOrder::ASCENDING)]);
         $selector->setPaging(new Paging(0, intval($page_limit)));
 
 
@@ -43,11 +43,7 @@ class GetCampaigns {
                 $totalNumEntries = $page->getTotalNumEntries();
                 foreach ($page->getEntries() as $campaign) {
 
-                    $result['id'] = $campaign->getId();
-                    $result['name'] = $campaign->getName();
-                    //$results[] = $result;
-                    $results = array($campaign->getId()=>$campaign->getName());
-
+                    $results[] = array($campaign->getId()=>$campaign->getName());
                 }
             }
 
