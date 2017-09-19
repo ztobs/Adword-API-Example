@@ -56,11 +56,11 @@ class GetAds {
                 foreach ($page->getEntries() as $adGroupAd) {
 
                     $results[] = array(
-                            'Id'            =>  $adGroupAd->getAd()->getId(),
-                            'Status'        =>  $adGroupAd->getStatus(),
-                            'HeadlinePart1' =>  $adGroupAd->getAd()->getHeadlinePart1(),
-                            'HeadlinePart2' =>  $adGroupAd->getAd()->getHeadlinePart2(),
-                            'Description'   =>  $adGroupAd->getAd()->getDescription(),
+                            'id'            =>  $adGroupAd->getAd()->getId(),
+                            'status'        =>  $adGroupAd->getStatus(),
+                            'headlinePart1' =>  $adGroupAd->getAd()->getHeadlinePart1(),
+                            'headlinePart2' =>  $adGroupAd->getAd()->getHeadlinePart2(),
+                            'description'   =>  $adGroupAd->getAd()->getDescription(),
                             'adGroupId'     =>  $adGroupId
                     );
                 }

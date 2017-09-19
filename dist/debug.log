@@ -1,0 +1,443 @@
+[2017-09-19 16:36:04] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=208 requestId=0005598bc86affd80a370fc7e500c614 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:36:09] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=86 requestId=0005598bc8b399c80a374f86f20dc398 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:36:12] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupService method=get responseTime=279 requestId=0005598bc8dc20c80a379dce9208c585 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:36:14] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupService method=get responseTime=150 requestId=0005598bc903ffd00a37428dbd012443 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:36:19] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=375 requestId=0005598bc950df800a379dce9208c585 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:36:23] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=166 requestId=0005598bc98420990a3729ca9f0aacde server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:36:25] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=168 requestId=0005598bc9afbca80a374bd67d03e54e server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:36:28] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=215 requestId=0005598bc9db5ca00ae9e64483044eee server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:36:31] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=203 requestId=0005598bca054b000a370fc7e500c614 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:36:34] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=160 requestId=0005598bca30d3880a379805bd0ea17d server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:36:38] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=157 requestId=0005598bca6725c90a37aa4c6707b107 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:36:40] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=191 requestId=0005598bca92ecd00a3762c58b08da78 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:36:46] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=166 requestId=0005598bcae2d1f10a37678fbf0fca26 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:36:55] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=BudgetService method=mutate responseTime=337 requestId=0005598bcb681ef00a374806f10053c2 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:36:57] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=mutate responseTime=236 requestId=0005598bcb945f100a371a9b9f00330d server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:37:07] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=5913 requestId=0005598bcbca95f80a37b7029a00f90c server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:37:10] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=637 requestId=0005598bcc4a06f80a37a30e2d08859e server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:37:12] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=149 requestId=0005598bcc7bec690a378101e607a7f2 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:37:15] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=98 requestId=0005598bccaaef910a374bd67d03e54e server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:37:18] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=120 requestId=0005598bccd683d10a37d4d67a026455 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:37:22] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=201 requestId=0005598bcd065dd00a3791029b07acfc server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:37:24] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=141 requestId=0005598bcd32d4a00a37bf02dd0c792c server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:37:32] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=4663 requestId=0005598bcd5aa0200a370fc7e500c614 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:37:35] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=121 requestId=0005598bcdcd8e010a37aa4c6707b107 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:37:37] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=161 requestId=0005598bcdf983e90a3762c58b08da78 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:37:40] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=112 requestId=0005598bce234b380a3768c5560faac8 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:37:43] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=170 requestId=0005598bce4f8b580a3765d6c00122da server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:37:46] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=160 requestId=0005598bce77b4990a3791029b07acfc server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:37:49] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=95 requestId=0005598bcea548910a374d4fac0d03c2 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:37:54] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=115 requestId=0005598bcef299890a37d618bc0a5321 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:37:56] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=116 requestId=0005598bcf1b37f80a37308ab30f4cdf server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:38:00] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=110 requestId=0005598bcf5245b90a374806f10053c2 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:38:03] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=110 requestId=0005598bcf8020000a374806f10053c2 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:38:06] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=164 requestId=0005598bcfa7b0e90a37d4d67a026455 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:38:09] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=204 requestId=0005598bcfd89c580a374f86f20dc398 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:38:12] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=150 requestId=0005598bd005bb200a371887a90a7ea4 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:38:15] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=210 requestId=0005598bd02fe0310a37aa4c6707b107 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:38:18] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=289 requestId=0005598bd05fa2c10a3729ca9f0aacde server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:38:21] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=175 requestId=0005598bd08c11c10a37cf967b02b416 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:38:27] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=160 requestId=0005598bd0e7be810a37bf02dd0c792c server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:38:29] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=161 requestId=0005598bd11041980a37a4c4c8055ee7 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:40:08] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=110 requestId=0005598bd6f780800a3791029b07acfc server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:40:14] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=593 requestId=0005598bd7472ef00a37a410030bd37a server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:40:17] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupService method=get responseTime=257 requestId=0005598bd778b6a00a372d47c20273e6 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:40:20] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupService method=get responseTime=209 requestId=0005598bd7a99e290a3766cedd078c10 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:40:23] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupService method=get responseTime=523 requestId=0005598bd7d476e80a37218a8e0e3950 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:40:29] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=181 requestId=0005598bd837bcf90a377884dc0693ba server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:40:32] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=236 requestId=0005598bd8646a790a37b5078c01c756 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:40:35] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=153 requestId=0005598bd88d2ff80a370789c002624c server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:40:38] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=170 requestId=0005598bd8b824100a3728df8b06544a server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:40:40] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=191 requestId=0005598bd8e1b8980a378a81670bc29d server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:40:43] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=288 requestId=0005598bd90bf1320a374806f10053c2 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:40:50] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=241 requestId=0005598bd9751b100a37a91209028494 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:40:53] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=162 requestId=0005598bd9a0fd710a370789c002624c server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:40:56] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=165 requestId=0005598bd9cd45610a3737ceb608aaac server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:40:59] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=112 requestId=0005598bd9fae8f80a37b207d902229c server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:41:02] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=121 requestId=0005598bda2a8c480a372b21630c3503 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:41:08] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=1747 requestId=0005598bda6d4a390a378a81670bc29d server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:41:11] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=194 requestId=0005598bdab173710a37cf05bf094472 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:41:13] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=112 requestId=0005598bdad917e00a37678fbf0fca26 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:41:17] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=195 requestId=0005598bdb09c0e80a378a81670bc29d server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:41:19] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=98 requestId=0005598bdb3580200a3729ca9f0aacde server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:41:23] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=100 requestId=0005598bdb64e1080a3765d6c00122da server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:41:25] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=108 requestId=0005598bdb9079310a371387fb0d379b server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:41:28] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=106 requestId=0005598bdbbb36980a3729ca9f0aacde server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:41:32] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=121 requestId=0005598bdbf0e0e00a37a4c4c8055ee7 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:41:35] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=214 requestId=0005598bdc1d44290a37cf967b02b416 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:41:38] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=108 requestId=0005598bdc5407b00a37b7029a00f90c server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:41:41] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=198 requestId=0005598bdc8159410a37a30e2d08859e server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:41:44] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=110 requestId=0005598bdcaa90090a37bd01be0db4f3 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:41:46] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=104 requestId=0005598bdcd257a00a37bd01be0db4f3 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:41:49] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=116 requestId=0005598bdcfc36600a3750d4fb02034f server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:41:52] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=108 requestId=0005598bdd2809200a37428dbd012443 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:41:55] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=218 requestId=0005598bdd5114f00a37308ab30f4cdf server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:41:58] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=170 requestId=0005598bdd819eb90ae9ef17af08e06b server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:42:01] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=171 requestId=0005598bddadfa310ae9ef17af08e06b server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:42:04] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=144 requestId=0005598bddd6fa490a3766cedd078c10 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:42:07] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=196 requestId=0005598bde0317400a3748d47904e0af server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:42:10] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=180 requestId=0005598bde3514200a374c8869085af8 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:42:13] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=191 requestId=0005598bde60a8610a373c04bc077240 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:42:16] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=148 requestId=0005598bde8fea090a37cf967b02b416 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:44:17] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=118 requestId=0005598be5d2195c0a37d242c80d9057 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:44:23] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=118 requestId=0005598be6229ea00a371887a90a7ea4 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:44:25] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupService method=get responseTime=295 requestId=0005598be64852f80a379805bd0ea17d server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:44:28] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupService method=get responseTime=164 requestId=0005598be6760e010a37c3100802e00b server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:44:31] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupService method=get responseTime=98 requestId=0005598be6a121580a374d4fac0d03c2 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:44:34] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=156 requestId=0005598be6cd5d900a37c3100802e00b server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:44:38] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=1238 requestId=0005598be6faa3690a3768c5560faac8 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:44:42] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=229 requestId=0005598be73f49a00a37104cbe0014cc server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:44:44] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=203 requestId=0005598be76a68b00a3762c58b08da78 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:44:48] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=188 requestId=0005598be79eab980a376249bc0b1954 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:44:51] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=165 requestId=0005598be7ce75f80a378a81670bc29d server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:44:56] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=297 requestId=0005598be816ecc10a37a30e2d08859e server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:44:58] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=156 requestId=0005598be84098ba0a3719290504e5ff server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:45:02] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=178 requestId=0005598be87568400ae9e850ab0c3dc1 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:45:05] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=270 requestId=0005598be8a54df80a378d83bf04c99c server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:45:08] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=203 requestId=0005598be8d3dfd80a372d47c20273e6 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:45:12] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=181 requestId=0005598be91611290a37a24ec30d9420 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:45:15] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=180 requestId=0005598be9413bf10a37308ab30f4cdf server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:45:18] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=204 requestId=0005598be96913280ae9ef17af08e06b server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:45:21] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=96 requestId=0005598be998d5b80a3748d47904e0af server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:45:25] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=115 requestId=0005598be9d7d2b80a379c07da077453 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:45:29] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=101 requestId=0005598bea1b11910ae9eb41ee00d303 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:45:32] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=103 requestId=0005598bea4b22400a37bd01be0db4f3 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:45:36] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=226 requestId=0005598bea7a8af90a3766cedd078c10 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:45:39] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=167 requestId=0005598beaaade100a37b5078c01c756 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:45:41] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=100 requestId=0005598bead47a690a376317e70273a2 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:45:44] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=113 requestId=0005598beafbc1180a37b5078c01c756 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:45:47] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=157 requestId=0005598beb25b3610a3750d4fb02034f server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:45:50] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=104 requestId=0005598beb548f790a374b91df0e8bc8 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:45:54] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=106 requestId=0005598beb99b2b00a3728df8b06544a server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:45:57] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=95 requestId=0005598bebc20ad10a37c54cb30cadc7 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:46:00] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=104 requestId=0005598bebec7a180a374bd67d03e54e server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:46:03] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=256 requestId=0005598bec1cfc100a37c54cb30cadc7 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:46:06] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=172 requestId=0005598bec4f23e80a375b879c0558c5 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:46:09] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=179 requestId=0005598bec7b3cf80a372b21630c3503 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:46:13] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=723 requestId=0005598becaab5510ae9e850ab0c3dc1 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:46:16] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=195 requestId=0005598bece368f10ae9e64483044eee server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:46:19] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=167 requestId=0005598bed0de0090ae9de07ba07c468 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:46:22] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=234 requestId=0005598bed3cac810a37308ab30f4cdf server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:46:25] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=199 requestId=0005598bed690fc80a370684d906c6c5 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:57:11] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=214 requestId=0005598c13e9f6f80a3737ceb608aaac server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:57:16] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=170 requestId=0005598c143423410a37d618bc0a5321 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:57:18] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupService method=get responseTime=202 requestId=0005598c145a87600a372d47c20273e6 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:57:21] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupService method=get responseTime=209 requestId=0005598c147edc280a371292b007364f server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:57:23] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupService method=get responseTime=310 requestId=0005598c14a2e2d10a37a4c4c8055ee7 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:57:26] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=270 requestId=0005598c14ced4d00a374014d70b14ea server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:57:29] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=260 requestId=0005598c15015e510a37454905035392 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:57:32] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=235 requestId=0005598c1529a2e80a37c54cb30cadc7 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:57:34] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=144 requestId=0005598c1551c8400a379dce9208c585 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:57:37] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=149 requestId=0005598c15788a200a37b807250d36bc server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:57:39] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=172 requestId=0005598c159fb5780a37c657bf039e17 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:57:42] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=231 requestId=0005598c15c6d5180a370789c002624c server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 16:57:45] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=180 requestId=0005598c15eec7a80ae9eb41ee00d303 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:01:00] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=121 requestId=0005598c2196e5400ae9ef17af08e06b server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:02:22] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=217 requestId=0005598c267bac310a37a74a7503b903 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:02:27] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=95 requestId=0005598c26c38e890a374b91df0e8bc8 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:02:29] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupService method=get responseTime=136 requestId=0005598c26e83d280a370a93cc09e32f server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:02:32] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupService method=get responseTime=202 requestId=0005598c270bbf000a374c8869085af8 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:02:34] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupService method=get responseTime=255 requestId=0005598c27303ad80a37a4c4c8055ee7 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:02:39] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=342 requestId=0005598c27781d300a377884dc0693ba server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:02:42] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=254 requestId=0005598c27aa77d00a379f96c9031ab5 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:02:47] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=2077 requestId=0005598c27d6e2e90a3716c7d409c9c4 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:02:50] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=206 requestId=0005598c2821d2800a37b9c23f089fac server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:02:53] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=157 requestId=0005598c285444910a378901eb020025 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:02:56] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=161 requestId=0005598c287b0a590a379dce9208c585 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:02:58] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=171 requestId=0005598c28a3a4e00ae9de07ba07c468 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:03:01] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=168 requestId=0005598c28ca0ce90a37d191d10939bf server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:03:04] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=156 requestId=0005598c28f124b80a378101e607a7f2 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:03:06] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=190 requestId=0005598c291850100a376249bc0b1954 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:03:09] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=110 requestId=0005598c293f39010a378d83bf04c99c server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:03:11] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=199 requestId=0005598c296658a00a37b401a7027b50 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:03:14] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=87 requestId=0005598c298d9f500a372d47c20273e6 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:03:16] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=169 requestId=0005598c29b3bd200a37c9412e08984d server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:03:19] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=165 requestId=0005598c29dc19280a370fc7e500c614 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:03:22] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=277 requestId=0005598c2a037b300ae9eb41ee00d303 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:03:24] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=162 requestId=0005598c2a2bbfc80a3791029b07acfc server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:03:27] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=191 requestId=0005598c2a52eb200a37c54cb30cadc7 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:03:29] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=190 requestId=0005598c2a7af1380a37d4d67a026455 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:03:32] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=161 requestId=0005598c2aa205200a37a30e2d08859e server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:10:01] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=208 requestId=0005598c41cbf3a00a37d4d67a026455 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:20:03] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=447 requestId=0005598c65af87280a37d191d10939bf server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:21:51] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=213 requestId=0005598c6c2162710a379805bd0ea17d server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:21:56] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=177 requestId=0005598c6c6f53900a3791029b07acfc server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:23:34] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=127 requestId=0005598c724299300a3768c5560faac8 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:23:38] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=94 requestId=0005598c728ba8500a374915f80446d0 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:23:52] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=BudgetService method=mutate responseTime=321 requestId=0005598c735e65880a374d4fac0d03c2 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:23:55] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=mutate responseTime=170 requestId=0005598c738c3fd00a37b7029a00f90c server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:23:58] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupService method=mutate responseTime=184 requestId=0005598c73b7ef690a37428dbd012443 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:24:01] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=339 requestId=0005598c73e46e080a377884dc0693ba server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:24:04] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=191 requestId=0005598c74129a580a37a24ec30d9420 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:24:07] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=157 requestId=0005598c743f34510a3764c6dc0044dc server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:24:10] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=178 requestId=0005598c746d3d790a37a74a7503b903 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:24:13] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=170 requestId=0005598c7495b0f00a37cf967b02b416 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:24:15] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=167 requestId=0005598c74c00cb10a3766cedd078c10 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:24:19] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=567 requestId=0005598c74e943780a37c54cb30cadc7 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:41:25] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=183 requestId=0005598cb1f671c80a37a557b30cccf8 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:41:30] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=210 requestId=0005598cb26a80b90a37d618bc0a5321 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:42:37] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=133 requestId=0005598cb663eda90a37a7d4de0d12d6 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:42:43] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=194 requestId=0005598cb6c270f80a378901eb020025 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:42:55] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=BudgetService method=mutate responseTime=216 requestId=0005598cb75c7a910a378a85c10109bc server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:43:01] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=mutate responseTime=348 requestId=0005598cb7bef1990a377706b409050b server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:49:27] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=243 requestId=0005598ccedaf9810a37b5078c01c756 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:49:32] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=81 requestId=0005598ccf26d7600a3733ca8b0354a3 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:49:49] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=BudgetService method=mutate responseTime=370 requestId=0005598cd02832300ae9eb41ee00d303 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:49:52] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=mutate responseTime=261 requestId=0005598cd054e39b0a37bf02dd0c792c server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:51:52] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=203 requestId=0005598cd77b74990a377706b409050b server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:52:01] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=116 requestId=0005598cd807a7380a37d191d10939bf server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:52:24] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupService method=get responseTime=247 requestId=0005598cd926a3f90a370789c002624c server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:59:47] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=210 requestId=0005598cf3d3f0c00a377641fd0e87c1 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:59:52] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=197 requestId=0005598cf41e28c00a37a088c4000a05 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 17:59:55] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupService method=get responseTime=263 requestId=0005598cf442fa880a3748d47904e0af server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:03:58] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=259 requestId=0005598d02c4d4a00a37c657bf039e17 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:04:03] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=145 requestId=0005598d030f1c410a3766cedd078c10 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:04:05] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupService method=get responseTime=181 requestId=0005598d033322e90a374bd67d03e54e server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:04:48] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=198 requestId=0005598d05c18e280a377641fd0e87c1 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:04:53] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=157 requestId=0005598d06117b190a374915f80446d0 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:04:56] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupService method=get responseTime=114 requestId=0005598d063664500a37d191d10939bf server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:06:09] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=163 requestId=0005598d0a93b3910a37c581a00069ab server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:06:14] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=176 requestId=0005598d0ae3fa590a371292b007364f server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:06:17] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupService method=get responseTime=124 requestId=0005598d0b1186800a379b439f0e5d7b server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:09:45] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=184 requestId=0005598d177455110a37c9412e08984d server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:09:50] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=86 requestId=0005598d17c7e3b00a37454905035392 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:09:55] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupService method=get responseTime=178 requestId=0005598d180809900a374b91df0e8bc8 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:10:06] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupService method=mutate responseTime=228 requestId=0005598d184afa480a37a410030bd37a server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:10:17] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=212 requestId=0005598d1941e1500ae9e850ab0c3dc1 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:10:25] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=201 requestId=0005598d19ba68c90a37b207d902229c server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:10:29] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=240 requestId=0005598d1a10e9500a374f86f20dc398 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:10:34] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=280 requestId=0005598d1a5929690a37454905035392 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:10:37] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=196 requestId=0005598d1a91d5390a378a81670bc29d server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:10:43] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=206 requestId=0005598d1ae329880a37c3100802e00b server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:10:46] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=164 requestId=0005598d1b17e5890a37a74a7503b903 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:16:40] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=206 requestId=0005598d302f18d80a37d618bc0a5321 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:16:45] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=174 requestId=0005598d30767e300a374014d70b14ea server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:16:54] AW_SOAP.WARNING: clientCustomerId=322-947-0423 operations=1 service=BudgetService method=mutate responseTime=279 requestId=0005598d31034d100a377641fd0e87c1 server=adwords.google.com isFault=1 faultMessage=[BudgetError.DUPLICATE_NAME @ operations[0].operand.name]  
+[2017-09-19 18:16:54] AW_SOAP.NOTICE: POST /api/adwords/cm/v201708/BudgetService?wsdl HTTP/1.1
+Host: adwords.google.com
+Connection: close
+User-Agent: PHP-SOAP/7.0.6
+Content-Type: text/xml; charset=utf-8
+SOAPAction: ""
+Content-Length: 869
+Authorization: REDACTED
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="https://adwords.google.com/api/adwords/cm/v201708"><SOAP-ENV:Header><ns1:RequestHeader><ns1:clientCustomerId>322-947-0423</ns1:clientCustomerId><ns1:developerToken>REDACTED</ns1:developerToken><ns1:userAgent>unknown (AwApi-PHP, googleads-php-lib/29.0.0, PHP/7.0.6)</ns1:userAgent><ns1:validateOnly>false</ns1:validateOnly><ns1:partialFailure>false</ns1:partialFailure></ns1:RequestHeader></SOAP-ENV:Header><SOAP-ENV:Body><ns1:mutate><ns1:operations><ns1:operator>ADD</ns1:operator><ns1:operand><ns1:name>campaign 1 Budget</ns1:name><ns1:amount><ns1:microAmount>10000</ns1:microAmount></ns1:amount><ns1:deliveryMethod>STANDARD</ns1:deliveryMethod></ns1:operand></ns1:operations></ns1:mutate></SOAP-ENV:Body></SOAP-ENV:Envelope>
+
+HTTP/1.1 500 Internal Server Error
+Content-Type: text/xml; charset=UTF-8
+Date: Tue, 19 Sep 2017 16:17:11 GMT
+Expires: Tue, 19 Sep 2017 16:17:11 GMT
+Cache-Control: private, max-age=0
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+Server: GSE
+Alt-Svc: quic=":443"; ma=2592000; v="39,38,37,35"
+Accept-Ranges: none
+Vary: Accept-Encoding
+Connection: close
+
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Header><ResponseHeader xmlns="https://adwords.google.com/api/adwords/cm/v201708"><requestId>0005598d31034d100a377641fd0e87c1</requestId><serviceName>BudgetService</serviceName><methodName>mutate</methodName><operations>1</operations><responseTime>279</responseTime></ResponseHeader></soap:Header><soap:Body><soap:Fault><faultcode>soap:Server</faultcode><faultstring>[BudgetError.DUPLICATE_NAME @ operations[0].operand.name]</faultstring><detail><ApiExceptionFault xmlns="https://adwords.google.com/api/adwords/cm/v201708"><message>[BudgetError.DUPLICATE_NAME @ operations[0].operand.name]</message><ApplicationException.Type>ApiException</ApplicationException.Type><errors xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="BudgetError"><fieldPath>operations[0].operand.name</fieldPath><fieldPathElements><field>operations</field><index>0</index></fieldPathElements><fieldPathElements><field>operand</field></fieldPathElements><fieldPathElements><field>name</field></fieldPathElements><trigger></trigger><errorString>BudgetError.DUPLICATE_NAME</errorString><ApiError.Type>BudgetError</ApiError.Type><reason>DUPLICATE_NAME</reason></errors></ApiExceptionFault></detail></soap:Fault></soap:Body></soap:Envelope>
+  
+[2017-09-19 18:17:43] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=116 requestId=0005598d33edfd680a37a91209028494 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:17:48] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=122 requestId=0005598d34396de80a37428dbd012443 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:18:00] AW_SOAP.WARNING: clientCustomerId=322-947-0423 operations=1 service=BudgetService method=mutate responseTime=177 requestId=0005598d34f2d6c00a379f96c9031ab5 server=adwords.google.com isFault=1 faultMessage=[BudgetError.DUPLICATE_NAME @ operations[0].operand.name]  
+[2017-09-19 18:18:00] AW_SOAP.NOTICE: POST /api/adwords/cm/v201708/BudgetService?wsdl HTTP/1.1
+Host: adwords.google.com
+Connection: close
+User-Agent: PHP-SOAP/7.0.6
+Content-Type: text/xml; charset=utf-8
+SOAPAction: ""
+Content-Length: 869
+Authorization: REDACTED
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="https://adwords.google.com/api/adwords/cm/v201708"><SOAP-ENV:Header><ns1:RequestHeader><ns1:clientCustomerId>322-947-0423</ns1:clientCustomerId><ns1:developerToken>REDACTED</ns1:developerToken><ns1:userAgent>unknown (AwApi-PHP, googleads-php-lib/29.0.0, PHP/7.0.6)</ns1:userAgent><ns1:validateOnly>false</ns1:validateOnly><ns1:partialFailure>false</ns1:partialFailure></ns1:RequestHeader></SOAP-ENV:Header><SOAP-ENV:Body><ns1:mutate><ns1:operations><ns1:operator>ADD</ns1:operator><ns1:operand><ns1:name>campaign 1 Budget</ns1:name><ns1:amount><ns1:microAmount>10000</ns1:microAmount></ns1:amount><ns1:deliveryMethod>STANDARD</ns1:deliveryMethod></ns1:operand></ns1:operations></ns1:mutate></SOAP-ENV:Body></SOAP-ENV:Envelope>
+
+HTTP/1.1 500 Internal Server Error
+Content-Type: text/xml; charset=UTF-8
+Date: Tue, 19 Sep 2017 16:18:17 GMT
+Expires: Tue, 19 Sep 2017 16:18:17 GMT
+Cache-Control: private, max-age=0
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+Server: GSE
+Alt-Svc: quic=":443"; ma=2592000; v="39,38,37,35"
+Accept-Ranges: none
+Vary: Accept-Encoding
+Connection: close
+
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Header><ResponseHeader xmlns="https://adwords.google.com/api/adwords/cm/v201708"><requestId>0005598d34f2d6c00a379f96c9031ab5</requestId><serviceName>BudgetService</serviceName><methodName>mutate</methodName><operations>1</operations><responseTime>177</responseTime></ResponseHeader></soap:Header><soap:Body><soap:Fault><faultcode>soap:Server</faultcode><faultstring>[BudgetError.DUPLICATE_NAME @ operations[0].operand.name]</faultstring><detail><ApiExceptionFault xmlns="https://adwords.google.com/api/adwords/cm/v201708"><message>[BudgetError.DUPLICATE_NAME @ operations[0].operand.name]</message><ApplicationException.Type>ApiException</ApplicationException.Type><errors xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="BudgetError"><fieldPath>operations[0].operand.name</fieldPath><fieldPathElements><field>operations</field><index>0</index></fieldPathElements><fieldPathElements><field>operand</field></fieldPathElements><fieldPathElements><field>name</field></fieldPathElements><trigger></trigger><errorString>BudgetError.DUPLICATE_NAME</errorString><ApiError.Type>BudgetError</ApiError.Type><reason>DUPLICATE_NAME</reason></errors></ApiExceptionFault></detail></soap:Fault></soap:Body></soap:Envelope>
+  
+[2017-09-19 18:18:37] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=179 requestId=0005598d3725d3c00a379b439f0e5d7b server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:18:42] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=151 requestId=0005598d376ea4600a37a7d4de0d12d6 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:18:52] AW_SOAP.WARNING: clientCustomerId=322-947-0423 operations=1 service=BudgetService method=mutate responseTime=153 requestId=0005598d380a7ed00a37b7029a00f90c server=adwords.google.com isFault=1 faultMessage=[BudgetError.DUPLICATE_NAME @ operations[0].operand.name]  
+[2017-09-19 18:18:52] AW_SOAP.NOTICE: POST /api/adwords/cm/v201708/BudgetService?wsdl HTTP/1.1
+Host: adwords.google.com
+Connection: close
+User-Agent: PHP-SOAP/7.0.6
+Content-Type: text/xml; charset=utf-8
+SOAPAction: ""
+Content-Length: 869
+Authorization: REDACTED
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="https://adwords.google.com/api/adwords/cm/v201708"><SOAP-ENV:Header><ns1:RequestHeader><ns1:clientCustomerId>322-947-0423</ns1:clientCustomerId><ns1:developerToken>REDACTED</ns1:developerToken><ns1:userAgent>unknown (AwApi-PHP, googleads-php-lib/29.0.0, PHP/7.0.6)</ns1:userAgent><ns1:validateOnly>false</ns1:validateOnly><ns1:partialFailure>false</ns1:partialFailure></ns1:RequestHeader></SOAP-ENV:Header><SOAP-ENV:Body><ns1:mutate><ns1:operations><ns1:operator>ADD</ns1:operator><ns1:operand><ns1:name>campaign 1 Budget</ns1:name><ns1:amount><ns1:microAmount>10000</ns1:microAmount></ns1:amount><ns1:deliveryMethod>STANDARD</ns1:deliveryMethod></ns1:operand></ns1:operations></ns1:mutate></SOAP-ENV:Body></SOAP-ENV:Envelope>
+
+HTTP/1.1 500 Internal Server Error
+Content-Type: text/xml; charset=UTF-8
+Date: Tue, 19 Sep 2017 16:19:09 GMT
+Expires: Tue, 19 Sep 2017 16:19:09 GMT
+Cache-Control: private, max-age=0
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+Server: GSE
+Alt-Svc: quic=":443"; ma=2592000; v="39,38,37,35"
+Accept-Ranges: none
+Vary: Accept-Encoding
+Connection: close
+
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Header><ResponseHeader xmlns="https://adwords.google.com/api/adwords/cm/v201708"><requestId>0005598d380a7ed00a37b7029a00f90c</requestId><serviceName>BudgetService</serviceName><methodName>mutate</methodName><operations>1</operations><responseTime>153</responseTime></ResponseHeader></soap:Header><soap:Body><soap:Fault><faultcode>soap:Server</faultcode><faultstring>[BudgetError.DUPLICATE_NAME @ operations[0].operand.name]</faultstring><detail><ApiExceptionFault xmlns="https://adwords.google.com/api/adwords/cm/v201708"><message>[BudgetError.DUPLICATE_NAME @ operations[0].operand.name]</message><ApplicationException.Type>ApiException</ApplicationException.Type><errors xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="BudgetError"><fieldPath>operations[0].operand.name</fieldPath><fieldPathElements><field>operations</field><index>0</index></fieldPathElements><fieldPathElements><field>operand</field></fieldPathElements><fieldPathElements><field>name</field></fieldPathElements><trigger></trigger><errorString>BudgetError.DUPLICATE_NAME</errorString><ApiError.Type>BudgetError</ApiError.Type><reason>DUPLICATE_NAME</reason></errors></ApiExceptionFault></detail></soap:Fault></soap:Body></soap:Envelope>
+  
+[2017-09-19 18:22:20] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=121 requestId=0005598d447655e00a37a557b30cccf8 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:22:25] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=91 requestId=0005598d44c141900a37cf05bf094472 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:22:44] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=BudgetService method=mutate responseTime=239 requestId=0005598d45e0ee190a37a74a7503b903 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:22:47] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=mutate responseTime=278 requestId=0005598d460db6f00a377884dc0693ba server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:22:50] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupService method=mutate responseTime=174 requestId=0005598d4637cc600a379b439f0e5d7b server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:22:52] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=319 requestId=0005598d465f26990a37cf05bf094472 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:22:55] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=280 requestId=0005598d4688b3500a37a24ec30d9420 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:22:58] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=252 requestId=0005598d46b2f7a10a37bd01be0db4f3 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:23:00] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=169 requestId=0005598d46dbc8d90a37a8cfca0ef828 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:23:03] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=262 requestId=0005598d47039c280a37a91209028494 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:23:06] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=172 requestId=0005598d472bc9510a377641fd0e87c1 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:23:08] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=169 requestId=0005598d47523d100a37d408f10f24fb server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:23:34] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=109 requestId=0005598d48d6a6a80a37d408f10f24fb server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:23:38] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=245 requestId=0005598d491d12000a377884dc0693ba server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:23:41] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupService method=get responseTime=179 requestId=0005598d494328010a377005cd0c47f6 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:23:43] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=153 requestId=0005598d4969d2700a3750d4fb02034f server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:23:46] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=116 requestId=0005598d49913c480a37678fbf0fca26 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:23:53] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=122 requestId=0005598d49fb19d80a37a91209028494 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:23:55] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=195 requestId=0005598d4a228f680ae9eb41ee00d303 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:23:58] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=173 requestId=0005598d4a4932080a377706b409050b server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:24:02] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=164 requestId=0005598d4a8cbb190a371387fb0d379b server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:24:05] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=177 requestId=0005598d4ab327090a37b5078c01c756 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:24:08] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=826 requestId=0005598d4ad8a4b10a379b439f0e5d7b server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:24:11] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=173 requestId=0005598d4b0a99c10a37218a8e0e3950 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:24:13] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=156 requestId=0005598d4b30f2280a37a4c4c8055ee7 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:24:16] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=215 requestId=0005598d4b5ad4d00a374dca64049c01 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:24:18] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=183 requestId=0005598d4b81f8580a3765d6c00122da server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:29:04] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=188 requestId=0005598d5c412fb20a37bf02dd0c792c server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:30:04] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=205 requestId=0005598d6020d3100a374b91df0e8bc8 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:43:51] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=176 requestId=0005598d9164a4100a374915f80446d0 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:43:58] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=214 requestId=0005598d91d1c9780a370789c002624c server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:44:27] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=BudgetService method=mutate responseTime=216 requestId=0005598d938843780a3750d4fb02034f server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:44:30] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=mutate responseTime=301 requestId=0005598d93b17e280a37d191d10939bf server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:44:33] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupService method=mutate responseTime=1002 requestId=0005598d93df16080a3765d6c00122da server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:44:36] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=348 requestId=0005598d94139b580a37a91209028494 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:44:39] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=190 requestId=0005598d9441b0380a377005cd0c47f6 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:44:42] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=429 requestId=0005598d946b77880a379ed4d108d6fb server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:44:45] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=192 requestId=0005598d949a15210a3765d6c00122da server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:44:47] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=199 requestId=0005598d94c2daa00a374c8869085af8 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:44:51] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=164 requestId=0005598d94f4b4580a379805bd0ea17d server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:44:53] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=154 requestId=0005598d951ca6e90a371292b007364f server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:46:27] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=130 requestId=0005598d9aace4600a379ed4d108d6fb server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:46:32] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=169 requestId=0005598d9afa9ae80a37cf05bf094472 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:46:34] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupService method=get responseTime=102 requestId=0005598d9b20ad000a37a088db019e5a server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:46:38] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=281 requestId=0005598d9b5b8f380a37c581a00069ab server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:46:41] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=253 requestId=0005598d9b85bc190a3768c5560faac8 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:46:44] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=484 requestId=0005598d9baeeb100a37b807250d36bc server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:46:46] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=125 requestId=0005598d9bdb0bf00a377706b409050b server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:46:50] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=284 requestId=0005598d9c0a80610a37a088db019e5a server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:46:53] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=161 requestId=0005598d9c3d50320a376f43d00ba57e server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:46:56] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=217 requestId=0005598d9c687ee10a374f86f20dc398 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:46:59] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=235 requestId=0005598d9c9622790a376317e70273a2 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:47:02] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=604 requestId=0005598d9cbef3b10a37c941d60e6285 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:47:04] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=253 requestId=0005598d9ceee5210a379f96c9031ab5 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:47:07] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=299 requestId=0005598d9d183f110a37a24ec30d9420 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:47:10] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=178 requestId=0005598d9d4398b80a37d4d67a026455 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:47:13] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=173 requestId=0005598d9d6d35100a37d191d10939bf server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:48:03] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=252 requestId=0005598da07135e00a37428dbd012443 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:48:08] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=87 requestId=0005598da0ba8b500a371887a90a7ea4 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:48:11] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupService method=get responseTime=254 requestId=0005598da0dfab390a37a693c908e652 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:48:13] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=184 requestId=0005598da10a8bc90a374c8869085af8 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:48:16] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=149 requestId=0005598da1336ca10a377641fd0e87c1 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:48:19] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=134 requestId=0005598da15bd8480a371387fb0d379b server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:48:21] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=131 requestId=0005598da1866ea10a37d618bc0a5321 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:48:24] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=128 requestId=0005598da1b08be10a374e42d60538d2 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:48:27] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=211 requestId=0005598da1d732680a374e42d60538d2 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:48:29] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=189 requestId=0005598da1ffbd500a372b21630c3503 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:48:32] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=189 requestId=0005598da22882d10a377884dc0693ba server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:48:35] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=178 requestId=0005598da2583d900a374014d70b14ea server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:48:38] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=166 requestId=0005598da28266880a37c3100802e00b server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:48:44] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=271 requestId=0005598da2d5f5290a37c581a00069ab server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:48:46] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=170 requestId=0005598da3041d910a3768c5560faac8 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 18:48:49] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=180 requestId=0005598da32fbd890a374dca64049c01 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:00:47] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=191 requestId=0005598dcdf14ff00a3791029b07acfc server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:01:05] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=176 requestId=0005598dcf0242f00ae9de07ba07c468 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:01:13] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=BudgetService method=mutate responseTime=312 requestId=0005598dcf7d8d710a37678fbf0fca26 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:01:15] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=mutate responseTime=221 requestId=0005598dcfa75c900a37171a80027ce7 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:01:18] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupService method=mutate responseTime=296 requestId=0005598dcfcff3300a37cf05bf094472 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:01:21] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=300 requestId=0005598dcff906d00a376f43d00ba57e server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:01:23] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=185 requestId=0005598dd02287d10a370789c002624c server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:01:26] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=259 requestId=0005598dd04a37f80a371887a90a7ea4 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:01:29] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=280 requestId=0005598dd0743dc80a37a91209028494 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:01:32] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=174 requestId=0005598dd09e33f80a3728df8b06544a server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:01:34] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=254 requestId=0005598dd0c54fb10a37d618bc0a5321 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:01:37] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=170 requestId=0005598dd0edee200a374dca64049c01 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:01:57] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=187 requestId=0005598dd2272d890a377005cd0c47f6 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:02:02] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=132 requestId=0005598dd26d6a000a371887a90a7ea4 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:02:04] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupService method=get responseTime=126 requestId=0005598dd291e5d80ae9eb41ee00d303 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:02:07] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=276 requestId=0005598dd2b859980a374915f80446d0 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:02:09] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=120 requestId=0005598dd2e184a90a37d618bc0a5321 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:02:12] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=159 requestId=0005598dd30a84c10a37bf02dd0c792c server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:02:19] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=206 requestId=0005598dd36eff680a37aad2f80c66cf server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:02:42] AW_SOAP.WARNING: clientCustomerId=322-947-0423 operations= service=AdGroupAdService method=mutate responseTime= requestId= server=adwords.google.com isFault=1 faultMessage=Error Fetching http headers  
+[2017-09-19 19:02:42] AW_SOAP.NOTICE: POST /api/adwords/cm/v201708/AdGroupAdService?wsdl HTTP/1.1
+Host: adwords.google.com
+Connection: close
+User-Agent: PHP-SOAP/7.0.6
+Content-Type: text/xml; charset=utf-8
+SOAPAction: ""
+Content-Length: 808
+Authorization: REDACTED
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="https://adwords.google.com/api/adwords/cm/v201708"><SOAP-ENV:Header><ns1:RequestHeader><ns1:clientCustomerId>322-947-0423</ns1:clientCustomerId><ns1:developerToken>REDACTED</ns1:developerToken><ns1:userAgent>unknown (AwApi-PHP, googleads-php-lib/29.0.0, PHP/7.0.6)</ns1:userAgent><ns1:validateOnly>false</ns1:validateOnly><ns1:partialFailure>false</ns1:partialFailure></ns1:RequestHeader></SOAP-ENV:Header><SOAP-ENV:Body><ns1:mutate><ns1:operations><ns1:operator>REMOVE</ns1:operator><ns1:operand><ns1:adGroupId>42056136850</ns1:adGroupId><ns1:ad><ns1:id>222127631977</ns1:id></ns1:ad></ns1:operand></ns1:operations></ns1:mutate></SOAP-ENV:Body></SOAP-ENV:Envelope>
+
+
+
+
+  
+[2017-09-19 19:03:04] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=155 requestId=0005598dd61de7100a37c657bf039e17 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:03:09] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=89 requestId=0005598dd668af990a37a30e2d08859e server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:03:11] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupService method=get responseTime=162 requestId=0005598dd69414f80a37a410030bd37a server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:03:14] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=266 requestId=0005598dd6bbb9680a374b91df0e8bc8 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:03:17] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=226 requestId=0005598dd6e6e0490a37c9412e08984d server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:03:20] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=176 requestId=0005598dd71134380a374806f10053c2 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:03:23] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=246 requestId=0005598dd73cb8d90a374f86f20dc398 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:03:25] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=170 requestId=0005598dd7661a980a379c07da077453 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:03:31] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=158 requestId=0005598dd7ba83f80a378d83bf04c99c server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:03:33] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=184 requestId=0005598dd7e2a5680a3765d6c00122da server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:03:36] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=181 requestId=0005598dd80aea010a37a410030bd37a server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:03:39] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=155 requestId=0005598dd831ee480a376f43d00ba57e server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:03:41] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=176 requestId=0005598dd859fc310a37b5078c01c756 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:03:54] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=120 requestId=0005598dd91cb3d80ae9eb41ee00d303 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:03:58] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=CampaignService method=get responseTime=108 requestId=0005598dd961dee10a372d47c20273e6 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:04:01] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupService method=get responseTime=102 requestId=0005598dd98bfc200a3750d4fb02034f server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:04:04] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=195 requestId=0005598dd9b91ae80a370a93cc09e32f server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:04:07] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=128 requestId=0005598dd9e65cd90a374e42d60538d2 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:04:10] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=102 requestId=0005598dda18b3900a374dca64049c01 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:04:14] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=626 requestId=0005598dda4b40f90a379805bd0ea17d server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:04:17] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=312 requestId=0005598dda7b9be00a3765d6c00122da server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:04:22] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=2076 requestId=0005598ddaaa50e90a37afc5c5003126 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:04:25] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=529 requestId=0005598ddaedb2e90a379805bd0ea17d server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:04:27] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=224 requestId=0005598ddb1a68380a374b91df0e8bc8 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:04:30] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=184 requestId=0005598ddb4341410ae9eb41ee00d303 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:04:33] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=178 requestId=0005598ddb6b66980a37d191d10939bf server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:04:37] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=238 requestId=0005598ddba8f0800a37b207d902229c server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:04:42] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=get responseTime=186 requestId=0005598ddbf69b500a37c049c90da6b3 server=adwords.google.com isFault=0 faultMessage=  
+[2017-09-19 19:04:44] AW_SOAP.INFO: clientCustomerId=322-947-0423 operations=1 service=AdGroupAdService method=mutate responseTime=184 requestId=0005598ddc1d6cd10a372b21630c3503 server=adwords.google.com isFault=0 faultMessage=  

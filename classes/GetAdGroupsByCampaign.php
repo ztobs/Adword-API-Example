@@ -37,6 +37,7 @@ class GetAdGroupsByCampaign {
         $selector->setPaging(new Paging(0, $page_limit));
 
         $totalNumEntries = 0;
+        $results = [];
         do {
             // Retrieve ad groups one page at a time, continuing to request pages
             // until all ad groups have been retrieved.
@@ -47,7 +48,7 @@ class GetAdGroupsByCampaign {
                 $totalNumEntries = $page->getTotalNumEntries();
                 foreach ($page->getEntries() as $adGroup) {
 
-                        $results[] = array($adGroup->getId() => $adGroup->getName());
+                        $results[] = array("id"=>$adGroup->getId(), "name"=>$adGroup->getName());
                 }
             }
 

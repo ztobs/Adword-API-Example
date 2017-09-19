@@ -31,7 +31,7 @@ class GetCampaigns {
         $selector->setPaging(new Paging(0, intval($page_limit)));
 
 
-
+        $results = [];
         $totalNumEntries = 0;
         do {
             // Make the get request.
@@ -43,7 +43,7 @@ class GetCampaigns {
                 $totalNumEntries = $page->getTotalNumEntries();
                 foreach ($page->getEntries() as $campaign) {
 
-                    $results[] = array($campaign->getId()=>$campaign->getName());
+                    $results[] = array("id"=>$campaign->getId(), "name"=>$campaign->getName());
                 }
             }
 

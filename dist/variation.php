@@ -22,6 +22,6 @@ $variation = array(
     ),
     1   => array(
         "headline1" => "Cheap {{productName}}",
-        "headline2" => "save -{{productDiscountInPercent}} %"
+        "headline2" => "save -{{productDiscountInPercent}}%"
     )
 );

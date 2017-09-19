@@ -6,39 +6,44 @@
  * Time: 11:30 AM
  */
 
+// removing execution limits
+ini_set('max_execution_time', 0);
+ini_set('memory_limit', '1024M');
+
 include '../functions.php';
 include '../classes/Ad.php';
 
+// Checking if arguments were supplied
+if(!isset($argv[1]) || !isset($argv[2]))
+{
+    die("2 arguments are required, third arguement is optional but recommended.\nFeed_file, campaign_name, and sync\nEg.\nphp run.php feed.csv campaign_1 sync");
+}
+
+// Optional syncing
+if(isset($argv[3]))
+{
+    if($argv[3] == "sync")
+    {
+        echo "Syncing Local with Server ...\n";
+        exec("php sync.php");
+    }
+}
+
+
 $feedArr = feedToArr($argv[1]);
+$campaignName = str_replace("_", " ", $argv[2]);
 
 
-// Fetching campaign id by campaign name
-$campaign_id =  getCampaignIdByName("Campaign #1");
-
-
-//var_dump(existAdGroup("KMS"));
-//
-// Creating AdGroup
-//$adGroupId = createAdGroup($campaign_id, "PMS", 1000000);
-//
-//
-// Creating array of ads object
-// $headline1, $headline2, $description, $finalUrls(array), $path1=NULL, $path2=NULL
-
-//$ads[] = new Ad("1234", "Shoes", "Ad".$i, "Best Line".rand(0, 999999999), "Buy your tickets now!", ["http://tobilukan.com/cruise/"] );
-//
-//
-//// Creating Adverts in bulk
-//var_dump(createAd("46873797099", $ads));
-
-
-/////////////////////////////////////////////////////////////////
-//var_dump(countAdsInAdGroup("46873797099"));
-//var_dump(existAd("1234"));
+// Fetching campaign id by campaign name, will create if not exist
+// Set the budget in the constant.php file
+$campaign_id =  getCampaignIdByName($campaignName);
 
 
 ///////////////////////////////////////////////////////////////////////////////
 //
+
+
+
 // First remove ads that re-occurred in the feed
 cleanUp($feedArr);
 
@@ -52,10 +57,14 @@ pauseResidues($residueAd);
 $adsToInsert = adsToInsert($feedArr, $variation);
 
 // create ads one by one
+echo "Creating Ads ....\n";
 foreach($adsToInsert as $ad)
 {
-    //var_dump($ad); die();
     createAdDyn($campaign_id, $ad);
 }
 
+// cleanup file fragments
+echo "Defragmenting Local Files Database ....\n";
+defragment(TEMP_PATH.ADS_LOCAL_FILE);
+defragment(TEMP_PATH.PRODUCTS_LOCAL_FILE);
 
