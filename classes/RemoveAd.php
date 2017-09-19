@@ -20,7 +20,7 @@ use Google\AdsApi\AdWords\v201708\cm\Operator;
 class RemoveAd {
 
 
-    public static function runExample(AdWordsServices $adWordsServices,
+    public static function run(AdWordsServices $adWordsServices,
                                       AdWordsSession $session, $adGroupId, $adId) {
         $adGroupAdService =
             $adWordsServices->get($session, AdGroupAdService::class);

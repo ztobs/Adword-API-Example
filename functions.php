@@ -553,11 +553,12 @@ function existAd($findProdtuctId)
                 {
                     $line_arr = explode("||", $line);
                     $id = $line_arr[0];
+                    $adName = trim($line_arr[1]);
                     $adGroupId = trim($line_arr[2]);
 
                     if($ad['ad_id'] == $id)
                     {
-                        $occur[] = array("ad_id"=>$id, "line_number"=>$cc, "line_number_product"=>$productLineNumber, "adgroup_id"=>$adGroupId);
+                        $occur[] = array("ad_id"=>$id, "ad_name"=>$adName, "line_number"=>$cc, "line_number_product"=>$productLineNumber, "adgroup_id"=>$adGroupId);
                     }
                 }
 
@@ -613,16 +614,22 @@ function adIdsFromProductId($findProdtuctId)
  */
 function removeExistAds($existAdArray)
 {
-    global $session;
     foreach ($existAdArray as $existAd)
     {
-        RemoveAd::runExample(new AdWordsServices(), $session, $existAd['adgroup_id'], $existAd['ad_id']);
+        removeAd($existAd['adgroup_id'], $existAd['ad_id'], $existAd['ad_name']);
         deleteLineInFile(TEMP_PATH.ADS_LOCAL_FILE, $existAd['line_number']); //for ads.txt
         deleteLineInFile(TEMP_PATH.PRODUCTS_LOCAL_FILE, $existAd['line_number_product']); //for products.txt
     }
     return true;
 }
 
+
+function removeAd($adGroupId, $adId, $adName)
+{
+    global $session;
+    RemoveAd::run(new AdWordsServices(), $session, $adGroupId, $adId);
+    log_("Remove Ad: $adName **to be recreated**");
+}
 
 
 function deleteLineInFile($file, $lineNumber)

@@ -1,14 +1,14 @@
-[2017-09-19 19:01:15] Create Campaign: campaign 1
-[2017-09-19 19:01:18] Create AdGroup: Power > Handtools#1
-[2017-09-19 19:01:21] Create  Ad: Buy bosch grinder now
-[2017-09-19 19:01:26] Create  Ad: Cheap bosch grinder
-[2017-09-19 19:01:32] Create Paused Ad: Buy bosch grinder g now
-[2017-09-19 19:01:37] Create Paused Ad: Cheap bosch grinder g
-[2017-09-19 19:03:23] Create  Ad: Buy bosch grinder now
-[2017-09-19 19:03:31] Create  Ad: Cheap bosch grinder
-[2017-09-19 19:03:36] Create Paused Ad: Buy bosch grinder g now
-[2017-09-19 19:03:41] Create Paused Ad: Cheap bosch grinder g
-[2017-09-19 19:04:25] Create  Ad: Buy bosch grinder now
-[2017-09-19 19:04:30] Create  Ad: Cheap bosch grinder
-[2017-09-19 19:04:38] Create Paused Ad: Buy bosch grinder g now
-[2017-09-19 19:04:44] Create Paused Ad: Cheap bosch grinder g
+[2017-09-19 19:23:25] Create Campaign: campaign 1
+[2017-09-19 19:23:28] Create AdGroup: Power > Handtools#1
+[2017-09-19 19:23:30] Create  Ad: Buy bosch grinder now
+[2017-09-19 19:23:36] Create  Ad: Cheap bosch grinder
+[2017-09-19 19:23:42] Create Paused Ad: Buy bosch grinder g now
+[2017-09-19 19:23:49] Create Paused Ad: Cheap bosch grinder g
+[2017-09-19 19:24:39] Remove Ad: Buy bosch grinder now **to be recreated**
+[2017-09-19 19:24:43] Remove Ad: Cheap bosch grinder **to be recreated**
+[2017-09-19 19:24:46] Remove Ad: Buy bosch grinder g now **to be recreated**
+[2017-09-19 19:24:49] Remove Ad: Cheap bosch grinder g **to be recreated**
+[2017-09-19 19:24:54] Create  Ad: Buy bosch grinder now
+[2017-09-19 19:25:00] Create  Ad: Cheap bosch grinder
+[2017-09-19 19:25:11] Create Paused Ad: Buy bosch grinder g now
+[2017-09-19 19:25:17] Create Paused Ad: Cheap bosch grinder g
