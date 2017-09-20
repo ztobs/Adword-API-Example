@@ -3,14 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="374070c9-05f6-44fc-81ee-bb204b5e2bea" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/RemoveAd.php" afterPath="$PROJECT_DIR$/classes/RemoveAd.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/debug.log" afterPath="$PROJECT_DIR$/dist/debug.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/functions.php" afterPath="$PROJECT_DIR$/functions.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp/adgroups.txt" afterPath="$PROJECT_DIR$/temp/adgroups.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp/ads.txt" afterPath="$PROJECT_DIR$/temp/ads.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp/campaigns.txt" afterPath="$PROJECT_DIR$/temp/campaigns.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp/log.log" afterPath="$PROJECT_DIR$/temp/log.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp/products.txt" afterPath="$PROJECT_DIR$/temp/products.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Google/AdsApi/Common/AdsSoapClientFactory.php" afterPath="$PROJECT_DIR$/src/Google/AdsApi/Common/AdsSoapClientFactory.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,16 +19,6 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="run.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dist/run.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="38" column="12" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="products.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/temp/products.txt">
           <provider selected="true" editor-type-id="text-editor">
@@ -96,11 +79,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="log.log" pinned="false" current-in-tab="true">
+      <file leaf-file-name="log.log" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/temp/log.log">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
               <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdsSoapClientFactory.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Google/AdsApi/Common/AdsSoapClientFactory.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="497">
+              <caret line="186" column="0" lean-forward="true" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -136,8 +129,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getAd</find>
-      <find>getAds</find>
       <find>[3]</find>
       <find>create</find>
       <find>$handle</find>
@@ -166,6 +157,8 @@
       <find>remove</find>
       <find>existAd</find>
       <find>removeExistAds</find>
+      <find>contextOptions</find>
+      <find>$contextOptions['ssl']['verify_peer']</find>
     </findStrings>
     <replaceStrings>
       <replace>log_(</replace>
@@ -210,6 +203,7 @@
         <option value="$PROJECT_DIR$/temp/campaigns.txt" />
         <option value="$PROJECT_DIR$/temp/products.txt" />
         <option value="$PROJECT_DIR$/temp/log.log" />
+        <option value="$PROJECT_DIR$/src/Google/AdsApi/Common/AdsSoapClientFactory.php" />
       </list>
     </option>
   </component>
@@ -315,7 +309,15 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dist" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Google" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AdsApi" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -329,7 +331,19 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="classes" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Google" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AdsApi" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Common" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -464,7 +478,7 @@
       <option name="presentableId" value="Default" />
       <updated>1505037859132</updated>
       <workItem from="1505037899393" duration="18951000" />
-      <workItem from="1505512441317" duration="118509000" />
+      <workItem from="1505512441317" duration="119677000" />
     </task>
     <task id="LOCAL-00001" summary="1st commit">
       <created>1505057420544</created>
@@ -487,11 +501,18 @@
       <option name="project" value="LOCAL" />
       <updated>1505840866787</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Sync and Log Fixed">
+      <created>1505842018823</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1505842018823</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="137460000" />
+    <option name="totallyTimeSpent" value="138628000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -500,6 +521,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1292" height="786" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25405845" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -533,7 +555,8 @@
     <MESSAGE value="1st commit" />
     <MESSAGE value="2nd commit" />
     <MESSAGE value="sync fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="sync fixed" />
+    <MESSAGE value="Sync and Log Fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sync and Log Fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -837,6 +860,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Google/AdsApi/Common/AdsSoapClientFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="497">
+          <caret line="186" column="0" lean-forward="true" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
           <folding />
         </state>
       </provider>

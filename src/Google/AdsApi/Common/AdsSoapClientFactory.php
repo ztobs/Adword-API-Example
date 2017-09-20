@@ -166,7 +166,7 @@ final class AdsSoapClientFactory {
                   . 'AdsSession. See SoapSettingsBuilder::withSslCaFile().');
             }
           }
-          $contextOptions['ssl']['verify_peer'] = true;
+          $contextOptions['ssl']['verify_peer'] = false;
         }
       } else {
         $session->getSoapLogger()->warning('Disabling SSL verification is not '
