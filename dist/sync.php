@@ -9,11 +9,9 @@
 include '../functions.php';
 include '../classes/Ad.php';
 
-
-
+$campaign_id = $argv[1];
 // update the local file(database) with adgroups on server
-$adGroups = updateAdGroups($campaigns);
+$adGroups = updateAdGroups($campaigns, $campaign_id);
 
-// update the local file(database) with ads on server
-updateAds($adGroups);
+
 

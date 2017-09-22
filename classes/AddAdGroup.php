@@ -29,7 +29,7 @@ class AddAdGroup {
 
 
     public static function run(AdWordsServices $adWordsServices,
-                                      AdWordsSession $session, $campaignId, $groupName, $myBid ) {
+                                      AdWordsSession $session, $campaignId, $groupName, $myBid, $status ) {
         $adGroupService = $adWordsServices->get($session, AdGroupService::class);
 
         $operations = [];
@@ -49,7 +49,8 @@ class AddAdGroup {
         $adGroup->setBiddingStrategyConfiguration($biddingStrategyConfiguration);
 
         // Set additional settings (optional).
-        $adGroup->setStatus(AdGroupStatus::ENABLED);
+        if($status == "Active") $adGroup->setStatus(AdGroupStatus::ENABLED);
+        else $adGroup->setStatus(AdGroupStatus::PAUSED);
 
         // Targeting restriction settings. Depending on the criterionTypeGroup
         // value, most TargetingSettingDetail only affect Display campaigns.

@@ -15,3 +15,4 @@ define("LOG_FILE", "log.log");
 define("FEED_PATH", "../dist/");
 define("BID", 1000000);
 define("CAMPAIGN_BUDGET", 10000);  // minimum acceptable is 10000
+define("KEYWORDS_BID", 1000000);

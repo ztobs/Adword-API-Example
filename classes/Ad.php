@@ -16,10 +16,9 @@ class Ad
     public $path1;
     public $path2;
     public $productId;
-    public $category;
     public $status;
 
-    public function __construct($productId, $category, $headline1, $headline2, $description, $finalUrls, $status, $path1=NULL, $path2=NULL)
+    public function __construct($productId, $headline1, $headline2, $description, $finalUrls, $status, $path1=NULL, $path2=NULL)
     {
         $this->headline1 = $headline1;
         $this->headline2 = $headline2;
@@ -28,7 +27,6 @@ class Ad
         $this->path1 = $path1;
         $this->path2 = $path2;
         $this->productId = $productId;
-        $this->category = $category;
         $this->status = $status;
     }
 }
