@@ -20,6 +20,9 @@ use Google\AdsApi\AdWords\v201708\cm\Money;
 use Google\AdsApi\AdWords\v201708\cm\Operator;
 use Google\AdsApi\AdWords\v201708\cm\TargetingSetting;
 use Google\AdsApi\AdWords\v201708\cm\TargetingSettingDetail;
+use Google\AdsApi\AdWords\v201708\cm\ApiException;
+use Google\AdsApi\AdWords\v201708\cm\ExemptionRequest;
+use Google\AdsApi\AdWords\v201708\cm\PolicyViolationError;
 
 /**
  * This example adds ad groups to a campaign. To get campaigns, run
@@ -30,6 +33,7 @@ class AddAdGroup {
 
     public static function run(AdWordsServices $adWordsServices,
                                       AdWordsSession $session, $campaignId, $groupName, $myBid, $status ) {
+        //$session->setValidateOnly(true);
         $adGroupService = $adWordsServices->get($session, AdGroupService::class);
 
         $operations = [];
@@ -80,10 +84,10 @@ class AddAdGroup {
         // Create the ad groups on the server and print out some information for
         // each created ad group.
         $result = $adGroupService->mutate($operations);
-        foreach ($result->getValue() as $adGroup) {
-                $adGroupId = $adGroup->getId();
-        }
 
+        foreach ($result->getValue() as $adGroup) {
+            $adGroupId = $adGroup->getId();
+        }
         return $adGroupId;
     }
 

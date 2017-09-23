@@ -6,6 +6,11 @@
  * Time: 11:56 AM
  */
 
+// Handle Fatal Error
+register_shutdown_function( "fatal_handler" );
+
+// No displaying of error
+error_reporting(0);
 
 // Allows mac detect line_endings in fgets methods
 ini_set("auto_detect_line_endings", true);
@@ -61,6 +66,7 @@ $adwordServices = new AdWordsServices();
 $campaign_id = "";
 $campaigns = [];
 $er = false;
+$feedPos = 0;
 updateCampaigns();
 
 
@@ -139,17 +145,18 @@ function log_($data)
  * param: $filename
  * return: assoc 2D array of feeds
  */
-function feedToArr($fileName)
+function feedToArr($fileName, $feedStart)
 {
     if(!filter_var($fileName, FILTER_VALIDATE_URL)) $fileName = FEED_PATH.$fileName; // appending file path if nto a url
     try
     {
         $file = fopen($fileName, 'r');
-        $cc = 0;
+        $cc = 1;
         $result = [];
         while (($line = fgetcsv($file, 1000000, ";", '"')) !== FALSE) {
             //$line is an array of the csv elements
-            if($cc++ > 0)$result[] = $line;
+            if($cc > 1 && $cc >= $feedStart)$result[] = $line;
+            $cc++;
         }
         fclose($file);
     }
@@ -303,15 +310,17 @@ function createAdGroup($campaign_id, $adGroup_name, $bid, $status)
  * params: $feedArr, $variation_arr
  * return: array of ads object
  */
-function createAdsNKeywords($feedArr, $variation_arr)
+function createAdsNKeywords($feedArr, $variation_arr, $feedStart)
 {
     global $campaign_id;
+    global $feedPos;
     echo "Creating Adgroups, Ads and Keywords ....\n";
-    $count = 1;
+    $count = 0;
     foreach ($feedArr as $feed)
     {
-        echo "*";
-        if(eligibleProduct($feed, $count))
+        $feedPos = $feedStart+$count;
+        echo "$feedPos,";
+        if(eligibleProduct($feed))
         {
             $keywords = explode(";", preg_replace('/[^A-Za-z0-9\-]/', '',$feed[12]));  //remove special characters and convert to array
 
@@ -510,6 +519,40 @@ function getCampaignIdByName($name)
     }
     return $id;
 
+}
+
+
+function fatal_handler() {
+    global $feedPos;
+    global $argv;
+    $errfile = "unknown file";
+    $errstr  = "shutdown";
+    $errno   = E_CORE_ERROR;
+    $errline = 0;
+
+    $error = error_get_last();
+
+    if( $error !== NULL) {
+        $errno   = $error["type"];
+        $errfile = $error["file"];
+        $errline = $error["line"];
+        $errstr  = $error["message"];
+
+        // If fatal error, restart script
+        if($errno === E_ERROR)
+        {
+            $feedCont = $feedPos+1;
+            echo "\nFatal Error at FeedLine $feedPos, check log for details\nRestarting script from Feedline $feedCont \n";
+            log_("Fatal Error at FeedLine $feedPos: $errstr");
+
+            // re-run script with special options like, no-sync, startPos and no-cleanup
+            system("php run.php ".$argv[1]." ".$argv[2]." no-sync ".$feedCont." no-cleanup");
+            //echo $output;
+        }
+
+
+
+    }
 }
 
 
