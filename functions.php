@@ -246,6 +246,7 @@ function findAdGroupData($adGroupToFind)
  */
 function residue()
 {
+    global $campaign_id;
     $ids = [];
     $handle = fopen(TEMP_PATH.ADGROUPS_LOCAL_FILE, "a+");
     if ($handle) {
@@ -253,7 +254,10 @@ function residue()
             if(trim($line) != "")
             {
                 $line_arr = explode("||", $line);
-                $ids[] = array("adgroup_id"=>trim($line_arr[0]), "product_name"=>trim($line_arr[1]));
+                if(trim($line_arr[2]) == $campaign_id)
+                {
+                    $ids[] = array("adgroup_id"=>trim($line_arr[0]), "product_name"=>trim($line_arr[1]));
+                }
             }
         }
         fclose($handle);
@@ -320,7 +324,7 @@ function createAdsNKeywords($feedArr, $variation_arr, $feedStart)
     {
         $feedPos = $feedStart+$count;
         echo "$feedPos,";
-        if(eligibleProduct($feed))
+        if(eligibleProduct($feed, $feedPos))
         {
             $keywords = explode(";", preg_replace('/[^A-Za-z0-9\-]/', '',$feed[12]));  //remove special characters and convert to array
 
@@ -360,7 +364,10 @@ function createAdsNKeywords($feedArr, $variation_arr, $feedStart)
 
 
             // Create Keywords
-            createKeywords($adGroupId, $keywords, $keywordFinalUrl, KEYWORDS_BID);
+            if(eligibleKeywords($feed, $feedPos))
+            {
+                createKeywords($adGroupId, $keywords, $keywordFinalUrl, KEYWORDS_BID);
+            }
 
 
             // Writing new additions to local files
@@ -368,7 +375,7 @@ function createAdsNKeywords($feedArr, $variation_arr, $feedStart)
 
 
             // Logging
-            log_("Create AdGroup: ".$productName." With ".count($variation_arr)." Ads Variations and Keywords (".implode(", ", $keywords).")");
+            log_("Create AdGroup: '".$productName."' With ".count($variation_arr)." Ads Variations and Keywords (".implode(", ", $keywords).")");
 
         }
         $count++;
@@ -379,7 +386,7 @@ function createAdsNKeywords($feedArr, $variation_arr, $feedStart)
 }
 
 
-function eligibleProduct($feed)
+function eligibleProduct($feed, $feedPos)
 {
     global $er;
     $error = "";
@@ -388,13 +395,25 @@ function eligibleProduct($feed)
     if(isEmpty($feed[5])) $error .= "Description, ";
     if(isEmpty($feed[6])) $error .= "Short Name, ";
     if(isEmpty($feed[10])) $error .= "Discount Percentage, ";
-    if(isEmpty($feed[12])) $error .= "Keywords, ";
+    //if(isEmpty($feed[12])) $error .= "Keywords, ";
     if(isEmpty($feed[14])) $error .= "Product URL, ";
     if(isEmpty($feed[16])) $error .= "Status, ";
 
     if($error != "")
     {
-        log_("**Error: The following cannot be empty in the feed; ".$error);
+        log_("**Error: Ad was not created because the following cannot be empty in the feed ($error) at FeedLine $feedPos");
+        $er = true;
+    }
+    else return true;
+}
+
+
+function eligibleKeywords($feed, $feedPos)
+{
+    global $er;
+    if(isEmpty($feed[12]))
+    {
+        log_("**Notice: No keyword found at FeedLine $feedPos");
         $er = true;
     }
     else return true;

@@ -86,7 +86,7 @@ defragment(TEMP_PATH.ADGROUPS_LOCAL_FILE);
 
 echo "Last Script restart ran with following details:\n".count($feedArr)." Products\n";
 echo count($feedArr)*count($variation)." Ads updated\n";
-if($er) echo "Some error occured, please check the log file\n";
+if($er) echo "Some error occurred, please check the log file\n";
 
 //Time monitor
 $end_time = date("Y-m-d H:i:s");

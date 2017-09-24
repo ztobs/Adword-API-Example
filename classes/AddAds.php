@@ -11,6 +11,7 @@ use Google\AdsApi\AdWords\AdWordsSession;
 use Google\AdsApi\AdWords\v201708\cm\AdGroupAd;
 use Google\AdsApi\AdWords\v201708\cm\AdGroupAdOperation;
 use Google\AdsApi\AdWords\v201708\cm\AdGroupAdService;
+use Google\AdsApi\AdWords\v201708\cm\AdGroupAdStatus;
 use Google\AdsApi\AdWords\v201708\cm\ApiException;
 use Google\AdsApi\AdWords\v201708\cm\ExemptionRequest;
 use Google\AdsApi\AdWords\v201708\cm\ExpandedTextAd;
@@ -48,7 +49,7 @@ class AddAds {
             $adGroupAd->setAdGroupId($adGroupId);
             $adGroupAd->setAd($expandedTextAd);
             // Optional: Set additional settings.
-            //if($ad->status != "active") $adGroupAd->setStatus(AdGroupAdStatus::PAUSED);
+            if($ad->status != "Active") $adGroupAd->setStatus(AdGroupAdStatus::PAUSED);
 
             // Create ad group ad operation and add it to the list.
             $operation = new AdGroupAdOperation();

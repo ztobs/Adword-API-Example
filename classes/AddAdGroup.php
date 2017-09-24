@@ -53,7 +53,7 @@ class AddAdGroup {
         $adGroup->setBiddingStrategyConfiguration($biddingStrategyConfiguration);
 
         // Set additional settings (optional).
-        if($status == "Active") $adGroup->setStatus(AdGroupStatus::ENABLED);
+        if(trim($status) == "Active") $adGroup->setStatus(AdGroupStatus::ENABLED);
         else $adGroup->setStatus(AdGroupStatus::PAUSED);
 
         // Targeting restriction settings. Depending on the criterionTypeGroup
