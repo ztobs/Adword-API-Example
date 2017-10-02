@@ -7,6 +7,8 @@
  * Time: 3:03 PM
  */
 
+namespace Ztobs\Classes;
+
 class Ad
 {
     public $headline1;

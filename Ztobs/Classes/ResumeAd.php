@@ -3,25 +3,32 @@
 /**
  * Created by PhpStorm.
  * User: Joseph Lukan
- * Date: 9/16/2017
- * Time: 11:35 PM
+ * Date: 9/17/2017
+ * Time: 3:04 PM
  */
+
+namespace Ztobs\Classes;
+
 use Google\AdsApi\AdWords\AdWordsServices;
 use Google\AdsApi\AdWords\AdWordsSession;
+use Google\AdsApi\AdWords\AdWordsSessionBuilder;
 use Google\AdsApi\AdWords\v201708\cm\Ad;
 use Google\AdsApi\AdWords\v201708\cm\AdGroupAd;
 use Google\AdsApi\AdWords\v201708\cm\AdGroupAdOperation;
 use Google\AdsApi\AdWords\v201708\cm\AdGroupAdService;
+use Google\AdsApi\AdWords\v201708\cm\AdGroupAdStatus;
 use Google\AdsApi\AdWords\v201708\cm\Operator;
+use Google\AdsApi\Common\OAuth2TokenBuilder;
 
 /**
- * This example removes an ad. To get text ads, run GetExpandedTextAds.php.
+ * This example pauses an ad. To get expanded text ads, run
+ * GetExpandedTextAds.php.
  */
-class RemoveAd {
+class ResumeAd {
 
 
     public static function run(AdWordsServices $adWordsServices,
-                                      AdWordsSession $session, $adGroupId, $adId) {
+                               AdWordsSession $session, $adGroupId, $adId) {
         $adGroupAdService =
             $adWordsServices->get($session, AdGroupAdService::class);
 
@@ -36,20 +43,18 @@ class RemoveAd {
         $adGroupAd->setAdGroupId($adGroupId);
         $adGroupAd->setAd($ad);
 
+        // Update the status to PAUSED.
+        $adGroupAd->setStatus(AdGroupAdStatus::ENABLED);
+
         // Create ad group ad operation and add it to the list.
         $operation = new AdGroupAdOperation();
         $operation->setOperand($adGroupAd);
-        $operation->setOperator(Operator::REMOVE);
+        $operation->setOperator(Operator::SET);
         $operations[] = $operation;
 
-        // Remove the ad on the server.
-        $result = $adGroupAdService->mutate($operations);
-
-        $adGroupAd = $result->getValue()[0];
+        // Pause the ad on the server.
+        $adGroupAd = $adGroupAdService->mutate($operations)->getValue()[0];
 
     }
 
-
 }
-
-

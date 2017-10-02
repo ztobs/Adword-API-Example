@@ -7,6 +7,8 @@
  * Time: 11:16 AM
  */
 
+namespace Ztobs\Classes;
+
 use Google\AdsApi\AdWords\AdWordsServices;
 use Google\AdsApi\AdWords\AdWordsSession;
 use Google\AdsApi\AdWords\v201708\cm\AdGroup;
@@ -86,7 +88,7 @@ class AddAdGroup {
         $result = $adGroupService->mutate($operations);
 
         foreach ($result->getValue() as $adGroup) {
-            $adGroupId = $adGroup->getId();
+            $adGroupId = floatval($adGroup->getId());
         }
         return $adGroupId;
     }

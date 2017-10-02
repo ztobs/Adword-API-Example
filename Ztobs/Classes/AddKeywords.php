@@ -6,6 +6,9 @@
  * Date: 9/21/2017
  * Time: 1:02 PM
  */
+
+namespace Ztobs\Classes;
+
 use Google\AdsApi\AdWords\AdWordsServices;
 use Google\AdsApi\AdWords\AdWordsSession;
 use Google\AdsApi\AdWords\AdWordsSessionBuilder;
@@ -69,13 +72,18 @@ class AddKeywords {
         }
 
 
+        $results = [];
 
         // Create the ad group criteria on the server and print out some information
         // for each created ad group criterion.
         $result = $adGroupCriterionService->mutate($operations);
         foreach ($result->getValue() as $adGroupCriterion) {
-            //$adGroupCriterion->getCriterion()->getId()
+            $id= floatval($adGroupCriterion->getCriterion()->getId());
+            $text = $adGroupCriterion->getCriterion()->getText();
+            $results[] = array('id'=>$id, 'text'=>$text);
         }
+
+        return $results;
     }
 
 }

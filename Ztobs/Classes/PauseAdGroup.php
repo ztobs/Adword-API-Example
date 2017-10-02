@@ -6,6 +6,9 @@
  * Date: 9/21/2017
  * Time: 11:03 AM
  */
+
+namespace Ztobs\Classes;
+
 use Google\AdsApi\AdWords\AdWordsServices;
 use Google\AdsApi\AdWords\AdWordsSession;
 use Google\AdsApi\AdWords\v201708\cm\AdGroup;

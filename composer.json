@@ -22,7 +22,12 @@
   "homepage": "https://github.com/googleads/googleads-php-lib",
   "license": "Apache-2.0",
   "autoload": {
-    "psr-4": { "Google\\AdsApi\\": "src/Google/AdsApi/" }
+    "psr-4": {
+      "Google\\AdsApi\\": "src/Google/AdsApi/",
+      "Lazer\\": "Lazer",
+      "Ztobs\\": "Ztobs"
+    },
+    "files": ["constants.php", "dist/variation.php"]
   },
   "authors": [
     {

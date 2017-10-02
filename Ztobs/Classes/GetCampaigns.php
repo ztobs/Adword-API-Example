@@ -6,6 +6,9 @@
  * Date: 9/10/2017
  * Time: 12:08 PM
  */
+
+namespace Ztobs\Classes;
+
 use Google\AdsApi\AdWords\AdWordsServices;
 use Google\AdsApi\AdWords\AdWordsSession;
 use Google\AdsApi\AdWords\v201708\cm\CampaignService;
@@ -43,7 +46,7 @@ class GetCampaigns {
                 $totalNumEntries = $page->getTotalNumEntries();
                 foreach ($page->getEntries() as $campaign) {
 
-                    $results[] = array("id"=>$campaign->getId(), "name"=>$campaign->getName());
+                    $results[] = array("id"=>floatval($campaign->getId()), "name"=>$campaign->getName());
                 }
             }
 

@@ -7,6 +7,14 @@
  */
 
 define("TEMP_PATH", "../temp/");
+define('LAZER_DATA_PATH', realpath(dirname(__FILE__)).'/temp/'); //Path to folder with tables
+define('DB_PRODUCTS', 'Products');
+define('DB_CAMPAIGNS', 'Campaigns');
+define('DB_ADGROUPS', 'AdGroups');
+define('DB_ADS', 'Ads');
+define('DB_KEYWORDS', 'Keywords');
+
+
 define("ADGROUPS_LOCAL_FILE", "adgroups.txt");
 define("ADS_LOCAL_FILE", "ads.txt");
 define("CAMPAIGNS_LOCAL_FILE", "campaigns.txt");

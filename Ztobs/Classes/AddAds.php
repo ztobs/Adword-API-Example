@@ -6,6 +6,9 @@
  * Date: 9/10/2017
  * Time: 2:34 PM
  */
+
+namespace Ztobs\Classes;
+
 use Google\AdsApi\AdWords\AdWordsServices;
 use Google\AdsApi\AdWords\AdWordsSession;
 use Google\AdsApi\AdWords\v201708\cm\AdGroupAd;
@@ -59,13 +62,15 @@ class AddAds {
         }
 
 
-            $result = $adGroupAdService->mutate($operations);
+        $result = $adGroupAdService->mutate($operations);
 
+        $results = [];
         // Print out some information about the created ad group ad.
         foreach ($result->getValue() as $adGroupAd) {
-            $results[] = array('id'=>$adGroupAd->getAd()->getId(), 'name'=>$adGroupAd->getAd()->getHeadlinePart1());
+            //$results[] = array('id'=>floatval($adGroupAd->getAd()->getId()), 'name'=>$adGroupAd->getAd()->getHeadlinePart1());
+            $results[] = floatval($adGroupAd->getAd()->getId());
         }
-        if($results) return $results;
+        return $results;
     }
 
 

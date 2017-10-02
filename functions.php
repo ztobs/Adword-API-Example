@@ -20,29 +20,34 @@ setlocale(LC_MONETARY,"en_US");
 
 
 
-
-
-require "../vendor/autoload.php";
-include "constants.php";
-include "../dist/variation.php";
-include "../classes/AddAdGroup.php";
-include "../classes/GetCampaigns.php";
-include "../classes/AddAds.php";
-include "../classes/GetAdGroupsByCampaign.php";
-include "../classes/GetAds.php";
-include "../classes/PauseAd.php";
-include "../classes/RemoveAd.php";
-include "../classes/AddCampaign.php";
-include "../classes/RemoveAdGroup.php";
-include "../classes/PauseAdGroup.php";
-include "../classes/AddKeywords.php";
-
+include "vendor/autoload.php";
 
 
 
 use Google\AdsApi\Common\OAuth2TokenBuilder;
 use Google\AdsApi\AdWords\AdWordsSessionBuilder;
 use Google\AdsApi\AdWords\AdWordsServices;
+use Lazer\Classes\Database;
+use Lazer\Classes\Relation;
+use Ztobs\Classes\Ad;
+use Ztobs\Classes\AddAdGroup;
+use Ztobs\Classes\GetCampaigns;
+use Ztobs\Classes\AddAds;
+use Ztobs\Classes\GetAdGroupsByCampaign;
+use Ztobs\Classes\GetAds;
+use Ztobs\Classes\PauseAd;
+use Ztobs\Classes\RemoveAd;
+use Ztobs\Classes\AddCampaign;
+use Ztobs\Classes\RemoveAdGroup;
+use Ztobs\Classes\PauseAdGroup;
+use Ztobs\Classes\AddKeywords;
+use Ztobs\Classes\ResumeAd;
+use Ztobs\Classes\ResumeAdGroup;
+use Ztobs\Classes\RemoveKeyword;
+use Ztobs\Classes\UpdateKeyword;
+
+
+
 
 
 
@@ -96,7 +101,7 @@ function createCampaign($name, $budget, $cap=null)
     $ret = AddCampaign::run(new AdWordsServices(), $session, $name, $budget, $cap);
     $id = $ret['id'];
     $name = $ret['name'];
-    writeToFile(CAMPAIGNS_LOCAL_FILE, "$id||$name\n");
+    saveInTable(DB_CAMPAIGNS, ["campaign_id"=>$id, "campaign_name"=>$name], ["campaign_id"=>$id]);
     log_("Create Campaign: $name");
     return $ret;
 }
@@ -120,16 +125,6 @@ function deleteLineInFile($file, $lineNumber)
 }
 
 
-/*
- * Function removed empty lines from file database
- * param: $file
- */
-function defragment($fileName)
-{
-    $file = file_get_contents($fileName);
-    $data = preg_replace("/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/", "\n", $file);
-    file_put_contents($fileName, $data);
-}
 
 
 function log_($data)
@@ -140,56 +135,8 @@ function log_($data)
 }
 
 
-/*
- * Function to convert csv to array
- * param: $filename
- * return: assoc 2D array of feeds
- */
-function feedToArr($fileName, $feedStart)
-{
-    if(!filter_var($fileName, FILTER_VALIDATE_URL)) $fileName = FEED_PATH.$fileName; // appending file path if nto a url
-    try
-    {
-        $file = fopen($fileName, 'r');
-        $cc = 1;
-        $result = [];
-        while (($line = fgetcsv($file, 1000000, ";", '"')) !== FALSE) {
-            //$line is an array of the csv elements
-            if($cc > 1 && $cc >= $feedStart)$result[] = $line;
-            $cc++;
-        }
-        fclose($file);
-    }
-    catch(Exception $e)
-    {
-        die("Invalid File");
-    }
-    return $result;
-}
 
 
-
-/*
- * Function to remove ads that will be re-created
- * param: $feedArr
- *
- */
-function cleanUp($feedArr)
-{
-    echo "Cleaning Up repeat products ....\n";
-    foreach ($feedArr as $feed)
-    {
-        //$existAdGroup = adGroupIdFromProductId($feed[0]);  // check if product/adgroup exist
-        $adGroupName = $feed[6]." (".$feed[0].")";
-        $adGroupData = findAdGroupData($adGroupName);
-        if($adGroupData)
-        {
-            removeAdGroup($adGroupData['adgroup_id']);  // remove the adgroup
-            deleteLineInFile(TEMP_PATH.ADGROUPS_LOCAL_FILE, $adGroupData['line_number']); //for adgroups.txt
-            log_("Remove** AdGroup: ".$adGroupData['adgroup_name']." With Ads and Keywords");
-        }
-    }
-}
 
 /*
  * Function removed adgroup
@@ -239,51 +186,6 @@ function findAdGroupData($adGroupToFind)
 
 
 
-/*
- * Function to compile ads that were not cleaned, to be paused
- * param:
- * return: assoc array of ads (ad_id and adgroup_id)
- */
-function residue()
-{
-    global $campaign_id;
-    $ids = [];
-    $handle = fopen(TEMP_PATH.ADGROUPS_LOCAL_FILE, "a+");
-    if ($handle) {
-        while (($line = fgets($handle)) !== false) {
-            if(trim($line) != "")
-            {
-                $line_arr = explode("||", $line);
-                if(trim($line_arr[2]) == $campaign_id)
-                {
-                    $ids[] = array("adgroup_id"=>trim($line_arr[0]), "product_name"=>trim($line_arr[1]));
-                }
-            }
-        }
-        fclose($handle);
-    } else {
-        // error opening the file.
-    }
-    return $ids;
-}
-
-
-/*
- * Function to pause all the ads from residue function
- * params: $residue
- * return:
- */
-function pauseResidues($residueAdGroups)
-{
-    echo "Pausing Non-repeat Products/Adgroups ....\n";
-    if(count($residueAdGroups) == 0) return;
-    foreach ($residueAdGroups as $adGroups)
-    {
-        pauseAdGroup($adGroups['adgroup_id']);
-        log_("Pause AdGroup: ".$adGroups['product_name']." With its Ads and Keywords");
-    }
-}
-
 
 /*
  * Function pauses adgroup and its ads and keywords
@@ -309,81 +211,6 @@ function createAdGroup($campaign_id, $adGroup_name, $bid, $status)
 }
 
 
-/*
- * Function to make total ads to create from product feeds,
- * params: $feedArr, $variation_arr
- * return: array of ads object
- */
-function createAdsNKeywords($feedArr, $variation_arr, $feedStart)
-{
-    global $campaign_id;
-    global $feedPos;
-    echo "Creating Adgroups, Ads and Keywords ....\n";
-    $count = 0;
-    foreach ($feedArr as $feed)
-    {
-        $feedPos = $feedStart+$count;
-        echo "$feedPos,";
-        if(eligibleProduct($feed, $feedPos))
-        {
-            $keywords = explode(";", preg_replace('/[^A-Za-z0-9\-]/', '',$feed[12]));  //remove special characters and convert to array
-
-            // Create AdGroup
-            $adGroupName = $feed[6]." (".$feed[0].")";
-            $adGroupId = floatval(createAdGroup($campaign_id, $adGroupName, BID, $feed[16]));
-
-            // Compile ads per product
-            $ads = [];
-            $product_url = $feed[14];
-            $is_https = strpos($product_url, "https://");
-            $product_url = str_replace("http://", "", $product_url);
-            $product_url = str_replace("https://", "", $product_url);
-            $url_parts = explode("/", $product_url, 3);
-            $urlPart1 = str_replace(".", "", $url_parts[1]);
-            if(isset($url_parts[2])) $urlPart2 = $url_parts[2];
-            else $urlPart2 = null;
-            $final_url = $is_https?"https://".$url_parts[0]:"http://".$url_parts[0];
-            $keywordFinalUrl = $is_https?"https://".$product_url:"http://".$product_url;
-
-            foreach ($variation_arr as $var)
-            {
-                $productNameLimit = 30 - (strlen($var['headline1']) - 15);
-                $productName = substr($feed[6], 0, $productNameLimit);
-                $headline1 = str_replace("{{productName}}", $productName, $var['headline1']);
-                $headline1 = str_replace("{{productPrice}}", number_format(str_replace(" EUR", "", $feed[2])), $headline1);
-                $headline1 = str_replace("{{productDiscountInPercent}}", $feed[10], $headline1);
-                $headline2 = str_replace("{{productName}}", $productName, $var['headline2']);
-                $headline2 = str_replace("{{productPrice}}", number_format(str_replace(" EUR", "", $feed[2])), $headline2);
-                $headline2 = str_replace("{{productDiscountInPercent}}", $feed[10], $headline2);
-
-                $ads[] = new Ad($feed[0], $headline1, $headline2, $feed[5], array($keywordFinalUrl), $feed[16], null, null);
-            }
-
-            // Create Ads
-            createAds($adGroupId, $ads);
-
-
-            // Create Keywords
-            if(eligibleKeywords($feed, $feedPos))
-            {
-                createKeywords($adGroupId, $keywords, $keywordFinalUrl, KEYWORDS_BID);
-            }
-
-
-            // Writing new additions to local files
-            writeToFile(ADGROUPS_LOCAL_FILE, $adGroupId."||".$adGroupName."||".$campaign_id."\n");
-
-
-            // Logging
-            log_("Create AdGroup: '".$productName."' With ".count($variation_arr)." Ads Variations and Keywords (".implode(", ", $keywords).")");
-
-        }
-        $count++;
-
-
-    }
-    echo "\n";
-}
 
 
 function eligibleProduct($feed, $feedPos)
@@ -395,7 +222,6 @@ function eligibleProduct($feed, $feedPos)
     if(isEmpty($feed[5])) $error .= "Description, ";
     if(isEmpty($feed[6])) $error .= "Short Name, ";
     if(isEmpty($feed[10])) $error .= "Discount Percentage, ";
-    //if(isEmpty($feed[12])) $error .= "Keywords, ";
     if(isEmpty($feed[14])) $error .= "Product URL, ";
     if(isEmpty($feed[16])) $error .= "Status, ";
 
@@ -430,25 +256,6 @@ function isEmpty($string)
 
 
 
-function createKeywords($adgroupId, $keywordsArr, $finalUrl, $bid)
-{
-    global $session;
-    AddKeywords::run(new AdWordsServices(), $session, $adgroupId, $keywordsArr, $finalUrl, $bid);
-}
-
-
-/*
- *  Function creates ad in bulk
- *  Params:  Integer $adGroupId, Array $ads
- *  Returns: array
- */
-function createAds($adGroupId, $ads)
-{
-    global $session;
-    $ad_data = AddAds::run(new AdWordsServices(), $session, $adGroupId, $ads);
-
-}
-
 
 
 /*
@@ -458,12 +265,11 @@ function updateCampaigns()
 {
     global $campaigns;
     $campaigns = getCampaigns();
-    if(file_exists(TEMP_PATH.CAMPAIGNS_LOCAL_FILE)) emptyFile(TEMP_PATH.CAMPAIGNS_LOCAL_FILE);
     foreach ($campaigns as $campaign)
     {
         $name = $campaign['name'];
         $id = $campaign['id'];
-        writeToFile(CAMPAIGNS_LOCAL_FILE, "$id||$name\n");
+        saveInTable(DB_CAMPAIGNS, ["campaign_id"=>$id, "campaign_name"=>$name], ["campaign_id"=>$id]);
     }
     return TRUE;
 }
@@ -517,6 +323,7 @@ function getCampaignIdByName($name)
     $id = null;
     foreach($campaigns as $campaign)
     {
+        //echo "Manually updating adgroups and ads or using different script for existing campaign can lead to irrational behaviour and fatal error.\nMake sure same script runs a campaign always so that the local database in temp folder matches with adwords dashboard\nPlease cancel if violated\n\n";
         if($campaign['name'] == $name) $id = $campaign['id'];
     }
 
@@ -541,6 +348,7 @@ function getCampaignIdByName($name)
 }
 
 
+
 function fatal_handler() {
     global $feedPos;
     global $argv;
@@ -563,10 +371,15 @@ function fatal_handler() {
             $feedCont = $feedPos+1;
             echo "\nFatal Error at FeedLine $feedPos, check log for details\nRestarting script from Feedline $feedCont \n";
             log_("Fatal Error at FeedLine $feedPos: $errstr");
-
+            // Removing adGroup that failed
+            removeLastAdGroup();
             // re-run script with special options like, no-sync, startPos and no-cleanup
             system("php run.php ".$argv[1]." ".$argv[2]." no-sync ".$feedCont." no-cleanup");
-            //echo $output;
+
+        }
+        else
+        {
+            echo "Error is not E_ERROR but ".$errno;
         }
 
 
@@ -576,241 +389,27 @@ function fatal_handler() {
 
 
 
-
-
-
-
 /*
- *  Function find all occurences of the product id
- *  Params:  Integer $findProdtuctId
- *  Returns: Array of ad_id, line_number(In file), and adgroup_id
+ * Function removes last adgroup from database and adwords dashboard
  */
-//function existAd($findProdtuctId)
-//{
-//    $adGroup = adGroupIdFromProductId($findProdtuctId);
-//    $occur = [];
-//    foreach($adGroups as $adGroup)
-//    {
-//        $productLineNumber = $adGroup['line_number'];
-//        $handle = fopen(TEMP_PATH.ADS_LOCAL_FILE, "a+");
-//        $cc = 1;
-//        if ($handle) {
-//            while (($line = fgets($handle)) !== false) {
-//                if(trim($line) != "")
-//                {
-//                    $line_arr = explode("||", $line);
-//                    $id = $line_arr[0];
-//                    $adName = trim($line_arr[1]);
-//                    $adGroupId = trim($line_arr[2]);
-//
-//                    if($ad['ad_id'] == $id)
-//                    {
-//                        $occur[] = array("ad_id"=>$id, "ad_name"=>$adName, "line_number"=>$cc, "line_number_product"=>$productLineNumber, "adgroup_id"=>$adGroupId);
-//                    }
-//                }
-//
-//                $cc++;
-//            }
-//
-//            fclose($handle);
-//        } else {
-//            // error opening the file.
-//        }
-//    }
-//    return $occur;
-//}
+function removeLastAdGroup()
+{
+    $id = Database::table(DB_ADGROUPS)->lastId();
+    if($id)
+    {
+        $row = Database::table(DB_ADGROUPS)->find($id);
+
+        $adRow = Database::table(DB_ADS)->where('adgroup_id', '=', $row->adgroup_id)->find();
+        if(!isset($adRow->id) && isset($row->id)) // if ad is not created but adgroup is created
+        {
+            Database::table(DB_ADGROUPS)->find($id)->delete();
+            removeAdGroup($row->adgroup_id);
+            log_("Adgroup: '".$row->adgroup_name."' Removed due to error creating ads");
+        }
+    }
 
 
-
-
-
-
-
-//////////////////////////////////////////////////////
-//////////////////////////////////////////////////////
-
-//function removeProductIds($feedArr)
-//{
-//    foreach ($feedArr as $feed)
-//    {
-//        $ads = existAd($feed[0]);
-//        foreach ($ads as $ad)
-//        {
-//            deleteLineInFile(TEMP_PATH.PRODUCTS_LOCAL_FILE, $ad['line_number']);
-//        }
-//    }
-//    defragment(TEMP_PATH.PRODUCTS_LOCAL_FILE);
-//}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
-//
-//
-//
-///*
-// * Function take only on ad object then searches if its adgroup exist, is adgroup exists or is full, it creates new one and inserts
-// * param: ad (object)
-// *
-// */
-//function createAdDyn($campaign_id, $ad)
-//{
-//    // FIsrt create the ad
-//    //////////////////////////////////////////////////////////////////////////////
-//
-//    // First check if the category/adgroup exist
-//    $adGroupDet = existAdGroup($ad->category);
-//    if($adGroupDet)
-//    {
-//        $lastAdGroupId = $adGroupDet['last_id'];
-//        $lastNumber = $adGroupDet['last_number'];
-//
-//        // loop throu to fill up adgroups starting from l
-//        $i = $lastNumber;
-//
-//        while ($i > 0)
-//        {
-//            $adGroupId = getAdGroupId($ad->category."#".$i);
-//
-//            // Check if adgroup isnt full
-//            if(countAdsInAdGroup($adGroupId) < 50)
-//            {
-//                createAd($adGroupId, $ad);
-//                break;
-//            }
-//            $i--;
-//        }
-//        // If all adGroups are full, then create the adgroup and insert ad
-//        if($i == 0)
-//        {
-//            $adGroupId = createAdGroup($campaign_id, $ad->category, BID);
-//            createAd($adGroupId, $ad);
-//        }
-//    }
-//    else
-//    {
-//        // Create the adGroup and insert ad
-//        $adGroupId = createAdGroup($campaign_id, $ad->category, BID);
-//        createAd($adGroupId, $ad);
-//    }
-//
-//}
-//
-//
-//
-//
-//
-//
-//function countAdsInAdGroup($adGroupId)
-//{
-//    global $session;
-//    $ads = GetAds::run(new AdWordsServices(), $session, $adGroupId);
-//    return count($ads);
-//}
-//
-//
-//
-//
-///*
-// *  Function checks if a adgroup exists and return the id or false
-// *  Params:  Integer $adgroup
-// *  Returns: Array of last_id and last_number
-// */
-//function existAdGroup($findName)
-//{
-//    $findName = trim($findName);
-//    $adGroupId = null;
-//    $adGroupLastNumber = 0;
-//    $handle = fopen(TEMP_PATH.ADGROUPS_LOCAL_FILE, "a+");
-//    if ($handle) {
-//        while (($line = fgets($handle)) !== false) {
-//            if(trim($line) != "")
-//            {
-//                $line_arr = explode("||", $line);
-//                $id = trim($line_arr[0]);
-//                $nameFull = trim($line_arr[1]);
-//
-//                $adGroupNameSplit = explode("#", $nameFull);
-//                $adGroupName = trim($adGroupNameSplit[0]);
-//                $adGroupNumber = trim($adGroupNameSplit[1]);
-//
-//                if($findName == $adGroupName)
-//                {
-//                    if($adGroupNumber > $adGroupLastNumber) $adGroupLastNumber = $adGroupNumber;
-//                }
-//            }
-//
-//        }
-//
-//        fclose($handle);
-//    } else {
-//        // error opening the file.
-//    }
-//
-//    $adGroupId = getAdGroupId($findName."#".$adGroupLastNumber);
-//
-//    if($adGroupId) return array('last_id'=>$adGroupId, 'last_number'=>$adGroupLastNumber);
-//    else return FALSE;
-//}
-
-//
-//function getAdGroupId($name)
-//{
-//    $name = trim($name);
-//    $adGroupId = null;
-//    $handle = fopen(TEMP_PATH.ADGROUPS_LOCAL_FILE, "a+");
-//    if ($handle) {
-//        while (($line = fgets($handle)) !== false) {
-//            $line_arr = explode("||", $line);
-//            $id = trim($line_arr[0]);
-//            $nameFull = trim($line_arr[1]);
-//
-//
-//            if($nameFull == $name)
-//            {
-//                $adGroupId = $id;
-//                break;
-//            }
-//        }
-//
-//        fclose($handle);
-//    } else {
-//        // error opening the file.
-//    }
-//    return $adGroupId;
-//
-//}
-//
-//
-//
-//
-//
-//function getAds($adGroupId)
-//{
-//    global $session;
-//    return GetAds::run(new AdWordsServices(), $session, $adGroupId);
-//}
-//
-
-
-
-
-
-
+}
 
 
 function removeAd($adGroupId, $adId, $adName)
@@ -822,7 +421,673 @@ function removeAd($adGroupId, $adId, $adName)
 
 
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+///                                                                                             ///
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
+/*
+ * Function to convert csv to array
+ * @param: $filename
+ * return: assoc 2D array of feeds
+ */
+function feedToArr($fileName, $feedStart)
+{
+    if(!filter_var($fileName, FILTER_VALIDATE_URL)) $fileName = FEED_PATH.$fileName; // appending file path if nto a url
+    try
+    {
+        $file = fopen($fileName, 'r');
+        $cc = 1;
+        $result = [];
+        while (($line = fgetcsv($file, 1000000, ";", '"')) !== FALSE) {
+            //$line is an array of the csv elements
+            if($cc > 1 && $cc >= $feedStart)$result[] = $line;
+            $cc++;
+        }
+        fclose($file);
+    }
+    catch(Exception $e)
+    {
+        die("Invalid File");
+    }
+    return $result;
+}
+
+
+
+/*
+ * Function to make total ads to create from product feeds,
+ * params: $feedArr, $variation_arr
+ * return: array of ads object
+ */
+function creator($feedArr, $variation_arr, $feedStart)
+{
+    global $campaign_id;
+    global $feedPos;
+    echo "Creating Adgroups, Ads and Keywords ....\n";
+    $count = 0;
+    foreach ($feedArr as $feed)
+    {
+        $feedPos = $feedStart+$count;
+        echo "$feedPos,";
+
+        $keywords_arr = explode(";", preg_replace('/[^A-Za-z0-9\-]/', '',$feed[12]));  //remove special characters and convert to array
+        $product_url = $feed[14];
+        $is_https = strpos($product_url, "https://");
+        $product_url = str_replace("http://", "", $product_url);
+        $product_url = str_replace("https://", "", $product_url);
+        $finalUrl = $is_https?"https://".$product_url:"http://".$product_url;
+
+        $ret = checkType($feed);
+
+        if($ret['type'] != 'skip')
+        {
+            // New: Creating new records
+            if($ret['type'] == 'new')
+            {
+                createAll($feed, $variation_arr, $feedPos, $keywords_arr, $finalUrl);
+            }
+
+
+
+            // Activate: Activating paused
+            if($ret['type'] == 'activate')
+            {
+                $data = $ret['data'];
+
+                $adGroupData = getAdgroupByProductId($feed[0]);
+                if ($adGroupData) {
+                    resumeAdGroup($adGroupData->adgroup_id);
+                    saveInTable(DB_ADGROUPS, ["status" => "Active"], ["id" => $adGroupData->id]);
+
+                    $adData = getAdsByProductId($feed[0]);
+                    if ($adData) {
+                        foreach ($adData as $dd) {
+                            resumeAd($adGroupData->adgroup_id, $dd->ad_id);
+                            saveInTable(DB_ADS, ["status" => "Active"], ["id" => $dd->id]);
+                        }
+                        log_("Product: '" . $feed[6] . "' Resumed");
+                    }
+                }
+
+            }
+
+
+            // Pause: Pausing Adgroup and Ads
+            if($ret['type'] == 'pause')
+            {
+                $data = $ret['data'];
+
+                $adGroupData = getAdgroupByProductId($feed[0]);
+                if ($adGroupData) {
+                    pauseAdGroup($adGroupData->adgroup_id);
+                    saveInTable(DB_ADGROUPS, ["status" => "Not Active"], ["id" => $adGroupData->id]);
+
+                    $adData = getAdsByProductId($feed[0]);
+                    if ($adData) {
+                        foreach ($adData as $dd) {
+                            pauseAd($adGroupData->adgroup_id, $dd->ad_id);
+                            saveInTable(DB_ADS, ["status" => "Not Active"], ["id" => $dd->id]);
+                        }
+                        log_("Product: '" . $feed[6] . "' Resumed");
+                    }
+                }
+
+            }
+
+            // Name_Change: Pausing Old and Creating new Record for Name Change
+            if($ret['type'] == 'name_change')
+            {
+                // Pausing Adgroups
+                $adGroupData = getAdgroupByProductId($feed[0]);
+                if($adGroupData)
+                {
+                    pauseAdGroup($adGroupData->adgroup_id);
+                    saveInTable(DB_ADGROUPS, ["status"=>"Not Active", "last"=>"false"], ["id"=>$adGroupData->id]);
+
+                    $adData = getAdsByProductId($feed[0]);
+                    if($adData)
+                    {
+                        foreach ($adData as $dd)
+                        {
+                            pauseAd($adGroupData->adgroup_id, $dd->ad_id);
+                            saveInTable(DB_ADS, ["status"=>"Not Active"], ["id"=>$dd->id]);
+                        }
+                        log_("Product: '".$feed[6]."' Paused");
+                    }
+                }
+                // Create New
+                createAll($feed, $variation_arr, $feedPos, $keywords_arr, $finalUrl);
+            }
+
+
+            // Keyword_Change: Replacing the keywords
+            if($ret['type'] == 'keyword_change')
+            {
+                $adGroupData = getAdgroupByProductId($feed[0]);
+                if($adGroupData)
+                {
+                    // Removing keywords
+                    $keywords = getKeywordsByProductId($feed[0]);
+                    foreach ($keywords as $keyword)
+                    {
+                        removeKeyword($adGroupData->adgroup_id, $keyword->keyword_id);
+                        Database::table(DB_KEYWORDS)->find($keyword->id)->delete();
+                    }
+
+                    // Adding Keywords
+
+                    $retn = createKeywords($adGroupData->adgroup_id, $keywords_arr, $finalUrl, KEYWORDS_BID);
+                    foreach ($retn as $kw)
+                    {
+                        saveInTable(
+                            DB_KEYWORDS,
+                            [
+                                'keyword_id'    =>  $kw['id'],
+                                'keyword'       =>  $kw['text'],
+                                'adgroup_id'    =>  $adGroupData->adgroup_id,
+                                'campaign_id'   =>  $campaign_id,
+                                'product_id'    =>  $feed[0],
+                                'status'        =>  $feed[16]
+                            ]
+                        );
+                    }
+                    log_("Keywords in Product: '".$feed[6]."' updated to: '".implode(", ", $keywords_arr)."'");
+                }
+            }
+
+
+
+            // Other_Change: Pausing Ad and Creating new
+            if($ret['type'] == 'other_change')
+            {
+                $adGroupData = getAdgroupByProductId($feed[0], true);
+                if($adGroupData)
+                {
+                    // Pausing Ads
+                    $adsData = getAdsByProductId($feed[0]);
+                    foreach ($adsData as $adData)
+                    {
+                        pauseAd($adGroupData->adgroup_id, $adData->ad_id);
+                        saveInTable(DB_ADS, ["status"=>"Not Active", "last"=>"false"], ["id"=>$adData->id]);
+                        log_("Ad: '".$adData->headline1."' Paused");
+                    }
+
+                    // Creating Ads
+                    $headlines = makeAds($feed, $variation_arr, $adGroupData->adgroup_id, $finalUrl);
+
+                    // Logging
+                    log_("Ads: '".implode(", ", $headlines)."' Created");
+                }
+            }
+
+        }
+
+        saveInTable(
+            DB_PRODUCTS,
+            [
+                'product_id'    =>  $feed[0],
+                'product_name'  =>  $feed[6],
+                'description'   =>  $feed[5],
+                'price'         =>  $feed[2],
+                'discount'      =>  $feed[10],
+                'status'        =>  $feed[16],
+                'url'           =>  $feed[14],
+                'keywords'      =>  $feed[12],
+                'processed'     =>  'true',
+                'campaign_id'   =>  $campaign_id
+            ],
+            ['product_id'   =>  $feed[0]]
+        );
+
+        $count++;
+    }
+    echo "\n";
+
+
+}
+
+
+
+/*
+ * Function creates keyword
+ * @params: float $adGroupId, array $keywordsArr, string $finalUrl, integer $bid
+ * @return: array $keywordIds
+ */
+
+function createKeywords($adgroupId, $keywordsArr, $finalUrl, $bid)
+{
+    global $session;
+    $ret = AddKeywords::run(new AdWordsServices(), $session, $adgroupId, $keywordsArr, $finalUrl, $bid);
+    return $ret;
+}
+
+
+/*
+ *  Function creates ad in bulk
+ *  Params:  Integer $adGroupId, Array $ads
+ *  Returns: array
+ */
+function createAds($adGroupId, $ads)
+{
+    global $session;
+    $ad_data = AddAds::run(new AdWordsServices(), $session, $adGroupId, $ads);
+    return $ad_data;
+
+}
+
+
+/*
+ * Function retrieves adgroup data by product_id from adgroups database
+ * @param integer $product_id
+ * @return stdObj adgroup
+ */
+function getAdgroupByProductId($product_id, $activeOnly=false)
+{
+    global $campaign_id;
+    if($activeOnly) $row = Database::table(DB_ADGROUPS)->where('product_id', "=", $product_id)->andWhere('campaign_id', '=', $campaign_id)->andWhere('status', '=', 'Active')->andWhere('last', '=', 'true')->find();
+    else $row = Database::table(DB_ADGROUPS)->where('product_id', "=", $product_id)->andWhere('campaign_id', '=', $campaign_id)->andWhere('last', '=', 'true')->find();
+    if(isset($row->id)) return $row;
+}
+
+
+/*
+ * Function retrieves ad data by product_id from ads database
+ * @param integer $product_id
+ * @return array of stdObj ad row
+ */
+function getAdsByProductId($product_id, $activeOnly=false)
+{
+    global $campaign_id;
+    if($activeOnly) $table = Database::table(DB_ADS)->where('product_id', "=", $product_id)->andwhere('last', '=', 'true')->andWhere('campaign_id', '=', $campaign_id)->andWhere('status', '=', 'Active')->findAll();
+    else $table = Database::table(DB_ADS)->where('product_id', "=", $product_id)->andwhere('last', '=', 'true')->andWhere('campaign_id', '=', $campaign_id)->findAll();
+    if(count($table) > 0) return $table;
+}
+
+
+
+/*
+ * Function retrieves keywords by product_id from ads database
+ * @param integer $product_id
+ * @return array of stdObj keyword row
+ */
+function getKeywordsByProductId($product_id)
+{
+    global $campaign_id;
+    $table = Database::table(DB_KEYWORDS)->where('product_id', "=", $product_id)->andWhere('campaign_id', '=', $campaign_id)->findAll();
+    if(count($table) > 0) return $table;
+}
+
+
+/*
+ * Function Resumes a paused adgroup
+ * @param float $adGroupId
+ */
+function resumeAdGroup($adGroupId)
+{
+    global $session;
+    ResumeAdGroup::run(new AdWordsServices(), $session, $adGroupId);
+}
+
+
+/*
+ * Function Resumes a paused ad
+ * @param float $adGroupId
+ * @param float $adId
+ */
+function resumeAd($adGroupId, $adId)
+{
+    global $session;
+    ResumeAd::run(new AdWordsServices(), $session, $adGroupId, $adId);
+}
+
+
+/*
+ * Function Pause a paused ad
+ * @param float $adGroupId
+ * @param float $adId
+ */
+function pauseAd($adGroupId, $adId)
+{
+    global $session;
+    PauseAd::run(new AdWordsServices(), $session, $adGroupId, $adId);
+}
+
+
+/*
+ * Function Removes keyword
+ * @param float $adGroupId
+ * @param float $keywordId
+ */
+function removeKeyword($adGroupId, $keywordId)
+{
+    global $session;
+    RemoveKeyword::run(new AdWordsServices(), $session, $adGroupId, $keywordId);
+}
+
+
+/*
+ * Function updates keyword in adwords dashboard
+ * @params: float $adGroupId, float $keywordId, string $finalUrl
+ */
+function updateKeyword($adGroupId, $keywordId, $finalUrl)
+{
+    global $session;
+    UpdateKeyword::run(new AdWordsServices(), $session, $adGroupId, $keywordId, $finalUrl);
+}
+
+
+/*
+ * Function creates new records, adgroups, ad, keywords
+ */
+function createAll($feed, $variation_arr, $feedPos, $keywords_arr, $finalUrl)
+{
+    if(eligibleProduct($feed, $feedPos))
+    {
+        global $campaign_id;
+
+        // Create AdGroup
+        $adGroupName = $feed[6]." (".$feed[0].")";
+        $adGroupId = createAdGroup($campaign_id, $adGroupName, BID, $feed[16]);
+        saveInTable(
+            DB_ADGROUPS,
+            [
+                'adgroup_id'    =>  $adGroupId,
+                'adgroup_name'  =>  $adGroupName,
+                'product_id'    =>  $feed[0],
+                'campaign_id'   =>  $campaign_id,
+                'status'        =>  $feed[16],
+                'last'          =>  'true'
+            ]
+        );
+
+
+        // Compile ads per product
+        makeAds($feed, $variation_arr, $adGroupId, $finalUrl);
+
+
+        // Create Keywords
+        if(eligibleKeywords($feed, $feedPos))
+        {
+            $ret = createKeywords($adGroupId, $keywords_arr, $finalUrl, KEYWORDS_BID);
+            foreach ($ret as $kw)
+            {
+                saveInTable(
+                    DB_KEYWORDS,
+                    [
+                        'keyword_id'    =>  $kw['id'],
+                        'keyword'       =>  $kw['text'],
+                        'adgroup_id'    =>  $adGroupId,
+                        'campaign_id'   =>  $campaign_id,
+                        'product_id'    =>  $feed[0],
+                        'status'        =>  $feed[16]
+                    ]
+                );
+            }
+        }
+
+        // Logging
+        log_("Create Product: '".$feed[6]."' With ".count($variation_arr)." Ads Variations and Keywords (".implode(", ", $keywords_arr).")");
+    }
+
+}
+
+
+/*
+ * Function Creates products with ad variations
+ * @params: array $feed, array $variation_arr, double $adGroupId
+ */
+function makeAds($feed, $variation_arr, $adGroupId, $finalUrl)
+{
+    global  $campaign_id;
+    $ads = [];
+
+    foreach ($variation_arr as $var)
+    {
+        $productNameLimit = 30 - (strlen($var['headline1']) - 15);
+        $productName = substr($feed[6], 0, $productNameLimit);
+        $headline1 = str_replace("{{productName}}", $productName, $var['headline1']);
+        $headline1 = str_replace("{{productPrice}}", number_format(str_replace(" EUR", "", $feed[2])), $headline1);
+        $headline1 = str_replace("{{productDiscountInPercent}}", $feed[10], $headline1);
+        $headline2 = str_replace("{{productName}}", $productName, $var['headline2']);
+        $headline2 = str_replace("{{productPrice}}", number_format(str_replace(" EUR", "", $feed[2])), $headline2);
+        $headline2 = str_replace("{{productDiscountInPercent}}", $feed[10], $headline2);
+
+        $ads[] = new Ad($feed[0], $headline1, $headline2, $feed[5], array($finalUrl), $feed[16], null, null);
+    }
+
+    // Create Ads
+    $ads_ret = [];
+    $ad_ids = createAds($adGroupId, $ads);
+    for($j=0; $j<count($variation_arr); $j++)
+    {
+        saveInTable(
+            DB_ADS,
+            [
+                'product_id'    =>  $feed[0],
+                'ad_id'         =>  $ad_ids[$j],
+                'adgroup_id'    =>  $adGroupId,
+                'campaign_id'   =>  $campaign_id,
+                'headline1'     =>  $ads[$j]->headline1,
+                'headline2'     =>  $ads[$j]->headline2,
+                'description'   =>  $feed[5],
+                'final_url'     =>  $finalUrl,
+                'status'        =>  $feed[16],
+                'last'          =>  'true'
+            ]
+        );
+
+        $ads_ret[] = $ads[$j]->headline1;
+    }
+
+    return $ads_ret;
+
+}
+
+
+/*
+ * Function prepares database for next run
+ */
+function prepare4NextRun()
+{
+    $table = Database::table(DB_PRODUCTS)->findAll();
+    foreach ($table as $row)
+    {
+        $row = Database::table(DB_PRODUCTS)->find($row->id); //Edit row with ID 1
+        $row->processed = 'false';
+        $row->save();
+    }
+
+}
+
+
+/*
+ * Function to check if its a new product, name changed, to be paused, keyword change, others changed, or already proceeds product
+ * @params array $feed
+ */
+function checkType($feed)
+{
+    $row = Database::table(DB_PRODUCTS)->where('product_id', '=', $feed[0])->find();
+    if(isset($row->id))
+    {
+        // For Processed, will be skipped
+        if($row->processed == 'true') return array('type'=>'skip', 'data'=>null);
+
+        // For Name Change
+        if($feed[6] != $row->product_name) return array('type'=>'name_change', 'data'=>$row);
+
+        // For Others Change
+        if($feed[2] != $row->price || $feed[5] != $row->description || $feed[10] != $row->discount || $feed[14] != $row->url) return array('type'=>'other_change', 'data'=>$row);
+
+        // For Keywords Change
+        if($feed[12] != $row->keywords) return array('type'=>'keyword_change', 'data'=>$row);
+
+        // For activate
+        if($feed[16] == 'Active' && $row->status != 'Active') return array('type'=>'activate', 'data'=>$row);
+
+        // For Pause
+        if($feed[16] != 'Active' && $row->status == 'Active') return array('type'=>'pause', 'data'=>$row);
+    }
+    else
+    {
+        // For new
+        return array('type'=>'new', 'data'=>null);
+    }
+}
+
+
+
+/*
+ * Function retrieves data from products database that hasnt been proceeds, i.e products that did not occur in feed, also called GONE
+ * @return: array of stdObj
+ */
+function getGone()
+{
+    global $campaign_id;
+    $table = Database::table(DB_PRODUCTS)->where('processed', '=', 'false')->andWhere('campaign_id', '=', $campaign_id)->findAll();
+    return $table;
+}
+
+
+/*
+ * Function Pauses gone
+ * @param array of stdObj $gones
+ */
+function pauseGones($gones)
+{
+    foreach ($gones as $gone)
+    {
+        // Retrieving Adgroup data
+        $adGroupData = getAdgroupByProductId($gone->product_id);
+        if($adGroupData)
+        {
+            pauseAdGroup($adGroupData->adgroup_id);
+            saveInTable(DB_ADGROUPS, ["status" => "Not Active"], ["id" => $adGroupData->id]);
+
+            $adData = getAdsByProductId($gone->product_id);
+            if ($adData) {
+                foreach ($adData as $dd) {
+                    pauseAd($adGroupData->adgroup_id, $dd->ad_id);
+                    saveInTable(DB_ADS, ["status" => "Not Active"], ["id" => $dd->id]);
+                }
+                saveInTable(DB_PRODUCTS, ["status" => "Not Active"], ["product_id" => $gone->product_id]);
+                log_("Product: '" . $gone->product_name . "' Pause; No longer Exist in Feed");
+            }
+        }
+    }
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////     Lazer Functions     /////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////
+
+
+/*
+ * Function creates table if not exist
+ * @param string $tableName
+ * @throws LazerException
+ */
+function initTables()
+{
+    // Create Tables
+    Database::create(DB_PRODUCTS,
+        [
+            'id'            =>  'integer',
+            'product_id'    =>  'string',
+            'product_name'  =>  'string',
+            'description'   =>  'string',
+            'price'         =>  'string',
+            'discount'      =>  'string',
+            'status'        =>  'string',
+            'url'           =>  'string',
+            'keywords'      =>  'string',
+            'processed'     =>  'string',
+            'campaign_id'   =>  'string'
+        ]
+    );
+
+    Database::create(DB_ADS,
+        [
+            'id'            =>  'integer',
+            'product_id'    =>  'string',
+            'ad_id'         =>  'string',
+            'adgroup_id'    =>  'string',
+            'campaign_id'   =>  'string',
+            'headline1'     =>  'string',
+            'headline2'     =>  'string',
+            'description'   =>  'string',
+            'final_url'     =>  'string',
+            'status'        =>  'string',
+            'last'          =>  'string'
+        ]
+    );
+
+    Database::create(DB_ADGROUPS,
+        [
+            'id'            =>  'integer',
+            'adgroup_id'    =>  'string',
+            'adgroup_name'  =>  'string',
+            'product_id'    =>  'string',
+            'campaign_id'   =>  'string',
+            'status'        =>  'string',
+            'last'          =>  'string'
+        ]
+    );
+
+    Database::create(DB_KEYWORDS,
+        [
+            'id'            =>  'integer',
+            'keyword_id'    =>  'string',
+            'keyword'       =>  'string',
+            'adgroup_id'    =>  'string',
+            'product_id'    =>  'string',
+            'campaign_id'   =>  'string',
+            'status'        =>  'string'
+        ]
+    );
+
+    Database::create(DB_CAMPAIGNS,
+        [
+            'id'            =>  'integer',
+            'campaign_id'   =>  'string',
+            'campaign_name' =>  'string'
+        ]
+    );
+
+    // Relate Tables
+    Relation::table('AdGroups')->belongsTo('Campaigns')->localKey('campaign_id')->foreignKey('campaign_id')->setRelation();
+    Relation::table('Ads')->belongsTo('Campaigns')->localKey('campaign_id')->foreignKey('campaign_id')->setRelation();
+    Relation::table('Ads')->belongsTo('Products')->localKey('product_id')->foreignKey('product_id')->setRelation();
+    Relation::table('AdGroups')->belongsTo('Products')->localKey('product_id')->foreignKey('product_id')->setRelation();
+    Relation::table('Ads')->belongsTo('AdGroups')->localKey('adgroup_id')->foreignKey('adgroup_id')->setRelation();
+    Relation::table('Keywords')->belongsTo('AdGroups')->localKey('adgroup_id')->foreignKey('adgroup_id')->setRelation();
+
+
+}
+
+
+/*
+ * Function Inserts and updates record into database
+ * @param string @table Table name
+ * @param array @data Assoc array of values where key is field name
+ *
+ */
+function saveInTable($table, $data, $unique=null)
+{
+    if($unique)  $row0 = Database::table($table)->where(key($unique), '=', reset($unique))->find();
+
+    if(isset($row0->id)) $row = Database::table($table)->find($row0->id); // Handle update
+    else $row = Database::table($table); // Handle insert
+
+    foreach ($data as $key=>$value)
+    {
+        $row->$key = "$value";
+    }
+    $row->save();
+}
 
 
 
