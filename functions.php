@@ -10,13 +10,14 @@
 register_shutdown_function( "fatal_handler" );
 
 // No displaying of error
-error_reporting(0);
+//error_reporting(0);
 
 // Allows mac detect line_endings in fgets methods
 ini_set("auto_detect_line_endings", true);
 
 // Setting currency format
 setlocale(LC_MONETARY,"en_US");
+
 
 
 
@@ -68,6 +69,7 @@ $adwordServices = new AdWordsServices();
 
 
 // Initialize campaigns from dashboard
+$logfile = "";
 $campaign_id = "";
 $campaigns = [];
 $er = false;
@@ -129,9 +131,13 @@ function deleteLineInFile($file, $lineNumber)
 
 function log_($data)
 {
+    global $logfile;
     $datetime = date("Y-m-d H:i:s");
+    $stamp = str_replace(":", "_", str_replace(" ", "_", $datetime));
     $data = "[$datetime] $data";
-    writeToFile(LOG_FILE, $data."\n");
+    // log.2017-10-02-11:52:11.log
+    $logfile = ($logfile!="")?$logfile:"log.$stamp.log";
+    writeToFile($logfile, $data."\n");
 }
 
 
@@ -352,6 +358,7 @@ function getCampaignIdByName($name)
 function fatal_handler() {
     global $feedPos;
     global $argv;
+    global $logfile;
     $errfile = "unknown file";
     $errstr  = "shutdown";
     $errno   = E_CORE_ERROR;
@@ -374,7 +381,7 @@ function fatal_handler() {
             // Removing adGroup that failed
             removeLastAdGroup();
             // re-run script with special options like, no-sync, startPos and no-cleanup
-            system("php run.php ".$argv[1]." ".$argv[2]." no-sync ".$feedCont." no-cleanup");
+            system("php run.php ".$argv[1]." ".$argv[2]." no-sync ".$feedCont." ".$logfile);
 
         }
         else
@@ -485,6 +492,7 @@ function creator($feedArr, $variation_arr, $feedStart)
             if($ret['type'] == 'new')
             {
                 createAll($feed, $variation_arr, $feedPos, $keywords_arr, $finalUrl);
+
             }
 
 
@@ -509,6 +517,7 @@ function creator($feedArr, $variation_arr, $feedStart)
                     }
                 }
 
+
             }
 
 
@@ -532,6 +541,7 @@ function creator($feedArr, $variation_arr, $feedStart)
                     }
                 }
 
+
             }
 
             // Name_Change: Pausing Old and Creating new Record for Name Change
@@ -550,13 +560,14 @@ function creator($feedArr, $variation_arr, $feedStart)
                         foreach ($adData as $dd)
                         {
                             pauseAd($adGroupData->adgroup_id, $dd->ad_id);
-                            saveInTable(DB_ADS, ["status"=>"Not Active"], ["id"=>$dd->id]);
+                            saveInTable(DB_ADS, ["status"=>"Not Active", "last"=>"false"], ["id"=>$dd->id]);
                         }
                         log_("Product: '".$feed[6]."' Paused");
                     }
                 }
                 // Create New
                 createAll($feed, $variation_arr, $feedPos, $keywords_arr, $finalUrl);
+
             }
 
 
@@ -566,6 +577,20 @@ function creator($feedArr, $variation_arr, $feedStart)
                 $adGroupData = getAdgroupByProductId($feed[0]);
                 if($adGroupData)
                 {
+                    if($feed[16] == "Active" && $adGroupData->status != "Active")
+                    {
+                        resumeAdGroup($adGroupData->adgroup_id);
+                        saveInTable(DB_ADGROUPS, ["status" => "Active"], ["id" => $adGroupData->id]);
+
+                        $adData = getAdsByProductId($feed[0]);
+                        if ($adData) {
+                            foreach ($adData as $dd) {
+                                resumeAd($adGroupData->adgroup_id, $dd->ad_id);
+                                saveInTable(DB_ADS, ["status" => "Active"], ["id" => $dd->id]);
+                            }
+                            log_("Product: '" . $feed[6] . "' Resumed");
+                        }
+                    }
                     // Removing keywords
                     $keywords = getKeywordsByProductId($feed[0]);
                     foreach ($keywords as $keyword)
@@ -591,8 +616,11 @@ function creator($feedArr, $variation_arr, $feedStart)
                             ]
                         );
                     }
+
+                    // logging
                     log_("Keywords in Product: '".$feed[6]."' updated to: '".implode(", ", $keywords_arr)."'");
                 }
+
             }
 
 
@@ -600,9 +628,15 @@ function creator($feedArr, $variation_arr, $feedStart)
             // Other_Change: Pausing Ad and Creating new
             if($ret['type'] == 'other_change')
             {
-                $adGroupData = getAdgroupByProductId($feed[0], true);
+                $adGroupData = getAdgroupByProductId($feed[0]);
                 if($adGroupData)
                 {
+                    if($feed[16] == "Active" && $adGroupData->status != "Active")
+                    {
+                        resumeAdGroup($adGroupData->adgroup_id);
+                        saveInTable(DB_ADGROUPS, ["status" => "Active"], ["id" => $adGroupData->id]);
+                    }
+
                     // Pausing Ads
                     $adsData = getAdsByProductId($feed[0]);
                     foreach ($adsData as $adData)
@@ -618,26 +652,14 @@ function creator($feedArr, $variation_arr, $feedStart)
                     // Logging
                     log_("Ads: '".implode(", ", $headlines)."' Created");
                 }
+
+
             }
 
         }
 
-        saveInTable(
-            DB_PRODUCTS,
-            [
-                'product_id'    =>  $feed[0],
-                'product_name'  =>  $feed[6],
-                'description'   =>  $feed[5],
-                'price'         =>  $feed[2],
-                'discount'      =>  $feed[10],
-                'status'        =>  $feed[16],
-                'url'           =>  $feed[14],
-                'keywords'      =>  $feed[12],
-                'processed'     =>  'true',
-                'campaign_id'   =>  $campaign_id
-            ],
-            ['product_id'   =>  $feed[0]]
-        );
+        // Saving to product table in database
+        saveProduct($feed);
 
         $count++;
     }
@@ -646,6 +668,31 @@ function creator($feedArr, $variation_arr, $feedStart)
 
 }
 
+
+/*
+ * Function saves in product data
+ */
+function saveProduct($feed)
+{
+    global $campaign_id;
+
+    saveInTable(
+        DB_PRODUCTS,
+        [
+            'product_id'    =>  $feed[0],
+            'product_name'  =>  $feed[6],
+            'description'   =>  $feed[5],
+            'price'         =>  $feed[2],
+            'discount'      =>  $feed[10],
+            'status'        =>  $feed[16],
+            'url'           =>  $feed[14],
+            'keywords'      =>  $feed[12],
+            'processed'     =>  'true',
+            'campaign_id'   =>  $campaign_id
+        ],
+        ['product_id'   =>  $feed[0]]
+    );
+}
 
 
 /*
@@ -672,7 +719,6 @@ function createAds($adGroupId, $ads)
     global $session;
     $ad_data = AddAds::run(new AdWordsServices(), $session, $adGroupId, $ads);
     return $ad_data;
-
 }
 
 
@@ -846,10 +892,10 @@ function makeAds($feed, $variation_arr, $adGroupId, $finalUrl)
         $productNameLimit = 30 - (strlen($var['headline1']) - 15);
         $productName = substr($feed[6], 0, $productNameLimit);
         $headline1 = str_replace("{{productName}}", $productName, $var['headline1']);
-        $headline1 = str_replace("{{productPrice}}", number_format(str_replace(" EUR", "", $feed[2])), $headline1);
+        $headline1 = str_replace("{{productPrice}}", str_replace(" EUR", "", $feed[2]), $headline1);
         $headline1 = str_replace("{{productDiscountInPercent}}", $feed[10], $headline1);
         $headline2 = str_replace("{{productName}}", $productName, $var['headline2']);
-        $headline2 = str_replace("{{productPrice}}", number_format(str_replace(" EUR", "", $feed[2])), $headline2);
+        $headline2 = str_replace("{{productPrice}}", str_replace(" EUR", "", $feed[2]), $headline2);
         $headline2 = str_replace("{{productDiscountInPercent}}", $feed[10], $headline2);
 
         $ads[] = new Ad($feed[0], $headline1, $headline2, $feed[5], array($finalUrl), $feed[16], null, null);

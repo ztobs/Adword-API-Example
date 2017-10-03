@@ -25,6 +25,12 @@ if(!isset($argv[1]) || !isset($argv[2]))
     die("2 arguments are required, third arguement is optional but recommended.\nFeed_file, campaign_name, and sync\nEg.\nphp run.php feed.csv campaign_1 sync");
 }
 
+// taking care of log to avoid new log file when script restart on error
+if(isset($argv[5]))
+{
+    $logfile = $argv[5];
+}
+
 // Option feed start position
 if(isset($argv[4])) $feedStart = $argv[4];
 else $feedStart = 2;
@@ -32,7 +38,6 @@ else $feedStart = 2;
 
 $feedArr = feedToArr($argv[1], $feedStart);
 $campaignName = str_replace("_", " ", $argv[2]);
-
 
 
 // Fetching campaign id by campaign name, will create if not exist
@@ -67,7 +72,7 @@ pauseGones(getGone());
 // Prepare Database for Next Run
 prepare4NextRun();
 
-if($er) echo "Some error occurred, please check the log file\n";
+if($er) echo "Complete!!\nSome errors occurred, please check the log file\n";
 
 
 
