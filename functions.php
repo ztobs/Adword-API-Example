@@ -407,7 +407,7 @@ function log_($data)
     $data = "[$datetime] $data";
     // log.2017-10-02-11:52:11.log
     $logfile = ($logfile!="")?$logfile:"log.$stamp.log";
-    writeToFile($logfile, $data."\n");
+    writeToFile2("../log/".$logfile, $data."\n");
 }
 
 
@@ -496,6 +496,20 @@ function updateCampaigns()
 function writeToFile($fileName, $data)
 {
     $file = fopen(TEMP_PATH.$fileName, "a+");
+    $resp = fwrite($file, $data);
+    fclose($file);
+    return $resp;
+}
+
+
+/*
+ * Function writes data to file
+ * @params: string $fileName, string $data
+ * @return $resp
+ */
+function writeToFile2($fileName, $data)
+{
+    $file = fopen($fileName, "a+");
     $resp = fwrite($file, $data);
     fclose($file);
     return $resp;
@@ -607,7 +621,7 @@ function creator($feedArr, $variation_arr, $feedStart)
         echo "$feedPos,";
 
         //$keywords_arr = explode(",", preg_replace('/[^A-Za-z0-9\-]/', '',$feed[12]));  //remove special characters and convert to array
-        $keywords_arr = explode(";", $feed[12]);
+        $keywords_arr = explode(",", $feed[12]);
         $product_url = $feed[14];
         $is_https = strpos($product_url, "https://");
         $product_url = str_replace("http://", "", $product_url);

@@ -13,3 +13,5 @@ include '../functions.php';
 \Lazer\Classes\Database::table(DB_CAMPAIGNS)->delete();
 \Lazer\Classes\Database::table(DB_KEYWORDS)->delete();
 \Lazer\Classes\Database::table(DB_PRODUCTS)->delete();
+
+echo "Execution Complete, If any error occurs; delete all the files in temp/ folder and run 'php init.php' instead\n";
