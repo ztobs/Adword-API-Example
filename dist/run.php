@@ -6,8 +6,6 @@
  * Time: 11:30 AM
  */
 
-// Setting Timezone
-date_default_timezone_set('CET');
 
 
 // removing execution limits
@@ -22,17 +20,21 @@ include 'variation.php';
 // Checking if arguments were supplied
 if(!isset($argv[1]) || !isset($argv[2]))
 {
-    die("2 arguments are required, third arguement is optional but recommended.\nFeed_file, campaign_name, and sync\nEg.\nphp run.php feed.csv campaign_1 sync");
+    die("2 arguments are required.\nFeed_file and campaign_name\nEg.\nphp run.php feed.csv campaign_1");
 }
 
 // taking care of log to avoid new log file when script restart on error
-if(isset($argv[5]))
+if(isset($argv[4]))
 {
-    $logfile = $argv[5];
+    $logfile = $argv[4];
 }
 
 // Option feed start position
-if(isset($argv[4])) $feedStart = $argv[4];
+if(isset($argv[3]))
+{
+    if(intval($argv[3]) == 0) $feedStart = 2;
+    else $feedStart = $argv[3];
+}
 else $feedStart = 2;
 
 
@@ -43,17 +45,6 @@ $campaignName = str_replace("_", " ", $argv[2]);
 // Fetching campaign id by campaign name, will create if not exist
 // Set the budget in the constant.php file
 $campaign_id =  getCampaignIdByName($campaignName);
-
-
-// Optional syncing
-if(isset($argv[3]))
-{
-    if($argv[3] == "sync")
-    {
-        echo "Syncing Local with Server ...\n";
-        exec("php sync.php ".$campaign_id);
-    }
-}
 
 
 
