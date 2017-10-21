@@ -9,6 +9,10 @@
 // No displaying of error
 error_reporting(0);
 
+// removing execution limits
+ini_set('max_execution_time', 0);
+ini_set('memory_limit', '1024M');
+
 // Handle Fatal Error
 register_shutdown_function( "fatal_handler" );
 
@@ -371,7 +375,7 @@ function saveProduct($feed)
         DB_PRODUCTS,
         [
             'product_id'    =>  $feed[0],
-            'product_name'  =>  $feed[6],
+            'product_name'  =>  $feed[1],
             'description'   =>  $feed[5],
             'price'         =>  $feed[2],
             'discount'      =>  $feed[10],
@@ -414,7 +418,7 @@ function log_($data)
 
 
 /*
- * Function checks if product_id, price, description, short name, discount, url and status is empty and logs to file which feedline is empty
+ * Function checks if product_id, price, description, product name, discount, url and status is empty and logs to file which feedline is empty
  * @params: array $feed, integer $feedPos
  * @return boolean
  */
@@ -425,7 +429,7 @@ function eligibleProduct($feed, $feedPos)
     if(isEmpty($feed[0])) $error .= "Product Id, ";
     if(isEmpty($feed[2])) $error .= "Price, ";
     if(isEmpty($feed[5])) $error .= "Description, ";
-    if(isEmpty($feed[6])) $error .= "Short Name, ";
+    if(isEmpty($feed[1])) $error .= "Product Name, ";
     if(isEmpty($feed[10])) $error .= "Discount Percentage, ";
     if(isEmpty($feed[14])) $error .= "Product URL, ";
     if(isEmpty($feed[16])) $error .= "Status, ";
@@ -537,7 +541,7 @@ function getCampaignIdByName($name)
         $stdin = fopen('php://stdin', 'r');
         $response = fgetc($stdin);
 
-        if($response == "y")
+        if(strtolower($response) == "y")
         {
             $campaignData = createCampaign($name, CAMPAIGN_BUDGET);
             $id = $campaignData['id'];
@@ -557,7 +561,7 @@ function getCampaignIdByName($name)
 /*
  * Function removes last adgroup from database and adwords dashboard
  */
-function removeLastAdGroup()
+function removeLastAdGroup($er_str, $pos)
 {
     $id = Database::table(DB_ADGROUPS)->lastId();
     if($id)
@@ -570,6 +574,17 @@ function removeLastAdGroup()
             Database::table(DB_ADGROUPS)->find($id)->delete();
             removeAdGroup($row->adgroup_id);
             log_("Adgroup: '".$row->adgroup_name."' Removed due to error creating ads");
+        }
+        elseif(strpos($er_str, "CriterionError.KEYWORD")!== FALSE)  // Checks if the error is from keyword
+        {
+            Database::table(DB_ADGROUPS)->find($id)->delete();
+            removeAdGroup($row->adgroup_id);
+            log_("Adgroup: '".$row->adgroup_name."' Removed due to error in keyword");
+        }
+        else
+        {
+            echo "We could not remove the error adgroup because its Uncaught Error at Feedline $pos \n";
+            log_("!!! We could not remove the error adgroup '".$row->adgroup_name."' because its an uncaught Error at Feedline $pos in keyword\nPlease remove it manualy to avoid duplicate errors");
         }
     }
 }
@@ -620,8 +635,10 @@ function creator($feedArr, $variation_arr, $feedStart)
         $feedPos = $feedStart+$count;
         echo "$feedPos,";
 
-        //$keywords_arr = explode(",", preg_replace('/[^A-Za-z0-9\-]/', '',$feed[12]));  //remove special characters and convert to array
-        $keywords_arr = explode(",", $feed[12]);
+        $kw = utf8_encode($feed[12]);
+        $keywords_arr = explode(",", preg_replace('/[^A-Za-z0-9\-\(\) ]/', '', $kw));  //remove special characters and convert to array
+        //$keywords_arr = explode(",", $feed[12]);
+
         $product_url = $feed[14];
         $is_https = strpos($product_url, "https://");
         $product_url = str_replace("http://", "", $product_url);
@@ -657,7 +674,7 @@ function creator($feedArr, $variation_arr, $feedStart)
                             resumeAd($adGroupData->adgroup_id, $dd->ad_id);
                             saveInTable(DB_ADS, ["status" => "Active"], ["id" => $dd->id]);
                         }
-                        log_("Product: '" . $feed[6] . "' Resumed");
+                        log_("Product: '" . $feed[1] . "' Resumed");
                     }
                 }
 
@@ -681,12 +698,11 @@ function creator($feedArr, $variation_arr, $feedStart)
                             pauseAd($adGroupData->adgroup_id, $dd->ad_id);
                             saveInTable(DB_ADS, ["status" => "Not Active"], ["id" => $dd->id]);
                         }
-                        log_("Product: '" . $feed[6] . "' Resumed");
+                        log_("Product: '" . $feed[1] . "' Resumed");
                     }
                 }
-
-
             }
+
 
             // Name_Change: Pausing Old and Creating new Record for Name Change
             if($ret['type'] == 'name_change')
@@ -706,7 +722,7 @@ function creator($feedArr, $variation_arr, $feedStart)
                             pauseAd($adGroupData->adgroup_id, $dd->ad_id);
                             saveInTable(DB_ADS, ["status"=>"Not Active", "last"=>"false"], ["id"=>$dd->id]);
                         }
-                        log_("Product: '".$feed[6]."' Paused");
+                        log_("Product: '".$feed[1]."' Paused");
                     }
                 }
                 // Create New
@@ -733,7 +749,7 @@ function creator($feedArr, $variation_arr, $feedStart)
                                 resumeAd($adGroupData->adgroup_id, $dd->ad_id);
                                 saveInTable(DB_ADS, ["status" => "Active"], ["id" => $dd->id]);
                             }
-                            log_("Product: '" . $feed[6] . "' Resumed");
+                            log_("Product: '" . $feed[1] . "' Resumed");
                         }
                     }
                     // Removing keywords
@@ -763,7 +779,7 @@ function creator($feedArr, $variation_arr, $feedStart)
                     }
 
                     // logging
-                    log_("Keywords in Product: '".$feed[6]."' updated to: '".implode(", ", $keywords_arr)."'");
+                    log_("Keywords in Product: '".$feed[1]."' updated to: '".implode(", ", $keywords_arr)."'");
                 }
 
             }
@@ -803,8 +819,7 @@ function creator($feedArr, $variation_arr, $feedStart)
 
         }
 
-        // Saving to product table in database
-        saveProduct($feed);
+
 
         $count++;
     }
@@ -869,7 +884,7 @@ function createAll($feed, $variation_arr, $feedPos, $keywords_arr, $finalUrl)
         global $campaign_id;
 
         // Create AdGroup
-        $adGroupName = $feed[6]." (".$feed[0].")";
+        $adGroupName = $feed[1]." (".$feed[0].")";
         $adGroupId = createAdGroup($campaign_id, $adGroupName, BID, $feed[16]);
         saveInTable(
             DB_ADGROUPS,
@@ -909,7 +924,7 @@ function createAll($feed, $variation_arr, $feedPos, $keywords_arr, $finalUrl)
         }
 
         // Logging
-        log_("Create Product: '".$feed[6]."' With ".count($variation_arr)." Ads Variations and Keywords (".implode(", ", $keywords_arr).")");
+        log_("Create Product: '".$feed[1]."' With ".count($variation_arr)." Ads Variations and Keywords (".implode(", ", $keywords_arr).")");
     }
 
 }
@@ -928,7 +943,7 @@ function makeAds($feed, $variation_arr, $adGroupId, $finalUrl)
     foreach ($variation_arr as $var)
     {
         $productNameLimit = 30 - (strlen($var['headline1']) - 15);
-        $productName = substr($feed[6], 0, $productNameLimit);
+        $productName = substr($feed[1], 0, $productNameLimit);
         $headline1 = str_replace("{{productName}}", $productName, $var['headline1']);
         $headline1 = str_replace("{{productPrice}}", str_replace(" EUR", "", $feed[2]), $headline1);
         $headline1 = str_replace("{{productDiscountInPercent}}", $feed[10], $headline1);
@@ -997,7 +1012,7 @@ function checkType($feed)
         if($row->processed == 'true') return array('type'=>'skip', 'data'=>null);
 
         // For Name Change
-        if($feed[6] != $row->product_name) return array('type'=>'name_change', 'data'=>$row);
+        if($feed[1] != $row->product_name) return array('type'=>'name_change', 'data'=>$row);
 
         // For Others Change
         if($feed[2] != $row->price || $feed[5] != $row->description || $feed[10] != $row->discount || $feed[14] != $row->url) return array('type'=>'other_change', 'data'=>$row);
@@ -1105,16 +1120,20 @@ function fatal_handler() {
             $feedCont = $feedPos+1;
             echo "\nFatal Error at FeedLine $feedPos, check log for details\nRestarting script from Feedline $feedCont \n";
             $pos = strpos($errstr, "violatingText");
-            $er = "Uncaught Error: $errstr";
+            $er = "$errstr";
             if($pos !== FALSE)
             {
                 $err_arr = explode("}", substr($errstr, $pos));
                 $er = $err_arr[0];
             }
+            if(strpos($er, "CriterionError.KEYWORD") !== FALSE)
+            {
+                $er = "InvalidKeyword";
+            }
             log_("Fatal Error at FeedLine $feedPos: $er");
 
             // Removing adGroup that failed
-            removeLastAdGroup();
+            removeLastAdGroup($errstr, $feedPos);
             // re-run script with special options like, no-sync, startPos and no-cleanup
             system("php run.php ".$argv[1]." ".$argv[2]." ".$feedCont." ".$logfile);
 
