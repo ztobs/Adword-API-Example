@@ -18,6 +18,7 @@ define('DB_CAMPAIGNS', 'Campaigns');
 define('DB_ADGROUPS', 'AdGroups');
 define('DB_ADS', 'Ads');
 define('DB_KEYWORDS', 'Keywords');
+define("DB_EXEC", "Execution");
 
 
 define("ADGROUPS_LOCAL_FILE", "adgroups.txt");

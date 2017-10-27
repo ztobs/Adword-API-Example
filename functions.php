@@ -79,7 +79,8 @@ $campaign_id = "";
 $campaigns = [];
 $er = false;
 $feedPos = 0;
-updateCampaigns();
+//updateCampaigns();
+
 
 
 
@@ -329,6 +330,16 @@ function initTables()
         ]
     );
 
+    Database::create(DB_EXEC,
+        [
+            'id'            =>  'integer',
+            'position'      =>  'string',
+            'campaign_id'   =>  'string'
+        ]
+     );
+
+
+
     // Relate Tables
     Relation::table('AdGroups')->belongsTo('Campaigns')->localKey('campaign_id')->foreignKey('campaign_id')->setRelation();
     Relation::table('Ads')->belongsTo('Campaigns')->localKey('campaign_id')->foreignKey('campaign_id')->setRelation();
@@ -392,6 +403,9 @@ function saveProduct($feed)
 
 
 
+
+
+
 ////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////  Other Functions    /////////////////////////////////////
@@ -407,11 +421,20 @@ function log_($data)
 {
     global $logfile;
     $datetime = date("Y-m-d H:i:s");
-    $stamp = str_replace(":", "_", str_replace(" ", "_", $datetime));
     $data = "[$datetime] $data";
-    // log.2017-10-02-11:52:11.log
-    $logfile = ($logfile!="")?$logfile:"log.$stamp.log";
+
+    $logfile = logFileName();
     writeToFile2("../log/".$logfile, $data."\n");
+}
+
+
+function logFileName()
+{
+    global $logfile;
+    $datetime = date("Y-m-d H:i:s");
+    $stamp = str_replace(":", "_", str_replace(" ", "_", $datetime));
+    return ($logfile!="")?$logfile:"log.$stamp.log";
+    // sample  log.2017-10-02-11:52:11.log
 }
 
 
@@ -635,8 +658,10 @@ function creator($feedArr, $variation_arr, $feedStart)
         $feedPos = $feedStart+$count;
         echo "$feedPos,";
 
-        $kw = utf8_encode($feed[12]);
-        $keywords_arr = explode(",", preg_replace('/[^A-Za-z0-9\-\(\) ]/', '', $kw));  //remove special characters and convert to array
+
+        $kw = iconv(mb_detect_encoding($feed[12], mb_detect_order(), true), "UTF-8", $feed[12]);
+        //$keywords_arr = explode(",", preg_replace('/[^A-Za-z0-9\-\(\) ]/', '', $kw));  //remove special characters and convert to array
+        $keywords_arr = explode(",", $kw);
         //$keywords_arr = explode(",", $feed[12]);
 
         $product_url = $feed[14];
@@ -647,13 +672,13 @@ function creator($feedArr, $variation_arr, $feedStart)
 
         $ret = checkType($feed);
 
+
         if($ret['type'] != 'skip')
         {
             // New: Creating new records
             if($ret['type'] == 'new')
             {
                 createAll($feed, $variation_arr, $feedPos, $keywords_arr, $finalUrl);
-
             }
 
 
@@ -698,7 +723,7 @@ function creator($feedArr, $variation_arr, $feedStart)
                             pauseAd($adGroupData->adgroup_id, $dd->ad_id);
                             saveInTable(DB_ADS, ["status" => "Not Active"], ["id" => $dd->id]);
                         }
-                        log_("Product: '" . $feed[1] . "' Resumed");
+                        log_("Product: '" . $feed[1] . "' Paused");
                     }
                 }
             }
@@ -819,7 +844,7 @@ function creator($feedArr, $variation_arr, $feedStart)
 
         }
 
-
+        saveProduct($feed);
 
         $count++;
     }
@@ -991,7 +1016,7 @@ function prepare4NextRun()
     $table = Database::table(DB_PRODUCTS)->findAll();
     foreach ($table as $row)
     {
-        $row = Database::table(DB_PRODUCTS)->find($row->id); //Edit row with ID 1
+        $row = Database::table(DB_PRODUCTS)->find($row->id); // Edit row with ID 1
         $row->processed = 'false';
         $row->save();
     }
@@ -1101,6 +1126,7 @@ function fatal_handler() {
     global $feedPos;
     global $argv;
     global $logfile;
+    global $campaign_id;
     $errfile = "unknown file";
     $errstr  = "shutdown";
     $errno   = E_CORE_ERROR;
@@ -1135,7 +1161,17 @@ function fatal_handler() {
             // Removing adGroup that failed
             removeLastAdGroup($errstr, $feedPos);
             // re-run script with special options like, no-sync, startPos and no-cleanup
-            system("php run.php ".$argv[1]." ".$argv[2]." ".$feedCont." ".$logfile);
+            //system("php run.php ".$argv[1]." ".$argv[2]." ".$feedCont." ".$logfile." ".$campaign_id);
+
+
+            saveInTable(
+                DB_EXEC,
+                [
+                    'position'      =>  $feedCont,
+                    'campaign_id'   =>  $campaign_id
+                ],
+                ['campaign_id'   =>  $campaign_id]
+            );
 
         }
 

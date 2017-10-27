@@ -15,6 +15,8 @@
 include '../functions.php';
 include 'variation.php';
 
+updateCampaigns();
+
 // Checking if arguments were supplied
 if(!isset($argv[1]) || !isset($argv[2]))
 {
@@ -61,9 +63,19 @@ pauseGones(getGone());
 // Prepare Database for Next Run
 prepare4NextRun();
 
-if($er) echo "Complete!!\nSome errors occurred, please check the log file\n";
+
+//////////////////////////////////////////////////////////////////////////////
+// Setting feed position to ZERO when completed
+saveInTable(
+    DB_EXEC,
+    [
+        'position'      =>  "0",
+        'campaign_id'   =>  $campaign_id
+    ],
+    ['campaign_id'   =>  $campaign_id]
+);
+exit(0);
 
 
 
-//initTables();
 
