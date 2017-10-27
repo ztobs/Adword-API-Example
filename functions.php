@@ -606,8 +606,9 @@ function removeLastAdGroup($er_str, $pos)
         }
         else
         {
-            echo "We could not remove the error adgroup because its Uncaught Error at Feedline $pos \n";
-            log_("!!! We could not remove the error adgroup '".$row->adgroup_name."' because its an uncaught Error at Feedline $pos in keyword\nPlease remove it manualy to avoid duplicate errors");
+            //echo "Uncaught Error at Feedline $pos \n";
+            removeAdGroup($row->adgroup_id);
+            log_("!!! We forcefully removed adgroup '".$row->adgroup_name."' because an uncaught Error occurred at Feedline $pos in keyword\nPlease confirm");
         }
     }
 }
