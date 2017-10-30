@@ -6,6 +6,9 @@
  * Time: 11:41 AM
  */
 
+// Run:
+// php do.php feed.csv campaign_name restart
+
 include "../functions.php";
 
 $noFeed = count(feedToArr($argv[1], 2));
@@ -13,6 +16,12 @@ $noFeed = count(feedToArr($argv[1], 2));
 updateCampaigns();
 $campaignName = str_replace("_", " ", $argv[2]);
 $campaign_id =  getCampaignIdByName($campaignName);
+
+$restart = false;
+if(isset($argv[3]))
+{
+    if($argv[3] == "restart") $restart = true;
+}
 
 // Time monitor
 $start_time = date("Y-m-d H:i:s");
@@ -24,11 +33,14 @@ $logFile = logFileName();
 while(true)
 {
     $row = \Lazer\Classes\Database::table(DB_EXEC)->where("campaign_id", "=", "$campaign_id")->find();
-    if(isset($row->position)) $feedCont = $row->position;
+
+    if($restart) $feedCont = 2;
+    elseif(isset($row->position)) $feedCont = $row->position;
     else $feedCont = 2;
 
     system("php run.php ".$argv[1]." ".$argv[2]." ".$feedCont." ".$logFile." ".$campaign_id, $exitCode);
-    if($exitCode == 0 || $feedCont >= $noFeed) break;
+    $restart = false;
+    if($exitCode == 0 || $feedCont >= $noFeed || $exitCode == 999) break;
 }
 
 // Time monitor

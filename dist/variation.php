@@ -10,6 +10,7 @@
 /*
  * Available variables:
  * {{productName}}
+ * {{productShortName}}
  * {{productPrice}}
  * {{productDiscountInPercent}}
  */
@@ -17,11 +18,12 @@
 
 $variation = array(
     0   =>  array(
-        "headline1" => "Buy {{productName}} now",
+        "headline1" => "Buy {{productShortName}} now",
         "headline2" => "only for {{productPrice}} €"
     ),
     1   => array(
-        "headline1" => "Cheap {{productName}}",
+        "headline1" => "Cheap {{productShortName}}",
         "headline2" => "save -{{productDiscountInPercent}}"
     )
 );
+

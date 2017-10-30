@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="374070c9-05f6-44fc-81ee-bb204b5e2bea" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/log/log.2017-10-27_14_07_14.log" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/log/log.2017-10-27_13_54_02.log" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/log/log.2017-10-30_16_25_19.log" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/log/log.2017-10-27_14_07_14.log" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/debug.log" afterPath="$PROJECT_DIR$/dist/debug.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/do.php" afterPath="$PROJECT_DIR$/dist/do.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/variation.php" afterPath="$PROJECT_DIR$/dist/variation.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/functions.php" afterPath="$PROJECT_DIR$/functions.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,11 +36,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="functions.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="functions.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="609" column="44" lean-forward="false" selection-start-line="609" selection-start-column="44" selection-end-line="609" selection-end-column="44" />
+            <state relative-caret-position="195">
+              <caret line="974" column="34" lean-forward="true" selection-start-line="974" selection-start-column="34" selection-end-line="974" selection-end-column="54" />
               <folding>
                 <element signature="e#560#604#0#PHP" expanded="true" />
               </folding>
@@ -46,8 +48,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="log.2017-10-27_14_07_14.log" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_14_07_14.log">
+      <file leaf-file-name="feed.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dist/feed.csv">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -56,10 +58,30 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="variation.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dist/variation.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="log.2017-10-30_16_25_19.log" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/log/log.2017-10-30_16_25_19.log">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="run.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dist/run.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
+            <state relative-caret-position="540">
               <caret line="41" column="48" lean-forward="false" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="48" />
               <folding />
             </state>
@@ -69,8 +91,8 @@
       <file leaf-file-name="do.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dist/do.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="36" column="21" lean-forward="false" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
+            <state relative-caret-position="555">
+              <caret line="42" column="65" lean-forward="false" selection-start-line="42" selection-start-column="65" selection-end-line="42" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -79,7 +101,7 @@
       <file leaf-file-name="large1.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dist/large1.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="602">
+            <state relative-caret-position="1110">
               <caret line="74" column="474" lean-forward="false" selection-start-line="74" selection-start-column="474" selection-end-line="74" selection-end-column="474" />
               <folding />
             </state>
@@ -90,9 +112,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>short</find>
-      <find>removeLastAdGroup</find>
-      <find>**</find>
       <find>KEYWORD</find>
       <find>Encoding</find>
       <find>array</find>
@@ -107,7 +126,6 @@
       <find>$campaign_id</find>
       <find>getCampaignIdByName</find>
       <find>product_id</find>
-      <find>fata</find>
       <find>feedco</find>
       <find>is_</find>
       <find>makeAds</find>
@@ -120,6 +138,10 @@
       <find>saveProduct</find>
       <find>resumed</find>
       <find>we cou</find>
+      <find>fata</find>
+      <find>writetofile</find>
+      <find>fatal_ha</find>
+      <find>{{productName}}</find>
     </findStrings>
     <replaceStrings>
       <replace>log_(</replace>
@@ -138,10 +160,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Lazer/Classes/Helpers/Validate.php" />
-        <option value="$PROJECT_DIR$/Lazer/Classes/Core/Database.php" />
-        <option value="$PROJECT_DIR$/classes/AddAdGroup.php" />
-        <option value="$PROJECT_DIR$/classes/AddAds.php" />
         <option value="$PROJECT_DIR$/classes/AddKeywords.php" />
         <option value="$PROJECT_DIR$/Ztobs/Classes/Ad.php" />
         <option value="$PROJECT_DIR$/Ztobs/Classes/AddAdGroup.php" />
@@ -182,13 +200,17 @@
         <option value="$PROJECT_DIR$/dist/test.php" />
         <option value="$PROJECT_DIR$/temp/Execution.data.json" />
         <option value="$PROJECT_DIR$/temp/Products.data.json" />
-        <option value="$PROJECT_DIR$/dist/do.php" />
         <option value="$PROJECT_DIR$/log/log.2017-10-27_13_48_41.log" />
         <option value="$PROJECT_DIR$/log/log.2017-10-27_13_51_31.log" />
         <option value="$PROJECT_DIR$/dist/large1.csv" />
         <option value="$PROJECT_DIR$/log/log.2017-10-27_14_01_32.log" />
         <option value="$PROJECT_DIR$/log/log.2017-10-27_14_07_14.log" />
+        <option value="$PROJECT_DIR$/log/log.2017-10-27_14_15_18.log" />
+        <option value="$PROJECT_DIR$/log/log.2017-10-27_15_53_43.log" />
+        <option value="$PROJECT_DIR$/dist/do.php" />
         <option value="$PROJECT_DIR$/functions.php" />
+        <option value="$PROJECT_DIR$/dist/variation.php" />
+        <option value="$PROJECT_DIR$/log/log.2017-10-30_16_25_19.log" />
       </list>
     </option>
   </component>
@@ -238,10 +260,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="584" />
-    <option name="y" value="195" />
-    <option name="width" value="1284" />
-    <option name="height" value="786" />
+    <option name="x" value="787" />
+    <option name="y" value="137" />
+    <option name="width" value="1187" />
+    <option name="height" value="791" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -258,6 +280,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -280,20 +303,6 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="log" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Adwords" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Adwords" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="dist" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -301,7 +310,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -344,7 +352,7 @@
     <configuration default="false" name="init.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/dist/init.php">
       <method />
     </configuration>
-    <configuration default="false" name="do.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/dist/do.php" scriptParameters="feed.csv test0">
+    <configuration default="false" name="do.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/dist/do.php" scriptParameters="feed.csv test10">
       <method />
     </configuration>
     <configuration default="true" type="CodeceptionConfigurationType" factoryName="Codeception">
@@ -458,7 +466,10 @@
       <workItem from="1508520710635" duration="4034000" />
       <workItem from="1508571981506" duration="11749000" />
       <workItem from="1508947733374" duration="4782000" />
-      <workItem from="1509084832076" duration="17131000" />
+      <workItem from="1509084832076" duration="22823000" />
+      <workItem from="1509229076869" duration="27000" />
+      <workItem from="1509296192177" duration="41000" />
+      <workItem from="1509375859104" duration="1369000" />
     </task>
     <task id="LOCAL-00001" summary="1st commit">
       <created>1505057420544</created>
@@ -530,11 +541,18 @@
       <option name="project" value="LOCAL" />
       <updated>1509105398476</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Limit processes to 2 # update2">
+      <created>1509106164072</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1509106164072</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="387052000" />
+    <option name="totallyTimeSpent" value="394181000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -542,19 +560,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="584" y="195" width="1284" height="786" extended-state="0" />
+    <frame x="787" y="137" width="1187" height="791" extended-state="0" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23676012" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23673126" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924962" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914925" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3961219" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924962" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39748955" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924962" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39888424" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -583,7 +601,8 @@
     <MESSAGE value="Ads and AdGroups No longer Deleted" />
     <MESSAGE value="Cleanup" />
     <MESSAGE value="Limit process to 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Limit process to 2" />
+    <MESSAGE value="Limit processes to 2 # update2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Limit processes to 2 # update2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -592,77 +611,17 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/adsapi_php.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="9" column="27" lean-forward="false" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-21_14_10_49.log" />
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-21_13_55_23.log" />
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-21_13_57_40.log" />
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-21_14_01_51.log" />
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-21_14_19_51.log" />
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-21_14_25_33.log" />
-    <entry file="file://$PROJECT_DIR$/Ztobs/Classes/AddCampaign.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="47" column="15" lean-forward="false" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-21_14_42_05.log" />
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-21_14_50_16.log" />
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-25_19_10_56.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-25_19_05_08.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="27" lean-forward="false" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_08_39_09.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/log/log.2017-10-25_19_05_08.log" />
+    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_08_39_09.log" />
     <entry file="file://$PROJECT_DIR$/dist/debug.log">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_10_03_54.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_09_13_14.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_10_03_54.log" />
+    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_09_13_14.log" />
     <entry file="file://$PROJECT_DIR$/dist/init.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -671,54 +630,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_10_09_55.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_10_10_30.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/long.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_10_14_44.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_10_17_38.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_10_53_05.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_10_09_55.log" />
+    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_10_10_30.log" />
+    <entry file="file://$PROJECT_DIR$/dist/long.php" />
+    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_10_14_44.log" />
+    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_10_17_38.log" />
+    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_10_53_05.log" />
     <entry file="file://$PROJECT_DIR$/constants.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -731,7 +648,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -739,7 +655,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="179" lean-forward="true" selection-start-line="0" selection-start-column="179" selection-end-line="0" selection-end-column="179" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -747,66 +662,28 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_11_23_04.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_11_26_03.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_11_26_43.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="50" lean-forward="true" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_11_23_04.log" />
+    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_11_26_03.log" />
+    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_11_26_43.log" />
     <entry file="file://$PROJECT_DIR$/temp/Ads.config.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_12_14_47.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_12_14_47.log" />
     <entry file="file://$PROJECT_DIR$/temp/Ads.data.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="854" lean-forward="false" selection-start-line="0" selection-start-column="854" selection-end-line="0" selection-end-column="854" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_12_22_24.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_12_22_24.log" />
     <entry file="file://$PROJECT_DIR$/dist/clean.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -819,7 +696,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -827,7 +703,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="202" lean-forward="true" selection-start-line="0" selection-start-column="202" selection-end-line="0" selection-end-column="202" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -835,99 +710,49 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="112" lean-forward="false" selection-start-line="0" selection-start-column="112" selection-end-line="0" selection-end-column="112" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_13_34_08.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_13_35_24.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_13_39_35.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1149">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/do.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="36" column="21" lean-forward="false" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_13_46_34.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_13_48_41.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_13_51_31.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/run.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="41" column="48" lean-forward="false" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_13_34_08.log" />
+    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_13_35_24.log" />
+    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_13_39_35.log" />
+    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_13_46_34.log" />
+    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_13_48_41.log" />
+    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_13_51_31.log" />
     <entry file="file://$PROJECT_DIR$/dist/large1.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="602">
+        <state relative-caret-position="1110">
           <caret line="74" column="474" lean-forward="false" selection-start-line="74" selection-start-column="474" selection-end-line="74" selection-end-column="474" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_13_54_02.log">
+    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_13_54_02.log" />
+    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_14_01_32.log" />
+    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_14_07_14.log" />
+    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_14_15_18.log" />
+    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_15_36_22.log" />
+    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_15_21_41.log" />
+    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_15_10_07.log" />
+    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_14_57_41.log" />
+    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_15_53_43.log" />
+    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_17_17_20.log" />
+    <entry file="file://$PROJECT_DIR$/dist/run.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="41" column="48" lean-forward="false" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_17_36_25.log">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <caret line="0" column="39" lean-forward="false" selection-start-line="0" selection-start-column="39" selection-end-line="0" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_14_01_32.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="25" column="141" lean-forward="true" selection-start-line="25" selection-start-column="141" selection-end-line="25" selection-end-column="141" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_14_07_14.log">
+    <entry file="file://$PROJECT_DIR$/dist/feed.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -937,11 +762,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="609" column="44" lean-forward="false" selection-start-line="609" selection-start-column="44" selection-end-line="609" selection-end-column="44" />
+        <state relative-caret-position="195">
+          <caret line="974" column="34" lean-forward="true" selection-start-line="974" selection-start-column="34" selection-end-line="974" selection-end-column="54" />
           <folding>
             <element signature="e#560#604#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/do.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="42" column="65" lean-forward="false" selection-start-line="42" selection-start-column="65" selection-end-line="42" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/variation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log/log.2017-10-30_16_25_19.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

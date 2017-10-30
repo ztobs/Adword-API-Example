@@ -970,10 +970,14 @@ function makeAds($feed, $variation_arr, $adGroupId, $finalUrl)
     {
         $productNameLimit = 30 - (strlen($var['headline1']) - 15);
         $productName = substr($feed[1], 0, $productNameLimit);
+        $productShortName = substr($feed[1], 0, $productNameLimit);
         $headline1 = str_replace("{{productName}}", $productName, $var['headline1']);
+        $headline1 = str_replace("{{productShortName}}", $productShortName, $headline1);
         $headline1 = str_replace("{{productPrice}}", str_replace(" EUR", "", $feed[2]), $headline1);
         $headline1 = str_replace("{{productDiscountInPercent}}", $feed[10], $headline1);
+
         $headline2 = str_replace("{{productName}}", $productName, $var['headline2']);
+        $headline2 = str_replace("{{productShortName}}", $productShortName, $headline2);
         $headline2 = str_replace("{{productPrice}}", str_replace(" EUR", "", $feed[2]), $headline2);
         $headline2 = str_replace("{{productDiscountInPercent}}", $feed[10], $headline2);
 
@@ -1153,18 +1157,25 @@ function fatal_handler() {
                 $err_arr = explode("}", substr($errstr, $pos));
                 $er = $err_arr[0];
             }
+
             if(strpos($er, "CriterionError.KEYWORD") !== FALSE)
             {
                 $er = "InvalidKeyword";
             }
+
+            if(strpos($er, "RateExceededError") !== FALSE)
+            {
+                $er = "API Usage Exceeded, Try again tomorrow to continue from where it stopped";
+                log_("Fatal Error at FeedLine $feedPos: $er");
+                exit(999);
+            }
+
             log_("Fatal Error at FeedLine $feedPos: $er");
 
             // Removing adGroup that failed
             removeLastAdGroup($errstr, $feedPos);
-            // re-run script with special options like, no-sync, startPos and no-cleanup
-            //system("php run.php ".$argv[1]." ".$argv[2]." ".$feedCont." ".$logfile." ".$campaign_id);
 
-
+            // Saving stop point for coninuation later
             saveInTable(
                 DB_EXEC,
                 [
