@@ -970,7 +970,9 @@ function makeAds($feed, $variation_arr, $adGroupId, $finalUrl)
     {
         $productNameLimit = 30 - (strlen($var['headline1']) - 15);
         $productName = substr($feed[1], 0, $productNameLimit);
-        $productShortName = substr($feed[1], 0, $productNameLimit);
+
+        $productShortNameLimit = 30 - (strlen($var['headline1']) - 20);
+        $productShortName = substr($feed[6], 0, $productShortNameLimit);
         $headline1 = str_replace("{{productName}}", $productName, $var['headline1']);
         $headline1 = str_replace("{{productShortName}}", $productShortName, $headline1);
         $headline1 = str_replace("{{productPrice}}", str_replace(" EUR", "", $feed[2]), $headline1);
