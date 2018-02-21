@@ -653,8 +653,8 @@ function pauseLastAdGroup($er_str, $pos, $adGroupId, $adGroupName)
             // pauseAdGroup($adGroupId);
             // saveInTable(DB_ADGROUPS, ["status" => "Not Active"], ["adgroup_id" => $adGroupId]);
 
-            removeAdGroup($adGroupId);
-            Database::table(DB_ADGROUPS)->where("adgroup_id", "=", $adGroupId)->find()->delete(); 
+            // removeAdGroup($adGroupId);
+            // Database::table(DB_ADGROUPS)->where("adgroup_id", "=", $adGroupId)->find()->delete(); 
         } 
         catch (Exception $e) 
         {
@@ -725,7 +725,8 @@ function creator($feedArr, $variation_arr, $feedStart)
         $finalUrl = $is_https?"https://".$product_url:"http://".$product_url;
 
         $ret = checkType($feed);
-
+        echo "type = ".$ret['type']." \n";
+        echo "== END ==\n";
 
         if($ret['type'] != 'skip')
         {
@@ -1089,8 +1090,14 @@ function prepare4NextRun()
 function checkType($feed)
 {
     $row = Database::table(DB_PRODUCTS)->where('product_id', '=', $feed[0])->find();
+    echo "name=".$feed[0]."\n";
+    echo "feed price=".$feed[2]."\n";
+    
+    // var_dump($row);
+    // echo "== END ==\n";
     if(isset($row->id))
     {
+        echo "db price=".$row->price."\n";
         // For Processed, will be skipped
         if($row->processed == 'true') return array('type'=>'skip', 'data'=>null);
 
