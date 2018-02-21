@@ -53,6 +53,8 @@ use Ztobs\Classes\ResumeAd;
 use Ztobs\Classes\ResumeAdGroup;
 use Ztobs\Classes\RemoveKeyword;
 use Ztobs\Classes\UpdateKeyword;
+use Ztobs\Classes\SearchAdGroupInCampaign;
+use Ztobs\Classes\SearchAdGroupByName;
 
 
 
@@ -79,6 +81,7 @@ $campaign_id = "";
 $campaigns = [];
 $er = false;
 $feedPos = 0;
+$currentFeed = [];
 //updateCampaigns();
 
 
@@ -176,6 +179,19 @@ function createKeywords($adgroupId, $keywordsArr, $finalUrl, $bid)
 
 
 /*
+ *  Function gets list of ads in adgroup
+ *  Params:  Integer $adGroupId, [String $adGroupStatus {ALL, ENABLED, PAUSED}]
+ *  Returns: array
+ */
+function getAds($adGroupId, $adGroupStatus="ALL")
+{
+    global $session;
+    $ad_data = GetAds::run(new AdWordsServices(), $session, $adGroupId, $adGroupStatus);
+    return $ad_data;
+}
+
+
+/*
  *  Function creates ad in bulk
  *  Params:  Integer $adGroupId, Array $ads
  *  Returns: array
@@ -237,6 +253,29 @@ function getAdGroups($campaign_id)
     return GetAdGroupsByCampaign::run(new AdWordsServices(), $session, $campaign_id);
 }
 
+
+/*
+ * Function searches for adgroup by campaign_id and adgroup_id
+ * @param float $campaign_id, bigint $adgroup_id
+ * @return array
+ */
+function searchAdGroupFromServer($campaign_id, $adgroup_id)
+{
+    global $session;
+    return SearchAdGroupInCampaign::run(new AdWordsServices(), $session, $campaign_id, $adgroup_id);
+}
+
+
+/*
+ * Function searches for adgroup by campaign_id and adgroup_name
+ * @param float $campaign_id
+ * @return array
+ */
+function searchAdGroupByName($campaign_id, $adgroup_name)
+{
+    global $session;
+    return SearchAdGroupByName::run(new AdWordsServices(), $session, $campaign_id, $adgroup_name);
+}
 
 
 /*
@@ -413,6 +452,9 @@ function saveProduct($feed)
 ////////////////////////////////////////////////////////////////////////////////////////
 
 
+
+
+
 /*
  * Function creates and updates log file
  * @param string $data
@@ -504,14 +546,15 @@ function isEmpty($string)
 function updateCampaigns()
 {
     global $campaigns;
-    $campaigns = getCampaigns();
+    $campaigns = getCampaigns(); 
     foreach ($campaigns as $campaign)
     {
-        $name = $campaign['name'];
-        $id = $campaign['id'];
+        $name = $campaign['name']; 
+        $id = $campaign['id']; 
         saveInTable(DB_CAMPAIGNS, ["campaign_id"=>$id, "campaign_name"=>$name], ["campaign_id"=>$id]);
     }
     return TRUE;
+
 }
 
 
@@ -584,33 +627,41 @@ function getCampaignIdByName($name)
 /*
  * Function removes last adgroup from database and adwords dashboard
  */
-function removeLastAdGroup($er_str, $pos)
+function pauseLastAdGroup($er_str, $pos, $adGroupId, $adGroupName)
 {
-    $id = Database::table(DB_ADGROUPS)->lastId();
-    if($id)
+    if($adGroupId != 0)
     {
-        $row = Database::table(DB_ADGROUPS)->find($id);
+        try 
+        {
+            $adRow = getAds($adGroupId);
 
-        $adRow = Database::table(DB_ADS)->where('adgroup_id', '=', $row->adgroup_id)->find();
-        if(!isset($adRow->id) && isset($row->id)) // if ad is not created but adgroup is created
+            if(strpos($er_str, "CriterionError.KEYWORD")!== FALSE)  // Checks if the error is from keyword
+            {
+                log_("Adgroup: '".$adGroupName."' Paused, due to error in keyword");
+            }
+            elseif(count($adRow) < 1) // if ad is not created but adgroup is created
+            {
+                log_("Adgroup: '".$adGroupName."' Paused, due to error creating ads");
+            }
+            
+            else
+            {
+                log_("!!! A previously active adgroup '".$adGroupName."' was paused due to previous error at Feedline $pos in keyword");
+            }
+
+
+            // pauseAdGroup($adGroupId);
+            // saveInTable(DB_ADGROUPS, ["status" => "Not Active"], ["adgroup_id" => $adGroupId]);
+
+            removeAdGroup($adGroupId);
+            Database::table(DB_ADGROUPS)->where("adgroup_id", "=", $adGroupId)->find()->delete(); 
+        } 
+        catch (Exception $e) 
         {
-            Database::table(DB_ADGROUPS)->find($id)->delete();
-            removeAdGroup($row->adgroup_id);
-            log_("Adgroup: '".$row->adgroup_name."' Removed due to error creating ads");
-        }
-        elseif(strpos($er_str, "CriterionError.KEYWORD")!== FALSE)  // Checks if the error is from keyword
-        {
-            Database::table(DB_ADGROUPS)->find($id)->delete();
-            removeAdGroup($row->adgroup_id);
-            log_("Adgroup: '".$row->adgroup_name."' Removed due to error in keyword");
-        }
-        else
-        {
-            //echo "Uncaught Error at Feedline $pos \n";
-            removeAdGroup($row->adgroup_id);
-            log_("!!! We forcefully removed adgroup '".$row->adgroup_name."' because an uncaught Error occurred at Feedline $pos in keyword\nPlease confirm");
+            echo "Exception '$e' occured \n====> $er_str <=====";
         }
     }
+
 }
 
 
@@ -621,7 +672,7 @@ function removeLastAdGroup($er_str, $pos)
  */
 function feedToArr($fileName, $feedStart)
 {
-    if(!filter_var($fileName, FILTER_VALIDATE_URL)) $fileName = FEED_PATH.$fileName; // appending file path if nto a url
+    if(!filter_var($fileName, FILTER_VALIDATE_URL)) $fileName = FEED_PATH.$fileName; // appending file path if not a url
     try
     {
         $file = fopen($fileName, 'r');
@@ -652,11 +703,13 @@ function creator($feedArr, $variation_arr, $feedStart)
 {
     global $campaign_id;
     global $feedPos;
+    global $currentFeed;
     echo "Creating Adgroups, Ads and Keywords ....\n";
     $count = 0;
     foreach ($feedArr as $feed)
     {
         $feedPos = $feedStart+$count;
+        $currentFeed = $feed;
         echo "$feedPos,";
 
 
@@ -703,8 +756,6 @@ function creator($feedArr, $variation_arr, $feedStart)
                         log_("Product: '" . $feed[1] . "' Resumed");
                     }
                 }
-
-
             }
 
 
@@ -1126,6 +1177,9 @@ function createCampaign($name, $budget, $cap=null)
 
 
 
+
+
+
 /*
  * Function helps restart script and continue from where stopped when a fatal error occurs
  */
@@ -1134,6 +1188,19 @@ function fatal_handler() {
     global $argv;
     global $logfile;
     global $campaign_id;
+    global $currentFeed;
+
+    $currentAdGroupId = 0;
+
+    if(!$currentFeed == [])
+    {
+        $currentAdGroupName = ltrim($currentFeed[1])." (".$currentFeed[0].")";
+        $currentAdGroupData = searchAdGroupByName($campaign_id, $currentAdGroupName);
+        if(count($currentAdGroupData) > 0) $currentAdGroupId = $currentAdGroupData[0]['id'];
+    }
+
+        
+
     $errfile = "unknown file";
     $errstr  = "shutdown";
     $errno   = E_CORE_ERROR;
@@ -1151,31 +1218,53 @@ function fatal_handler() {
         if($errno)// === E_ERROR)
         {
             $feedCont = $feedPos+1;
-            echo "\nFatal Error at FeedLine $feedPos, check log for details\nRestarting script from Feedline $feedCont \n";
+            
+            
             $pos = strpos($errstr, "violatingText");
             $er = "$errstr";
             if($pos !== FALSE)
             {
-                $err_arr = explode("}", substr($errstr, $pos));
-                $er = $err_arr[0];
+                $er = explode("}", substr($errstr, $pos))[0];
+                log_("Fatal Error at FeedLine $feedPos: $er");
             }
 
             if(strpos($er, "CriterionError.KEYWORD") !== FALSE)
             {
                 $er = "InvalidKeyword";
+                log_("Fatal Error at FeedLine $feedPos: $er");
             }
 
             if(strpos($er, "RateExceededError") !== FALSE)
             {
                 $er = "API Usage Exceeded, Try again tomorrow to continue from where it stopped";
                 log_("Fatal Error at FeedLine $feedPos: $er");
-                exit(999);
+                exit(99);
             }
 
-            log_("Fatal Error at FeedLine $feedPos: $er");
+            if(strpos($er, "AdGroupServiceError.DUPLICATE_ADGROUP_NAME") !== FALSE)
+            {
+                $er = "Cannot add adgroup '$currentAdGroupName', because it already exist, we would remove it and attempt to recreate it.";
+                $feedCont--;
+                log_("Fatal Error at FeedLine $feedPos: $er");
+                try
+                {
+                    removeAdGroup($currentAdGroupId);
+                    Database::table(DB_ADGROUPS)->where("adgroup_id", "=", $currentAdGroupId)->find()->delete(); 
+                }
+                catch(Exception $e)
+                {
+                    log_("Fatal Error at FeedLine $feedPos: We were denined permission to remove adgroup");
+                    $feedCont++;
+                }
+                
+            }
+            else
+            {
+                // Removing adGroup that failed
+                pauseLastAdGroup($errstr, $feedPos, $currentAdGroupId, $currentAdGroupName);
+            }
 
-            // Removing adGroup that failed
-            removeLastAdGroup($errstr, $feedPos);
+            
 
             // Saving stop point for coninuation later
             saveInTable(
@@ -1187,8 +1276,11 @@ function fatal_handler() {
                 ['campaign_id'   =>  $campaign_id]
             );
 
+            echo "\nFatal Error at FeedLine $feedPos, check log for details\nRestarting script from Feedline $feedCont \n";
+
         }
 
     }
 }
 
+?>

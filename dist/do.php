@@ -34,14 +34,22 @@ while(true)
 {
     $row = \Lazer\Classes\Database::table(DB_EXEC)->where("campaign_id", "=", "$campaign_id")->find();
 
+
     if($restart) $feedCont = 2;
     elseif(isset($row->position)) $feedCont = $row->position;
     else $feedCont = 2;
 
+    if($feedCont >= $noFeed) break;
+
+
     system("php run.php ".$argv[1]." ".$argv[2]." ".$feedCont." ".$logFile." ".$campaign_id, $exitCode);
     $restart = false;
-    if($exitCode == 0 || $feedCont >= $noFeed || $exitCode == 999) break;
+
+    
+    if($exitCode == 0 || $exitCode == 99) break;
 }
+
+\Lazer\Classes\Database::table(DB_EXEC)->delete();
 
 // Time monitor
 $end_time = date("Y-m-d H:i:s");

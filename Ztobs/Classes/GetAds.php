@@ -28,7 +28,7 @@ use Google\AdsApi\AdWords\v201708\cm\SortOrder;
 class GetAds {
 
     public static function run(AdWordsServices $adWordsServices,
-                                      AdWordsSession $session, $adGroupId, $page_limit=500) {
+                                      AdWordsSession $session, $adGroupId, $adStatus="ALL", $page_limit=500) {
         $adGroupAdService =
             $adWordsServices->get($session, AdGroupAdService::class);
 
@@ -41,12 +41,16 @@ class GetAds {
             new Predicate('AdGroupId', PredicateOperator::IN, [$adGroupId]),
             new Predicate('AdType', PredicateOperator::IN,
                 [AdType::EXPANDED_TEXT_AD]),
-            new Predicate('Status', PredicateOperator::IN,
-                [AdGroupAdStatus::ENABLED, AdGroupAdStatus::PAUSED])
+            ($adStatus=="ALL"? new Predicate('Status', PredicateOperator::IN,
+                [AdGroupAdStatus::ENABLED, AdGroupAdStatus::PAUSED]):($adStatus=="ENABLED"? new Predicate('Status', PredicateOperator::IN,
+                [AdGroupAdStatus::ENABLED]):($adStatus=="PAUSED"? new Predicate('Status', PredicateOperator::IN,
+                [AdGroupAdStatus::PAUSED]):"")))
+            
+            
         ]);
         $selector->setPaging(new Paging(0, $page_limit));
 
-        $results = null;
+        $results = [];
         $totalNumEntries = 0;
         do {
             // Retrieve ad group ads one page at a time, continuing to request pages

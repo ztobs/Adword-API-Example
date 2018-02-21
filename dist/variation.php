@@ -18,12 +18,11 @@
 
 $variation = array(
     0   =>  array(
-        "headline1" => "Buy {{productShortName}} now",
-        "headline2" => "only for {{productPrice}} €"
+        "headline1" => "{{productShortName}}",
+        "headline2" => "jetzt um {{productPrice}} € kaufen"
     ),
     1   => array(
-        "headline1" => "Cheap {{productShortName}}",
-        "headline2" => "save -{{productDiscountInPercent}}"
+        "headline1" => "{{productShortName}}",
+        "headline2" => "kaufen und {{productDiscountInPercent}} sparen"
     )
 );
-
