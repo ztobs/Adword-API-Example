@@ -56,24 +56,6 @@ $campaign_id =  getCampaignIdByName($campaignName);
 
 // create AdGroups, Ads and keywords
 creator($feedArr, $variation, $feedStart);
-
-// Gone: Pausing Ads and AdGroups for gone
-pauseGones(getGone());
-
-// Prepare Database for Next Run
-prepare4NextRun();
-
-
-//////////////////////////////////////////////////////////////////////////////
-// Setting feed position to ZERO when completed
-saveInTable(
-    DB_EXEC,
-    [
-        'position'      =>  "0",
-        'campaign_id'   =>  $campaign_id
-    ],
-    ['campaign_id'   =>  $campaign_id]
-);
 exit(0);
 
 

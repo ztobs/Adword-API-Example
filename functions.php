@@ -655,7 +655,7 @@ function pauseLastAdGroup($er_str, $pos, $adGroupId, $adGroupName)
             }
             elseif(count($adRow) < 1) // if ad is not created but adgroup is created
             {
-                log_("Adgroup: '".$adGroupName."' Paused, due to error creating ads");
+                log_("Adgroup: '".$adGroupName."' Paused or removed, due to error creating ads");
             }
             
             else
@@ -1087,14 +1087,19 @@ function makeAds($feed, $variation_arr, $adGroupId, $finalUrl)
  */
 function prepare4NextRun()
 {
-    $table = Database::table(DB_PRODUCTS)->findAll();
-    foreach ($table as $row)
-    {
-        $row = Database::table(DB_PRODUCTS)->find($row->id); // Edit row with ID 1
-        $row->processed = 'false';
-        $row->save();
-    }
+    global $campaign_id;
 
+
+    echo "\nPreparing database for next run\n";
+    Database::table(DB_EXEC)->delete(); // Setting process pointer to the beginning
+
+    $prodd = Database::table(DB_PRODUCTS)->where("campaign_id", "=", $campaign_id)->findAll();
+    foreach($prodd as $pd)
+    {
+        $row1 = \Lazer\Classes\Database::table(DB_PRODUCTS)->where("product_name", "=", $pd->product_name)->find(); //Edit row with ID 1
+        $row1->processed = 'false'; // setting all product to not processed
+        $row1->save();
+    }
 }
 
 

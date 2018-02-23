@@ -24,4 +24,6 @@ $campaign_id =  getCampaignIdByName($campaignName);
 //echo count($t);
 //var_dump($t);
 
-echo populateKeywordDB();
+//populateKeywordDB();
+
+//prepare4NextRun();

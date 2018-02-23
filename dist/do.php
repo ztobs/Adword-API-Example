@@ -49,7 +49,7 @@ while(true)
     if($exitCode == 0 || $exitCode == 99) break;
 }
 
-\Lazer\Classes\Database::table(DB_EXEC)->delete();
+prepare4NextRun();
 
 // Time monitor
 $end_time = date("Y-m-d H:i:s");

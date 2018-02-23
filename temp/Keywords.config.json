@@ -1,1 +1,1 @@
-{"last_id":27572,"schema":{"id":"integer","keyword_id":"string","keyword":"string","adgroup_id":"string","product_id":"string","campaign_id":"string","status":"string"},"relations":{"AdGroups":{"type":"belongsTo","keys":{"local":"adgroup_id","foreign":"adgroup_id"}}}}
+{"last_id":27594,"schema":{"id":"integer","keyword_id":"string","keyword":"string","adgroup_id":"string","product_id":"string","campaign_id":"string","status":"string"},"relations":{"AdGroups":{"type":"belongsTo","keys":{"local":"adgroup_id","foreign":"adgroup_id"}}}}
