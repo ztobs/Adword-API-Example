@@ -1,3 +1,5 @@
 dist/debug.log
-log/**
+dist/nohup.out
+log/*.log
 adsapi_php.ini
+*.log

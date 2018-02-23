@@ -29,6 +29,7 @@ setlocale(LC_MONETARY,"en_US");
 
 
 include "vendor/autoload.php";
+include 'dist/variation.php';
 
 
 
@@ -55,6 +56,7 @@ use Ztobs\Classes\RemoveKeyword;
 use Ztobs\Classes\UpdateKeyword;
 use Ztobs\Classes\SearchAdGroupInCampaign;
 use Ztobs\Classes\SearchAdGroupByName;
+use Ztobs\Classes\GetKeywords;
 
 
 
@@ -251,6 +253,18 @@ function getAdGroups($campaign_id)
 {
     global $session;
     return GetAdGroupsByCampaign::run(new AdWordsServices(), $session, $campaign_id);
+}
+
+
+/*
+ * Function retrieves keywords in a adgroup
+ * @param Integer $adgroup_id
+ * @return array
+ */
+function getKeywords($adgroup_id)
+{
+    global $session;
+    return GetKeywords::run(new AdWordsServices(), $session, $adgroup_id);
 }
 
 
@@ -625,7 +639,7 @@ function getCampaignIdByName($name)
 
 
 /*
- * Function removes last adgroup from database and adwords dashboard
+ * Function pauses last adgroup in database and adwords dashboard
  */
 function pauseLastAdGroup($er_str, $pos, $adGroupId, $adGroupName)
 {
@@ -725,7 +739,9 @@ function creator($feedArr, $variation_arr, $feedStart)
         $finalUrl = $is_https?"https://".$product_url:"http://".$product_url;
 
         $ret = checkType($feed);
-        
+
+        // echo "type = ".$ret['type']." \n";
+        // echo "== END ==\n";
 
         if($ret['type'] != 'skip')
         {
@@ -747,7 +763,7 @@ function creator($feedArr, $variation_arr, $feedStart)
                     resumeAdGroup($adGroupData->adgroup_id);
                     saveInTable(DB_ADGROUPS, ["status" => "Active"], ["id" => $adGroupData->id]);
 
-                    $adData = getAdsByProductId($feed[0]);
+                    $adData = getAdsByProductId($feed[0], "last");
                     if ($adData) {
                         foreach ($adData as $dd) {
                             resumeAd($adGroupData->adgroup_id, $dd->ad_id);
@@ -819,7 +835,7 @@ function creator($feedArr, $variation_arr, $feedStart)
                         resumeAdGroup($adGroupData->adgroup_id);
                         saveInTable(DB_ADGROUPS, ["status" => "Active"], ["id" => $adGroupData->id]);
 
-                        $adData = getAdsByProductId($feed[0]);
+                        $adData = getAdsByProductId($feed[0], "last");
                         if ($adData)
                         {
                             foreach ($adData as $dd) {
@@ -916,7 +932,7 @@ function getAdgroupByProductId($product_id, $activeOnly=false)
 {
     global $campaign_id;
     if($activeOnly) $row = Database::table(DB_ADGROUPS)->where('product_id', "=", $product_id)->andWhere('campaign_id', '=', $campaign_id)->andWhere('status', '=', 'Active')->andWhere('last', '=', 'true')->find();
-    else $row = Database::table(DB_ADGROUPS)->where('product_id', "=", $product_id)->andWhere('campaign_id', '=', $campaign_id)->andWhere('last', '=', 'true')->find();
+    else $row = Database::table(DB_ADGROUPS)->where('product_id', "=", $product_id)->andWhere('campaign_id', '=', $campaign_id)->find();
     if(isset($row->id)) return $row;
 }
 
@@ -926,11 +942,11 @@ function getAdgroupByProductId($product_id, $activeOnly=false)
  * @param integer $product_id
  * @return array of stdObj ad row
  */
-function getAdsByProductId($product_id, $activeOnly=false)
+function getAdsByProductId($product_id, $lastOnly=false)
 {
     global $campaign_id;
-    if($activeOnly) $table = Database::table(DB_ADS)->where('product_id', "=", $product_id)->andwhere('last', '=', 'true')->andWhere('campaign_id', '=', $campaign_id)->andWhere('status', '=', 'Active')->findAll();
-    else $table = Database::table(DB_ADS)->where('product_id', "=", $product_id)->andwhere('last', '=', 'true')->andWhere('campaign_id', '=', $campaign_id)->findAll();
+    if($lastOnly) $table = Database::table(DB_ADS)->where('product_id', "=", $product_id)->andwhere('last', '=', 'true')->andWhere('campaign_id', '=', $campaign_id)->findAll();
+    else $table = Database::table(DB_ADS)->where('product_id', "=", $product_id)->andWhere('campaign_id', '=', $campaign_id)->findAll();
     if(count($table) > 0) return $table;
 }
 
@@ -1089,12 +1105,12 @@ function prepare4NextRun()
 function checkType($feed)
 {
     $row = Database::table(DB_PRODUCTS)->where('product_id', '=', $feed[0])->find();
-    
-    
-    // var_dump($row);
-    // echo "== END ==\n";
+
+    //echo "name=".$feed[0]."\n";
+
     if(isset($row->id))
     {
+
         // For Processed, will be skipped
         if($row->processed == 'true') return array('type'=>'skip', 'data'=>null);
 
@@ -1112,6 +1128,8 @@ function checkType($feed)
 
         // For Pause
         if($feed[16] != 'Active' && $row->status == 'Active') return array('type'=>'pause', 'data'=>$row);
+
+        return array('type'=>'skip', 'data'=>null);
     }
     else
     {
@@ -1180,9 +1198,159 @@ function createCampaign($name, $budget, $cap=null)
 }
 
 
+/*
+ * Function populates local adgroup table from server
+ * params: null
+ * return: Integer (number of updates)
+ */
+function populateAdgroupDB()
+{
+    global $session;
+    global $campaign_id;
+
+    $adGroupsFromServer = getAdGroups($campaign_id);
+    $count = 0;
+    Database::table(DB_ADGROUPS)->delete(); // lets 1st empty the db
+
+    echo "Populating local AdGroup Database .\n";
+    foreach ($adGroupsFromServer as $adGroupData) {
+   
+
+        $adGroupId = $adGroupData['id'];
+        $adGroupName = $adGroupData['name'];
+        $productId = explode(")", explode("(", $adGroupData['name'])[1])[0];
+        $adGroupStatus = ($adGroupData['status']=="PAUSED") ? "Not Active" : "Active";
+        
+        saveInTable(
+                DB_ADGROUPS,
+                [
+                    'adgroup_id'    =>  $adGroupId,
+                    'adgroup_name'  =>  $adGroupName,
+                    'product_id'    =>  $productId,
+                    'campaign_id'   =>  $campaign_id,
+                    'status'        =>  $adGroupStatus,
+                    'last'          =>  'true'
+                ]
+            );
+        echo ".";
+        $count++;
+    }
+
+    return $count;
+}
+
+
+/*
+ * Function populates local ads table from server
+ * params: null
+ * return: Integer (number of updates)
+ */
+function populateAdDB()
+{
+    global $session;
+    global $campaign_id;
+    global $variation;
+
+    $adGroupsFromServer = getAdGroups($campaign_id);
+    $variation_count = count($variation);
+    $count = 0;
+    Database::table(DB_ADS)->delete(); // lets 1st empty the db
+
+    echo "Populating local Ad Database .\n";
+    foreach ($adGroupsFromServer as $adGroupData) 
+    {
+        $adGroupId = $adGroupData['id'];
+        $adGroupName = $adGroupData['name'];
+        $productId = explode(")", explode("(", $adGroupData['name'])[1])[0];
+        $adGroupStatus = ($adGroupData['status']=="PAUSED") ? "Not Active" : "Active";
+
+        $adData = getAds($adGroupId);
+        $ads_count = count($adData);
+        
+        for ($i=0; $i<$ads_count; $i++) 
+        { 
+            $adId = $adData[$i]['id'];
+            $h1 = $adData[$i]['headlinePart1'];
+            $h2 = $adData[$i]['headlinePart2'];
+            $description = $adData[$i]['description'];
+            $finalUrl = $adData[$i]['finalUrl'];
+            $adStatus = ($adData['status']=="PAUSED") ? "Not Active" : "Active";
+            $adLast = ( $i >= ($ads_count - $variation_count) )? "true" : "false";
+
+            saveInTable(
+                    DB_ADS,
+                    [
+                        'product_id'    =>  $productId,
+                        'ad_id'         =>  $adId,
+                        'adgroup_id'    =>  $adGroupId,
+                        'campaign_id'   =>  $campaign_id,
+                        'headline1'     =>  $h1,
+                        'headline2'     =>  $h2,
+                        'final_url'     =>  $finalUrl,
+                        'status'        =>  $adStatus,
+                        'last'          =>  $adLast
+                    ]
+                );
+            $count++;
+        }
+
+        echo ".";
+    }
+
+    return $count;
+}
 
 
 
+/*
+ * Function populates local keywords table from server
+ * params: null
+ * return: Integer (number of updates)
+ */
+function populateKeywordDB()
+{
+    global $session;
+    global $campaign_id;
+
+    $adGroupsFromServer = getAdGroups($campaign_id);
+    $count = 0;
+    Database::table(DB_KEYWORDS)->delete(); // lets 1st empty the db
+
+    echo "Populating local keyword Database .\n";
+    foreach ($adGroupsFromServer as $adGroupData) {
+   
+
+        $adGroupId = $adGroupData['id'];
+        $adGroupName = $adGroupData['name'];
+        $productId = explode(")", explode("(", $adGroupData['name'])[1])[0];
+        $adGroupStatus = ($adGroupData['status']=="PAUSED") ? "Not Active" : "Active";
+
+        $keywords = getKeywords($adGroupId);
+
+        foreach ($keywords as $keyword) {
+
+            $keywordId = $keyword['id'];
+            $keywordText = $keyword['keyword'];
+
+            
+            saveInTable(
+                   DB_KEYWORDS,
+                    [
+                        'keyword_id'    =>  $keywordId,
+                        'keyword'       =>  $keywordText,
+                        'adgroup_id'    =>  $adGroupId,
+                        'product_id'    =>  $productId,
+                        'campaign_id'   =>  $campaign_id,
+                        'status'        =>  'Active'
+                    ]
+                );
+
+            $count++;
+        }
+        echo ".";
+    }
+    return $count;
+}
 
 /*
  * Function helps restart script and continue from where stopped when a fatal error occurs

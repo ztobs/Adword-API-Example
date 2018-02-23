@@ -35,7 +35,7 @@ class GetAds {
         // Create a selector to select all ads for the specified ad group.
         $selector = new Selector();
         $selector->setFields(
-            ['Id', 'Status', 'HeadlinePart1', 'HeadlinePart2', 'Description']);
+            ['Id', 'Status', 'HeadlinePart1', 'HeadlinePart2', 'Description', 'CreativeFinalUrls']);
         $selector->setOrdering([new OrderBy('Id', SortOrder::ASCENDING)]);
         $selector->setPredicates([
             new Predicate('AdGroupId', PredicateOperator::IN, [$adGroupId]),
@@ -68,7 +68,8 @@ class GetAds {
                             'headlinePart1' =>  $adGroupAd->getAd()->getHeadlinePart1(),
                             'headlinePart2' =>  $adGroupAd->getAd()->getHeadlinePart2(),
                             'description'   =>  $adGroupAd->getAd()->getDescription(),
-                            'adGroupId'     =>  $adGroupId
+                            'adGroupId'     =>  $adGroupId,
+                            'finalUrl'      =>  $adGroupAd->getAd()->getfinalUrls()[0]
                     );
                 }
             }

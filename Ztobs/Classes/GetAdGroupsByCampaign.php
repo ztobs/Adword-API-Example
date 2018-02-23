@@ -27,12 +27,12 @@ class GetAdGroupsByCampaign {
 
 
     public static function run(AdWordsServices $adWordsServices,
-                                      AdWordsSession $session, $campaignId, $page_limit=500) {
+                                      AdWordsSession $session, $campaignId, $page_limit=10000) {
         $adGroupService = $adWordsServices->get($session, AdGroupService::class);
 
         // Create a selector to select all ad groups for the specified campaign.
         $selector = new Selector();
-        $selector->setFields(['Id', 'Name']);
+        $selector->setFields(['Id', 'Name', 'Status']);
         $selector->setOrdering([new OrderBy('Name', SortOrder::ASCENDING)]);
         $selector->setPredicates(
             [new Predicate('CampaignId', PredicateOperator::IN, [$campaignId])]);
@@ -50,7 +50,7 @@ class GetAdGroupsByCampaign {
                 $totalNumEntries = $page->getTotalNumEntries();
                 foreach ($page->getEntries() as $adGroup) {
 
-                        $results[] = array("id"=>$adGroup->getId(), "name"=>$adGroup->getName());
+                        $results[] = array("id"=>$adGroup->getId(), "name"=>$adGroup->getName(), "status"=>$adGroup->getStatus());
                 }
             }
 

@@ -49,18 +49,7 @@ while(true)
     if($exitCode == 0 || $exitCode == 99) break;
 }
 
-// Preparing Database for next run
-echo "\nPreparing database for next run\n";
-\Lazer\Classes\Database::table(DB_EXEC)->delete(); // Setting process pointer to the beginning
-
-$prodd = \Lazer\Classes\Database::table(DB_PRODUCTS)->findAll();
-foreach($prodd as $pd)
-{
-    $row1 = \Lazer\Classes\Database::table(DB_PRODUCTS)->where("product_name", "=", $pd->product_name)->find(); //Edit row with ID 1
-	$row1->processed = 'false'; // setting all product to not processed
-	$row1->save();
-}
-
+\Lazer\Classes\Database::table(DB_EXEC)->delete();
 
 // Time monitor
 $end_time = date("Y-m-d H:i:s");
