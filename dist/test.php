@@ -27,3 +27,6 @@ $campaign_id =  getCampaignIdByName($campaignName);
 //populateKeywordDB();
 
 //prepare4NextRun();
+
+var_dump(getKeywords("56031909568"));
+

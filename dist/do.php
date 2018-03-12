@@ -49,6 +49,9 @@ while(true)
     if($exitCode == 0 || $exitCode == 99) break;
 }
 
+// Gone: Pausing Ads and AdGroups for gone
+pauseGones(getGone(), $logFile);
+
 prepare4NextRun();
 
 // Time monitor

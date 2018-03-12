@@ -65,7 +65,8 @@ class GetKeywords
 
                     $results[] = array(
                             'id'            =>  $adGroupCriterion->getCriterion()->getId(),
-                            'keyword'       =>  $adGroupCriterion->getCriterion()->getText()
+                            'keyword'       =>  $adGroupCriterion->getCriterion()->getText(),
+                            'type'          =>  $adGroupCriterion->getCriterion()->getMatchType()
                     );
 
                 }

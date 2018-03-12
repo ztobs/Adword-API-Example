@@ -32,7 +32,7 @@ use Google\AdsApi\Common\OAuth2TokenBuilder;
 class AddKeywords {
 
     public static function run(AdWordsServices $adWordsServices,
-                                      AdWordsSession $session, $adGroupId, $keywordsArr, $finalUrl, $keywordBid) {
+                                      AdWordsSession $session, $adGroupId, $keywordsArr, $type, $finalUrl, $keywordBid) {
         $adGroupCriterionService =
             $adWordsServices->get($session, AdGroupCriterionService::class);
 
@@ -43,7 +43,10 @@ class AddKeywords {
             // Create the first keyword criterion.
             $keyword = new Keyword();
             $keyword->setText($keywordString);
-            $keyword->setMatchType(KeywordMatchType::BROAD);
+
+            if($type == "EXACT") $keyword->setMatchType(KeywordMatchType::EXACT);
+            if($type == "PHRASE") $keyword->setMatchType(KeywordMatchType::PHRASE);
+            if($type == "BROAD") $keyword->setMatchType(KeywordMatchType::BROAD);
 
             // Create biddable ad group criterion.
             $adGroupCriterion = new BiddableAdGroupCriterion();

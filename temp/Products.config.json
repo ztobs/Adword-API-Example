@@ -1,1 +1,1 @@
-{"last_id":3683,"schema":{"id":"integer","product_id":"string","product_name":"string","description":"string","price":"string","discount":"string","status":"string","url":"string","keywords":"string","processed":"string","campaign_id":"string"},"relations":{}}
+{"last_id":4839,"schema":{"id":"integer","product_id":"string","product_name":"string","description":"string","price":"string","discount":"string","status":"string","url":"string","keywords":"string","processed":"string","campaign_id":"string"},"relations":{}}

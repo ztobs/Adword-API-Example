@@ -37,17 +37,40 @@ class GetAds {
         $selector->setFields(
             ['Id', 'Status', 'HeadlinePart1', 'HeadlinePart2', 'Description', 'CreativeFinalUrls']);
         $selector->setOrdering([new OrderBy('Id', SortOrder::ASCENDING)]);
-        $selector->setPredicates([
+
+        if($adStatus=="ALL")
+        {
+            $selector->setPredicates([
             new Predicate('AdGroupId', PredicateOperator::IN, [$adGroupId]),
             new Predicate('AdType', PredicateOperator::IN,
                 [AdType::EXPANDED_TEXT_AD]),
-            ($adStatus=="ALL"? new Predicate('Status', PredicateOperator::IN,
-                [AdGroupAdStatus::ENABLED, AdGroupAdStatus::PAUSED]):($adStatus=="ENABLED"? new Predicate('Status', PredicateOperator::IN,
-                [AdGroupAdStatus::ENABLED]):($adStatus=="PAUSED"? new Predicate('Status', PredicateOperator::IN,
-                [AdGroupAdStatus::PAUSED]):"")))
+             new Predicate('Status', PredicateOperator::IN,
+                [AdGroupAdStatus::ENABLED, AdGroupAdStatus::PAUSED])
+             ]);
+        }
+        if($adStatus=="ENABLED")
+        {
+            $selector->setPredicates([
+            new Predicate('AdGroupId', PredicateOperator::IN, [$adGroupId]),
+            new Predicate('AdType', PredicateOperator::IN,
+                [AdType::EXPANDED_TEXT_AD]),
+             new Predicate('Status', PredicateOperator::IN,
+                [AdGroupAdStatus::ENABLED])
+             ]);
+        }
+        if($adStatus=="PAUSED")
+        {
+            $selector->setPredicates([
+            new Predicate('AdGroupId', PredicateOperator::IN, [$adGroupId]),
+            new Predicate('AdType', PredicateOperator::IN,
+                [AdType::EXPANDED_TEXT_AD]),
+             new Predicate('Status', PredicateOperator::IN,
+                [AdGroupAdStatus::PAUSED])
+             ]);
+        }
             
             
-        ]);
+        
         $selector->setPaging(new Paging(0, $page_limit));
 
         $results = [];
