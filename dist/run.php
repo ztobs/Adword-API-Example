@@ -56,7 +56,7 @@ $campaign_id =  getCampaignIdByName($campaignName);
 
 // create AdGroups, Ads and keywords
 creator($feedArr, $variation, $feedStart);
-exit(0);
+
 
 
 

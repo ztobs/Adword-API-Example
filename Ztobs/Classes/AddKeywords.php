@@ -83,7 +83,8 @@ class AddKeywords {
         foreach ($result->getValue() as $adGroupCriterion) {
             $id= floatval($adGroupCriterion->getCriterion()->getId());
             $text = $adGroupCriterion->getCriterion()->getText();
-            $results[] = array('id'=>$id, 'text'=>$text);
+            $type = $adGroupCriterion->getCriterion()->getMatchType();
+            $results[] = array('id'=>$id, 'text'=>$text, 'type'=>$type);
         }
 
         return $results;

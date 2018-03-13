@@ -1,7 +1,7 @@
 <?php
 
 include '../functions.php';
-
+use Lazer\Classes\Database;
 
 updateCampaigns();
 
@@ -28,5 +28,4 @@ $campaign_id =  getCampaignIdByName($campaignName);
 
 //prepare4NextRun();
 
-var_dump(getKeywords("56031909568"));
-
+removeNullProductDb();

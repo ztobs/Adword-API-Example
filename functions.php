@@ -37,6 +37,7 @@ use Google\AdsApi\Common\OAuth2TokenBuilder;
 use Google\AdsApi\AdWords\AdWordsSessionBuilder;
 use Google\AdsApi\AdWords\AdWordsServices;
 use Lazer\Classes\Database;
+use Lazer\Classes\LazerException;
 use Lazer\Classes\Relation;
 use Ztobs\Classes\Ad;
 use Ztobs\Classes\AddAdGroup;
@@ -173,7 +174,8 @@ function updateKeyword($adGroupId, $keywordId, $finalUrl)
  * @return: array $keywordIds
  */
 function createKeywords($adgroupId, $keywordsArr, $type, $finalUrl, $bid)
-{
+{   
+    if(trim($keywordsArr[0]) == "") return [];
     global $session;
     $ret = AddKeywords::run(new AdWordsServices(), $session, $adgroupId, $keywordsArr, $type, $finalUrl, $bid);
     return $ret;
@@ -368,7 +370,7 @@ function initTables()
             'id'            =>  'integer',
             'keyword_id'    =>  'string',
             'keyword'       =>  'string',
-            'type'          =>  'string'
+            'type'          =>  'string',
             'adgroup_id'    =>  'string',
             'product_id'    =>  'string',
             'campaign_id'   =>  'string',
@@ -446,7 +448,7 @@ function saveProduct($feed)
             'discount'      =>  $feed[10],
             'status'        =>  $feed[18],
             'url'           =>  $feed[16],
-            'keywords'      =>  keywords_merge($feed[12],$feed[13],$feed[14],
+            'keywords'      =>  keywords_merge($feed[12],$feed[13],$feed[14]),
             'processed'     =>  'true',
             'campaign_id'   =>  $campaign_id
         ],
@@ -516,7 +518,7 @@ function createKeywordsBulk($adGroupId, $kw, $finalUrl, $bid)
     $all_string = [];
     foreach ($all_arr as $vv) 
     {
-        $all_string[] = $vv['keyword'];
+        $all_string[] = $vv['text'];
     }
 
     return array('array'=>$all_arr, 'string'=>$all_string);
@@ -1122,13 +1124,9 @@ function makeAds($feed, $variation_arr, $adGroupId, $finalUrl)
 function prepare4NextRun()
 {
     global $campaign_id;
-
-
     echo "\nPreparing database for next run\n";
 
-    
-    
-
+    removeNullProductDb();
     $prodd = Database::table(DB_PRODUCTS)->where("campaign_id", "=", $campaign_id)->findAll();
     foreach($prodd as $pd)
     {
@@ -1214,7 +1212,29 @@ function getGone()
  */
 function removeNullProductDb()
 {
-    Database::table(DB_PRODUCTS)->where('product_id', '=', null)->delete();
+    global $campaign_id;
+    try 
+    {
+        $tbs = Database::table(DB_PRODUCTS)->where("campaign_id", "=", $campaign_id)->findAll();
+        Database::table(DB_PRODUCTS)->delete();
+
+        foreach ($tbs as $tb) 
+        {
+            $row = Database::table(DB_PRODUCTS);
+
+            $row->product_id = $tb->product_id;
+            $row->product_name = $tb->product_name;
+            $row->description = $tb->description;
+            $row->price = $tb->price;
+            $row->discount = $tb->discount;
+            $row->status = $tb->status;
+            $row->url = $tb->url;
+            $row->keywords = $tb->keywords;
+            $row->processed = $tb->processed;
+            $row->campaign_id = $tb->campaign_id;
+            $row->save();
+        }
+    } catch (LazerException  $e) {}
 }
 
 
