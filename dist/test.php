@@ -35,5 +35,7 @@ $campaign_id =  getCampaignIdByName($campaignName);
 //	removeAdGroup($t['id']);
 //}
 
-$tt = getKeywords("55746133800");
-var_dump($tt);
+$hello = explode(",", " ,  ");
+var_dump(array_filter($hello, "trim"));
+
+

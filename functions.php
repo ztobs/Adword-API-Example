@@ -175,9 +175,10 @@ function updateKeyword($adGroupId, $keywordId, $finalUrl)
  */
 function createKeywords($adgroupId, $keywordsArr, $type, $finalUrl, $bid)
 {
-    if(trim($keywordsArr[0]) == "") return [];
+    $cleanKeywordsArr = array_filter($keywordsArr, "trim");
+    if(count($cleanKeywordsArr) < 1) return [];
     global $session;
-    $ret = AddKeywords::run(new AdWordsServices(), $session, $adgroupId, $keywordsArr, $type, $finalUrl, $bid);
+    $ret = AddKeywords::run(new AdWordsServices(), $session, $adgroupId, $cleanKeywordsArr, $type, $finalUrl, $bid);
     return $ret;
 }
 
