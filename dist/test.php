@@ -28,4 +28,12 @@ $campaign_id =  getCampaignIdByName($campaignName);
 
 //prepare4NextRun();
 
-removeNullProductDb();
+//removeNullProductDb();
+
+//$tt = getAdGroups($campaign_id);
+//foreach ($tt as $t) {
+//	removeAdGroup($t['id']);
+//}
+
+$tt = getKeywords("55746133800");
+var_dump($tt);

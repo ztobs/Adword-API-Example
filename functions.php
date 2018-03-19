@@ -174,7 +174,7 @@ function updateKeyword($adGroupId, $keywordId, $finalUrl)
  * @return: array $keywordIds
  */
 function createKeywords($adgroupId, $keywordsArr, $type, $finalUrl, $bid)
-{   
+{
     if(trim($keywordsArr[0]) == "") return [];
     global $session;
     $ret = AddKeywords::run(new AdWordsServices(), $session, $adgroupId, $keywordsArr, $type, $finalUrl, $bid);
@@ -486,7 +486,11 @@ function log_($data, $logFile_=null)
     writeToFile2("../log/".$logfile, $data."\n");
 }
 
-
+/*
+ * Function generates new logfile namif not exist
+ * @params: 
+ * @return string $logfilename
+ */
 function logFileName()
 {
     global $logfile;
@@ -496,19 +500,33 @@ function logFileName()
     // sample  log.2017-10-02-11:52:11.log
 }
 
+/*
+ * Function simply joins all keyords (exact, phrase and broad) into a single string with <!> seperator, to help maintain consistency
+ * @params: string $exact, string $phrase, string $broad
+ * @return string
+ */
 function keywords_merge($exact, $phrase, $broad)
 {
     return $exact."<!>".$phrase."<!>".$broad;
 }
 
+/*
+ * Function converts the string from keyword_merge() function into an array
+ * @params: string $merged_string
+ * @return array
+ */
 function keywords_split($string)
 {
     return explode("<!>", $string);
 }
 
+/*
+ * Function help organize keywords into array that can easily be imported to adwords
+ * @params: integer/string $adGroupId, string $keyword, string $finalurl, $double $bid
+ * @return assoc_array
+ */
 function createKeywordsBulk($adGroupId, $kw, $finalUrl, $bid)
 {
-    $kw_arr_final = [];
     $kw_arr = keywords_split($kw);
     $arr_exact = createKeywords($adGroupId, explode(",", $kw_arr[0]), "EXACT", $finalUrl, $bid);
     $arr_phrase = createKeywords($adGroupId, explode(",", $kw_arr[1]), "PHRASE", $finalUrl, $bid);
@@ -525,9 +543,64 @@ function createKeywordsBulk($adGroupId, $kw, $finalUrl, $bid)
 }
 
 
+/**
+ * Function uses the keywords on adwords server and compares with feed to trigger if there is change, comparing with local db was messing up big time
+ * @param $feed
+ * @param $adGroupId
+ * @return bool
+ */
+function keywordChange($feed, $adGroupId)
+{
+    // lets first get keywords from adgroup and list then in array while appending the type to it. Reason for appending type is so that keywords from eg broad dont mixup with same keyword in exact
+    $kws_server = getKeywords($adGroupId);
+    $kw_s = [];
+    foreach ($kws_server as $kw_server)
+    {
+        $kw_s[] = $kw_server['keyword']."!!".$kw_server['type'];
+    }
+
+    // Now lets get keywords from feed treating the feed columns seperately so that we can append the feed type to it
+    $kws_feed = [];
+    $kws_feed_e = explode(",", $feed[12]);
+    foreach ($kws_feed_e as $kw_feed_e)
+    {
+        if($kw_feed_e != "") $kws_feed[] = $kw_feed_e."!!EXACT";
+    }
+
+    $kws_feed_p = explode(",", $feed[13]);
+    foreach ($kws_feed_p as $kw_feed_p)
+    {
+        if($kw_feed_p != "") $kws_feed[] = $kw_feed_p."!!PHRASE";
+    }
+
+    $kws_feed_b = explode(",", $feed[14]);
+    foreach ($kws_feed_b as $kw_feed_b)
+    {
+        if($kw_feed_b != "") $kws_feed[] = $kw_feed_b."!!BROAD";
+    }
+
+    // We can now check for each keyword in feed with keyword from adgroup server
+    $notFound = FALSE;
+    foreach ($kws_feed as $kw_feed)
+    {
+        if(!in_array($kw_feed, $kw_s))
+        {
+            $notFound = TRUE;
+            break;
+        }
+    }
+
+    // In case the no new keyword was added to feed but was subtracted, the logic above wouldnt detect it, we just compare the sizes of both array. keyword change is taken care of 100%
+    if(count($kws_feed) != count($kw_s)) $notFound = TRUE;
+
+    // return
+    return $notFound;
+}
+
+
 /*
  * Function checks if product_id, price, description, product name, discount, url and status is empty and logs to file which feedline is empty
- * @params: array $feed, integer $feedPos
+ * @params array $feed, integer $feedPos
  * @return boolean
  */
 function eligibleProduct($feed, $feedPos)
@@ -766,7 +839,8 @@ function creator($feedArr, $variation_arr, $feedStart)
         $product_url = str_replace("https://", "", $product_url);
         $finalUrl = $is_https?"https://".$product_url:"http://".$product_url;
 
-        $ret = checkType($feed);
+        $adGroupData = searchAdGroupByName($campaign_id, $feed[1]." (".$feed[0].")");
+        $ret = checkType($feed, $adGroupData[0]['id']);
 
         // echo "type = ".$ret['type']." \n";
         // echo "== END ==\n";
@@ -785,8 +859,6 @@ function creator($feedArr, $variation_arr, $feedStart)
             if($ret['type'] == 'activate')
             {
                 $data = $ret['data'];
-
-                $adGroupData = searchAdGroupByName($campaign_id, $feed[1]." (".$feed[0].")");
 
                 if (count($adGroupData) > 0) 
                 {
@@ -809,7 +881,6 @@ function creator($feedArr, $variation_arr, $feedStart)
             if($ret['type'] == 'pause')
             {
 
-                $adGroupData = searchAdGroupByName($campaign_id, $feed[1]." (".$feed[0].")");
                 if (count($adGroupData) > 0) 
                 {
                     pauseAdGroup($adGroupData[0]['id']);
@@ -832,7 +903,6 @@ function creator($feedArr, $variation_arr, $feedStart)
             if($ret['type'] == 'name_change')
             {
                 // Pausing Adgroups
-                $adGroupData = searchAdGroupByName($campaign_id, $feed[1]." (".$feed[0].")");
                 if(count($adGroupData) > 0)
                 {
                     pauseAdGroup($adGroupData[0]['id']);
@@ -858,7 +928,6 @@ function creator($feedArr, $variation_arr, $feedStart)
             // Keyword_Change: Replacing the keywords
             if($ret['type'] == 'keyword_change')
             {
-                $adGroupData = searchAdGroupByName($campaign_id, $feed[1]." (".$feed[0].")");
                 if(count($adGroupData) > 0 )
                 {
                     if($feed[18] == "Active" && $adGroupData[0]['status'] == "PAUSED")
@@ -915,7 +984,6 @@ function creator($feedArr, $variation_arr, $feedStart)
             // Other_Change: Pausing Ad and Creating new
             if($ret['type'] == 'other_change')
             {
-                $adGroupData = searchAdGroupByName($campaign_id, $feed[1]." (".$feed[0].")");
                 if(count($adGroupData) > 0)
                 {
                     if($feed[18] == "Active" && $adGroupData[0]['status'] == "PAUSED")
@@ -1144,7 +1212,7 @@ function prepare4NextRun()
  * Function to check if its a new product, name changed, to be paused, keyword change, others changed, or already proceeds product
  * @params array $feed
  */
-function checkType($feed)
+function checkType($feed, $adGroupId)
 {
     $row = Database::table(DB_PRODUCTS)->where('product_id', '=', $feed[0])->find();
 
@@ -1163,7 +1231,8 @@ function checkType($feed)
         if($feed[2] != $row->price || $feed[5] != $row->description || $feed[10] != $row->discount || $feed[16] != $row->url) return array('type'=>'other_change', 'data'=>$row);
 
         // For Keywords Change
-        if(keywords_merge($feed[12],$feed[13],$feed[14]) != $row->keywords) return array('type'=>'keyword_change', 'data'=>$row);
+//        if(keywords_merge($feed[12],$feed[13],$feed[14]) != $row->keywords) return array('type'=>'keyword_change', 'data'=>$row);
+        if(keywordChange($feed, $adGroupId)) return array('type'=>'keyword_change', 'data'=>$row);
 
         // For activate
         if($feed[18] == 'Active' && $row->status != 'Active') return array('type'=>'activate', 'data'=>$row);
@@ -1517,7 +1586,7 @@ function fatal_handler() {
                 }
                 catch(Exception $e)
                 {
-                    log_("Fatal Error at FeedLine $feedPos: We were denined permission to remove adgroup");
+                    log_("Fatal Error at FeedLine $feedPos: We were denied permission to remove adgroup");
                     $feedCont++;
                 }
                 
@@ -1530,7 +1599,7 @@ function fatal_handler() {
 
             
 
-            // Saving stop point for coninuation later
+            // Saving stop point for continuation later
             saveInTable(
                 DB_EXEC,
                 [
