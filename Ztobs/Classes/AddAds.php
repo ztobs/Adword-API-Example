@@ -11,15 +11,15 @@ namespace Ztobs\Classes;
 
 use Google\AdsApi\AdWords\AdWordsServices;
 use Google\AdsApi\AdWords\AdWordsSession;
-use Google\AdsApi\AdWords\v201708\cm\AdGroupAd;
-use Google\AdsApi\AdWords\v201708\cm\AdGroupAdOperation;
-use Google\AdsApi\AdWords\v201708\cm\AdGroupAdService;
-use Google\AdsApi\AdWords\v201708\cm\AdGroupAdStatus;
-use Google\AdsApi\AdWords\v201708\cm\ApiException;
-use Google\AdsApi\AdWords\v201708\cm\ExemptionRequest;
-use Google\AdsApi\AdWords\v201708\cm\ExpandedTextAd;
-use Google\AdsApi\AdWords\v201708\cm\Operator;
-use Google\AdsApi\AdWords\v201708\cm\PolicyViolationError;
+use Google\AdsApi\AdWords\v201802\cm\AdGroupAd;
+use Google\AdsApi\AdWords\v201802\cm\AdGroupAdOperation;
+use Google\AdsApi\AdWords\v201802\cm\AdGroupAdService;
+use Google\AdsApi\AdWords\v201802\cm\AdGroupAdStatus;
+use Google\AdsApi\AdWords\v201802\cm\ApiException;
+use Google\AdsApi\AdWords\v201802\cm\ExemptionRequest;
+use Google\AdsApi\AdWords\v201802\cm\ExpandedTextAd;
+use Google\AdsApi\AdWords\v201802\cm\Operator;
+use Google\AdsApi\AdWords\v201802\cm\PolicyViolationError;
 
 /**
  * This example adds an expanded text ad to an ad group. To get ad groups,

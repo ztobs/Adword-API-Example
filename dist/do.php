@@ -45,7 +45,6 @@ while(true)
     system("php run.php ".$argv[1]." ".$argv[2]." ".$feedCont." ".$logFile." ".$campaign_id, $exitCode);
     $restart = false;
 
-    sleep(2);
     
     if($exitCode == 0 || $exitCode == 99) break;
 }

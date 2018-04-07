@@ -11,15 +11,15 @@ namespace Ztobs\Classes;
 
 use Google\AdsApi\AdWords\AdWordsServices;
 use Google\AdsApi\AdWords\AdWordsSession;
-use Google\AdsApi\AdWords\v201708\cm\AdGroupAdService;
-use Google\AdsApi\AdWords\v201708\cm\AdGroupAdStatus;
-use Google\AdsApi\AdWords\v201708\cm\AdType;
-use Google\AdsApi\AdWords\v201708\cm\OrderBy;
-use Google\AdsApi\AdWords\v201708\cm\Paging;
-use Google\AdsApi\AdWords\v201708\cm\Predicate;
-use Google\AdsApi\AdWords\v201708\cm\PredicateOperator;
-use Google\AdsApi\AdWords\v201708\cm\Selector;
-use Google\AdsApi\AdWords\v201708\cm\SortOrder;
+use Google\AdsApi\AdWords\v201802\cm\AdGroupAdService;
+use Google\AdsApi\AdWords\v201802\cm\AdGroupAdStatus;
+use Google\AdsApi\AdWords\v201802\cm\AdType;
+use Google\AdsApi\AdWords\v201802\cm\OrderBy;
+use Google\AdsApi\AdWords\v201802\cm\Paging;
+use Google\AdsApi\AdWords\v201802\cm\Predicate;
+use Google\AdsApi\AdWords\v201802\cm\PredicateOperator;
+use Google\AdsApi\AdWords\v201802\cm\Selector;
+use Google\AdsApi\AdWords\v201802\cm\SortOrder;
 
 /**
  * This example gets expanded text ads in an ad group. To add expanded text ads,

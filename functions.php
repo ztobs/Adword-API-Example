@@ -32,7 +32,7 @@ include "vendor/autoload.php";
 include 'dist/variation.php';
 
 
-
+use Google\AdsApi\AdWords\AdWordsSession;
 use Google\AdsApi\Common\OAuth2TokenBuilder;
 use Google\AdsApi\AdWords\AdWordsSessionBuilder;
 use Google\AdsApi\AdWords\AdWordsServices;
@@ -843,13 +843,17 @@ function creator($feedArr, $variation_arr, $feedStart)
         $adGroupData = searchAdGroupByName($campaign_id, $feed[1]." (".$feed[0].")");
         $ret = checkType($feed, $adGroupData[0]['id']);
 
-        // echo "type = ".$ret['type']." \n";
-        // echo "== END ==\n";
+//         var_dump($ret['type']);
+//         echo "== END ==\n";
 
-        if($ret['type'] != 'skip')
+        if(in_array("skip", $ret['type']))
+        {
+            // do nothing
+        }
+        else
         {
             // New: Creating new records
-            if($ret['type'] == 'new')
+            if(in_array("new", $ret['type']))
             {
                 createAll($feed, $variation_arr, $feedPos, $kw, $finalUrl);
             }
@@ -857,7 +861,7 @@ function creator($feedArr, $variation_arr, $feedStart)
 
 
             // Activate: Activating paused
-            if($ret['type'] == 'activate')
+            if(in_array("activate", $ret['type']))
             {
                 $data = $ret['data'];
 
@@ -879,7 +883,7 @@ function creator($feedArr, $variation_arr, $feedStart)
 
 
             // Pause: Pausing Adgroup and Ads
-            if($ret['type'] == 'pause')
+            if(in_array("pause", $ret['type']))
             {
 
                 if (count($adGroupData) > 0) 
@@ -901,7 +905,7 @@ function creator($feedArr, $variation_arr, $feedStart)
 
 
             // Name_Change: Pausing Old and Creating new Record for Name Change
-            if($ret['type'] == 'name_change')
+            if(in_array("name_change", $ret['type']))
             {
                 // Pausing Adgroups
                 if(count($adGroupData) > 0)
@@ -927,7 +931,7 @@ function creator($feedArr, $variation_arr, $feedStart)
 
 
             // Keyword_Change: Replacing the keywords
-            if($ret['type'] == 'keyword_change')
+            if(in_array("keyword_change", $ret['type']))
             {
                 if(count($adGroupData) > 0 )
                 {
@@ -983,7 +987,7 @@ function creator($feedArr, $variation_arr, $feedStart)
 
 
             // Other_Change: Pausing Ad and Creating new
-            if($ret['type'] == 'other_change')
+            if(in_array("other_change", $ret['type']))
             {
                 if(count($adGroupData) > 0)
                 {
@@ -1217,37 +1221,47 @@ function checkType($feed, $adGroupId)
 {
     $row = Database::table(DB_PRODUCTS)->where('product_id', '=', $feed[0])->find();
 
-    //echo "name=".$feed[0]."\n";
 
+    $type = [];
     if(isset($row->id))
     {
 
-        // For Processed, will be skipped
-        if($row->processed == 'true') return array('type'=>'skip', 'data'=>null);
 
-        // For Name Change
-        if($feed[1] != $row->product_name) return array('type'=>'name_change', 'data'=>$row);
+        if($row->processed == 'true')
+        {
+            // For Processed, will be skipped
+            $type[] = 'skip';
+        }
+        else
+        {
+            // For Name Change
+            if($feed[1] != $row->product_name) $type[] = 'name_change';
 
-        // For Others Change
-        if($feed[2] != $row->price || $feed[5] != $row->description || $feed[10] != $row->discount || $feed[16] != $row->url) return array('type'=>'other_change', 'data'=>$row);
+            // For Others Change
+            if($feed[2] != $row->price || $feed[5] != $row->description || $feed[10] != $row->discount || $feed[16] != $row->url) $type[] = 'other_change';
 
-        // For Keywords Change
-//        if(keywords_merge($feed[12],$feed[13],$feed[14]) != $row->keywords) return array('type'=>'keyword_change', 'data'=>$row);
-        if(keywordChange($feed, $adGroupId)) return array('type'=>'keyword_change', 'data'=>$row);
+            // For Keywords Change
+        if(keywords_merge($feed[12],$feed[13],$feed[14]) != $row->keywords) $type[] = 'keyword_change';
+//            if(keywordChange($feed, $adGroupId)) $type[] = 'keyword_change';
 
-        // For activate
-        if($feed[18] == 'Active' && $row->status != 'Active') return array('type'=>'activate', 'data'=>$row);
+            // For activate
+            if($feed[18] == 'Active' && $row->status != 'Active') $type[] = 'activate';
 
-        // For Pause
-        if($feed[18] != 'Active' && $row->status == 'Active') return array('type'=>'pause', 'data'=>$row);
+            // For Pause
+            if($feed[18] != 'Active' && $row->status == 'Active') $type[] = 'pause';
+        }
 
-        return array('type'=>'skip', 'data'=>null);
+        if(count($type) < 1) $type[] = 'skip';
+
+
     }
     else
     {
         // For new
-        return array('type'=>'new', 'data'=>null);
+        $type[] = 'new';
     }
+
+    return array('type'=>$type, 'data'=>$row);
 }
 
 
@@ -1556,6 +1570,13 @@ function fatal_handler() {
                 log_("Fatal Error at FeedLine $feedPos: $er");
             }
 
+            if(strpos($er, "UNSUPPORTED_VERSION") !== FALSE)
+            {
+                $er = "API Version is no longer supported";
+                log_("Fatal Error at FeedLine $feedPos: $er");
+                exit(99);
+            }
+
             if(strpos($er, "CriterionError.KEYWORD") !== FALSE)
             {
                 $er = "InvalidKeyword";
@@ -1568,6 +1589,9 @@ function fatal_handler() {
                 log_("Fatal Error at FeedLine $feedPos: $er");
                 exit(99);
             }
+
+
+
 
             if(strpos($er, "AD_NOT_UNDER_ADGROUP") !== FALSE)
             {

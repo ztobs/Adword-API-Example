@@ -12,17 +12,17 @@ namespace Ztobs\Classes;
 use Google\AdsApi\AdWords\AdWordsServices;
 use Google\AdsApi\AdWords\AdWordsSession;
 use Google\AdsApi\AdWords\AdWordsSessionBuilder;
-use Google\AdsApi\AdWords\v201708\cm\AdGroupCriterionOperation;
-use Google\AdsApi\AdWords\v201708\cm\AdGroupCriterionService;
-use Google\AdsApi\AdWords\v201708\cm\BiddableAdGroupCriterion;
-use Google\AdsApi\AdWords\v201708\cm\BiddingStrategyConfiguration;
-use Google\AdsApi\AdWords\v201708\cm\CpcBid;
-use Google\AdsApi\AdWords\v201708\cm\Keyword;
-use Google\AdsApi\AdWords\v201708\cm\KeywordMatchType;
-use Google\AdsApi\AdWords\v201708\cm\Money;
-use Google\AdsApi\AdWords\v201708\cm\NegativeAdGroupCriterion;
-use Google\AdsApi\AdWords\v201708\cm\Operator;
-use Google\AdsApi\AdWords\v201708\cm\UserStatus;
+use Google\AdsApi\AdWords\v201802\cm\AdGroupCriterionOperation;
+use Google\AdsApi\AdWords\v201802\cm\AdGroupCriterionService;
+use Google\AdsApi\AdWords\v201802\cm\BiddableAdGroupCriterion;
+use Google\AdsApi\AdWords\v201802\cm\BiddingStrategyConfiguration;
+use Google\AdsApi\AdWords\v201802\cm\CpcBid;
+use Google\AdsApi\AdWords\v201802\cm\Keyword;
+use Google\AdsApi\AdWords\v201802\cm\KeywordMatchType;
+use Google\AdsApi\AdWords\v201802\cm\Money;
+use Google\AdsApi\AdWords\v201802\cm\NegativeAdGroupCriterion;
+use Google\AdsApi\AdWords\v201802\cm\Operator;
+use Google\AdsApi\AdWords\v201802\cm\UserStatus;
 use Google\AdsApi\Common\OAuth2TokenBuilder;
 
 /**

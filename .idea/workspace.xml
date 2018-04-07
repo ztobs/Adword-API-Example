@@ -2,8 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="374070c9-05f6-44fc-81ee-bb204b5e2bea" name="Default" comment="Changed keyword change trigger from local db base to live adwords server base.&#10;Also added 2 seconds delay between errors">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/test.php" afterPath="$PROJECT_DIR$/dist/test.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/AdGroups.config.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/AdGroups.data.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/Ads.config.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/Ads.data.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/Campaigns.config.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/Campaigns.data.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/Execution.config.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/Execution.data.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/Keywords.config.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/Keywords.data.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/Products.config.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/Products.data.json" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/adwords.iml" afterPath="$PROJECT_DIR$/.idea/adwords.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/functions.php" afterPath="$PROJECT_DIR$/functions.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,21 +46,11 @@
       <file leaf-file-name="functions.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
-              <caret line="180" column="116" lean-forward="true" selection-start-line="180" selection-start-column="116" selection-end-line="180" selection-end-column="116" />
+            <state relative-caret-position="187">
+              <caret line="843" column="24" lean-forward="false" selection-start-line="843" selection-start-column="15" selection-end-line="843" selection-end-column="24" />
               <folding>
-                <element signature="e#590#634#0#PHP" expanded="true" />
+                <marker date="1523112036444" expanded="true" signature="635:1456" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dist/test.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="37" column="27" lean-forward="false" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -58,36 +59,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>feedco</find>
-      <find>is_</find>
-      <find>makeAds</find>
-      <find>createAds</find>
-      <find>savePr</find>
-      <find>saveProd</find>
-      <find>DB_PRODUCTS</find>
-      <find>saveProduct</find>
-      <find>resumed</find>
-      <find>we cou</find>
-      <find>fata</find>
       <find>writetofile</find>
-      <find>fatal_ha</find>
       <find>{{productName}}</find>
       <find>$currentAdGroupName</find>
       <find>$kw_arr_final</find>
       <find>$kw</find>
-      <find>createAll</find>
       <find>createKeywordsBulk</find>
       <find>AT-P3512350-100ST</find>
       <find>keyword_cha</find>
       <find>keywordch</find>
-      <find>keywords_merge</find>
-      <find>checkType</find>
       <find>$adGroupData = searchAdGroupByName($campaign_id, $feed[1].&quot; (&quot;.$feed[0].&quot;)&quot;);</find>
       <find>keyword_c</find>
       <find>isEmpty</find>
-      <find>keywordChange</find>
       <find>createkey</find>
       <find>createKeywords</find>
+      <find>jetzt</find>
+      <find>keyword_ch</find>
+      <find>$ret['type']</find>
+      <find>createAll</find>
+      <find>AT-P4123076-20ST</find>
+      <find>fatal_ha</find>
+      <find>fatal_h</find>
+      <find>AdRotationMode</find>
+      <find>OAuth2TokenBuilder</find>
+      <find>createAdGroup</find>
+      <find>AdWordsServices</find>
+      <find>AddAdGroup</find>
+      <find>$groupName</find>
+      <find>keywords_merge</find>
+      <find>keywordChange</find>
+      <find>checkType</find>
     </findStrings>
     <replaceStrings>
       <replace>log_(</replace>
@@ -106,11 +107,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Ztobs/Classes/Ad.php" />
-        <option value="$PROJECT_DIR$/Ztobs/Classes/AddAdGroup.php" />
-        <option value="$PROJECT_DIR$/Ztobs/Classes/AddCampaign.php" />
-        <option value="$PROJECT_DIR$/Ztobs/Classes/AddKeywords.php" />
-        <option value="$PROJECT_DIR$/Ztobs/Classes/GetAdGroupsByCampaign.php" />
         <option value="$PROJECT_DIR$/Ztobs/Classes/GetAds.php" />
         <option value="$PROJECT_DIR$/Ztobs/Classes/PauseAdGroup.php" />
         <option value="$PROJECT_DIR$/Ztobs/Classes/RemoveAd.php" />
@@ -125,7 +121,6 @@
         <option value="$PROJECT_DIR$/Ztobs/Classes/GetCampaigns.php" />
         <option value="$PROJECT_DIR$/Ztobs/Classes/AddAds.php" />
         <option value="$PROJECT_DIR$/temp/Ads.data.json" />
-        <option value="$PROJECT_DIR$/temp/Campaigns.data.json" />
         <option value="$PROJECT_DIR$/temp/log.log" />
         <option value="$PROJECT_DIR$/temp/Keywords.data.json" />
         <option value="$PROJECT_DIR$/dist/sync.php" />
@@ -155,7 +150,13 @@
         <option value="$PROJECT_DIR$/temp/AdGroups.data.json" />
         <option value="$PROJECT_DIR$/dist/feed3.csv" />
         <option value="$PROJECT_DIR$/dist/do.php" />
+        <option value="$PROJECT_DIR$/dist/feed2.csv" />
+        <option value="$PROJECT_DIR$/log/log.2018-03-23_14_06_45.log" />
+        <option value="$PROJECT_DIR$/Ztobs/Classes/Aa.php" />
         <option value="$PROJECT_DIR$/dist/test.php" />
+        <option value="$PROJECT_DIR$/src/Google/AdsApi/Common/ConfigurationLoader.php" />
+        <option value="$PROJECT_DIR$/Ztobs/Classes/AddAdGroup.php" />
+        <option value="$PROJECT_DIR$/temp/Campaigns.data.json" />
         <option value="$PROJECT_DIR$/functions.php" />
       </list>
     </option>
@@ -178,37 +179,21 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP 7">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/symfony/serializer" />
-      <path value="$PROJECT_DIR$/vendor/symfony/yaml" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
       <path value="$PROJECT_DIR$/vendor/google/auth" />
       <path value="$PROJECT_DIR$/vendor/firebase/php-jwt" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
       <path value="$PROJECT_DIR$/vendor/composer" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-token-stream" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit-mock-objects" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
-      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
-      <path value="$PROJECT_DIR$/vendor/sebastian/version" />
       <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
       <path value="$PROJECT_DIR$/vendor/psr/http-message" />
       <path value="$PROJECT_DIR$/vendor/psr/cache" />
       <path value="$PROJECT_DIR$/vendor/psr/log" />
-      <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
       <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/googleads/googleads-php-lib" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
@@ -248,6 +233,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -290,8 +277,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -334,10 +319,7 @@
     <configuration default="false" name="long.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/dist/long.php">
       <method />
     </configuration>
-    <configuration default="false" name="init.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/dist/init.php">
-      <method />
-    </configuration>
-    <configuration default="false" name="do.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/dist/do.php" scriptParameters="feed3.csv backer2">
+    <configuration default="false" name="do.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/dist/do.php" scriptParameters="feed.csv test">
       <method />
     </configuration>
     <configuration default="true" type="CodeceptionConfigurationType" factoryName="Codeception">
@@ -407,24 +389,26 @@
       <recursive>false</recursive>
       <method />
     </configuration>
-    <configuration default="false" name="test.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/dist/test.php" scriptParameters="backer2">
+    <configuration default="false" name="init.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/dist/init.php">
+      <method />
+    </configuration>
+    <configuration default="false" name="test.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/dist/test.php" scriptParameters="test">
       <method />
     </configuration>
     <list size="6">
-      <item index="0" class="java.lang.String" itemvalue="PHP Script.test.php" />
-      <item index="1" class="java.lang.String" itemvalue="PHP Script.clean.php" />
-      <item index="2" class="java.lang.String" itemvalue="PHP Script.run.php" />
-      <item index="3" class="java.lang.String" itemvalue="PHP Script.long.php" />
-      <item index="4" class="java.lang.String" itemvalue="PHP Script.init.php" />
+      <item index="0" class="java.lang.String" itemvalue="PHP Script.init.php" />
+      <item index="1" class="java.lang.String" itemvalue="PHP Script.test.php" />
+      <item index="2" class="java.lang.String" itemvalue="PHP Script.clean.php" />
+      <item index="3" class="java.lang.String" itemvalue="PHP Script.run.php" />
+      <item index="4" class="java.lang.String" itemvalue="PHP Script.long.php" />
       <item index="5" class="java.lang.String" itemvalue="PHP Script.do.php" />
     </list>
     <recent_temporary>
-      <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="PHP Script.init.php" />
-        <item index="1" class="java.lang.String" itemvalue="PHP Script.do.php" />
-        <item index="2" class="java.lang.String" itemvalue="PHP Script.clean.php" />
-        <item index="3" class="java.lang.String" itemvalue="PHP Script.run.php" />
-        <item index="4" class="java.lang.String" itemvalue="PHP Script.long.php" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="PHP Script.do.php" />
+        <item index="1" class="java.lang.String" itemvalue="PHP Script.clean.php" />
+        <item index="2" class="java.lang.String" itemvalue="PHP Script.run.php" />
+        <item index="3" class="java.lang.String" itemvalue="PHP Script.long.php" />
       </list>
     </recent_temporary>
   </component>
@@ -461,7 +445,9 @@
       <workItem from="1509375859104" duration="2151000" />
       <workItem from="1509452559749" duration="641000" />
       <workItem from="1521471951798" duration="3181000" />
-      <workItem from="1521476346658" duration="12221000" />
+      <workItem from="1521476346658" duration="12593000" />
+      <workItem from="1521747890890" duration="4723000" />
+      <workItem from="1523040103821" duration="8443000" />
     </task>
     <task id="LOCAL-00001" summary="1st commit">
       <created>1505057420544</created>
@@ -554,11 +540,18 @@
       <option name="project" value="LOCAL" />
       <updated>1521486760438</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Changed keyword change trigger from local db base to live adwords server base.&#10;Also added 2 seconds delay between errors">
+      <created>1521488636389</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1521488636389</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="411006000" />
+    <option name="totallyTimeSpent" value="425415000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -566,12 +559,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-8" width="1040" height="754" extended-state="6" />
+    <frame x="1912" y="-8" width="1040" height="754" extended-state="7" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17285156" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23242188" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924962" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914925" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924962" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -581,12 +573,24 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39888424" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924962" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914925" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924962" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35714287" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924962" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23242188" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924962" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39888424" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -620,66 +624,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_10_10_30.log" />
-    <entry file="file://$PROJECT_DIR$/dist/long.php" />
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_10_14_44.log" />
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_10_17_38.log" />
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_10_53_05.log" />
-    <entry file="file://$PROJECT_DIR$/constants.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="20" column="29" lean-forward="false" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/temp/AdGroups.config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/temp/Execution.config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_11_23_04.log" />
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_11_26_03.log" />
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_11_26_43.log" />
-    <entry file="file://$PROJECT_DIR$/temp/Ads.config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_12_14_47.log" />
-    <entry file="file://$PROJECT_DIR$/temp/Ads.data.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="854" lean-forward="false" selection-start-line="0" selection-start-column="854" selection-end-line="0" selection-end-column="854" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_12_22_24.log" />
-    <entry file="file://$PROJECT_DIR$/dist/clean.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/temp/Products.config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/temp/Execution.data.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -713,80 +657,21 @@
     <entry file="file://$PROJECT_DIR$/log/log.2017-10-27_17_36_25.log" />
     <entry file="file://$PROJECT_DIR$/log/log.2017-10-30_16_25_19.log" />
     <entry file="file://$PROJECT_DIR$/dist/large1.csv" />
-    <entry file="file://$PROJECT_DIR$/dist/run.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="41" column="48" lean-forward="false" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dist/variation.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="12" column="23" lean-forward="false" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
-          <folding>
-            <marker date="1520887092966" expanded="true" signature="245:289" ph="..." />
-            <marker date="1520887092966" expanded="true" signature="264:289" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/feed2.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dist/feed.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/log.2018-03-19_19_40_43.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/log.2018-03-19_19_49_41.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/do.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="41" column="35" lean-forward="true" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
-          <folding>
-            <marker date="1521485724198" expanded="true" signature="528:1087" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/log.2018-03-19_19_52_15.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/log/log.2018-03-19_19_40_43.log" />
+    <entry file="file://$PROJECT_DIR$/log/log.2018-03-19_19_49_41.log" />
+    <entry file="file://$PROJECT_DIR$/log/log.2018-03-19_19_52_15.log" />
     <entry file="file://$PROJECT_DIR$/dist/feed3.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="262">
           <caret line="3" column="451" lean-forward="true" selection-start-line="3" selection-start-column="451" selection-end-line="3" selection-end-column="451" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -794,33 +679,130 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="48" column="17" lean-forward="true" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log/log.2018-03-23_14_06_45.log" />
+    <entry file="file://$PROJECT_DIR$/dist/feed2.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="330" lean-forward="false" selection-start-line="1" selection-start-column="330" selection-end-line="1" selection-end-column="330" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/temp/AdGroups.data.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="0" column="572" lean-forward="false" selection-start-line="0" selection-start-column="572" selection-end-line="0" selection-end-column="572" />
+        <state relative-caret-position="0">
+          <caret line="0" column="2" lean-forward="true" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log/log.2018-04-06_20_56_00.log" />
+    <entry file="file://$PROJECT_DIR$/dist/run.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="41" column="48" lean-forward="false" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="48" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/do.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="45" column="21" lean-forward="false" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log/log.2018-04-06_21_03_30.log" />
+    <entry file="file://$PROJECT_DIR$/log/log.2018-04-06_21_04_18.log" />
+    <entry file="file://$PROJECT_DIR$/log/log.2018-04-06_21_06_29.log" />
+    <entry file="file://$PROJECT_DIR$/log/log.2018-04-06_21_06_18.log" />
+    <entry file="file://$PROJECT_DIR$/log/log.2018-04-06_21_07_14.log" />
+    <entry file="file://$PROJECT_DIR$/log/log.2018-04-06_21_07_40.log" />
+    <entry file="file://$PROJECT_DIR$/temp/Campaigns.data.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="34" lean-forward="false" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Google/AdsApi/Common/ConfigurationLoader.php" />
+    <entry file="file://$PROJECT_DIR$/log/log.2018-04-07_09_44_52.log" />
+    <entry file="file://$PROJECT_DIR$/src/Google/AdsApi/Common/build.ini" />
+    <entry file="file://$PROJECT_DIR$/dist/feed.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="1" column="16" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Ztobs/Classes/AddAdGroup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+          <folding>
+            <element signature="e#125#167#0#PHP" expanded="true" />
+            <marker date="1523111050011" expanded="true" signature="2134:2425" ph="//..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="2" lean-forward="false" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="2" />
+          <folding>
+            <marker date="1523111050031" expanded="true" signature="0:408" ph="{&quot;name&quot;: &quot;googleads/googleads-php-lib&quot;...}" />
+            <marker date="1523111050031" expanded="true" signature="403:406" ph="[...]" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Ztobs/Classes/Aa.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="47" column="8" lean-forward="false" selection-start-line="47" selection-start-column="8" selection-end-line="85" selection-end-column="35" />
+          <folding>
+            <element signature="e#6#622#0#PHP" expanded="true" />
+            <element signature="e#743#785#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dist/test.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="37" column="27" lean-forward="false" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
+        <state relative-caret-position="1463">
+          <caret line="74" column="14" lean-forward="false" selection-start-line="74" selection-start-column="14" selection-end-line="74" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/temp/AdGroups.config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="180" column="116" lean-forward="true" selection-start-line="180" selection-start-column="116" selection-end-line="180" selection-end-column="116" />
+        <state relative-caret-position="187">
+          <caret line="843" column="24" lean-forward="false" selection-start-line="843" selection-start-column="15" selection-end-line="843" selection-end-column="24" />
           <folding>
-            <element signature="e#590#634#0#PHP" expanded="true" />
+            <marker date="1523112036444" expanded="true" signature="635:1456" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log/log.2018-04-07_16_40_06.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

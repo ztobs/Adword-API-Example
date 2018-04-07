@@ -11,13 +11,13 @@ namespace Ztobs\Classes;
 
 use Google\AdsApi\AdWords\AdWordsServices;
 use Google\AdsApi\AdWords\AdWordsSession;
-use Google\AdsApi\AdWords\v201708\cm\AdGroupService;
-use Google\AdsApi\AdWords\v201708\cm\OrderBy;
-use Google\AdsApi\AdWords\v201708\cm\Predicate;
-use Google\AdsApi\AdWords\v201708\cm\PredicateOperator;
-use Google\AdsApi\AdWords\v201708\cm\Paging;
-use Google\AdsApi\AdWords\v201708\cm\Selector;
-use Google\AdsApi\AdWords\v201708\cm\SortOrder;
+use Google\AdsApi\AdWords\v201802\cm\AdGroupService;
+use Google\AdsApi\AdWords\v201802\cm\OrderBy;
+use Google\AdsApi\AdWords\v201802\cm\Predicate;
+use Google\AdsApi\AdWords\v201802\cm\PredicateOperator;
+use Google\AdsApi\AdWords\v201802\cm\Paging;
+use Google\AdsApi\AdWords\v201802\cm\Selector;
+use Google\AdsApi\AdWords\v201802\cm\SortOrder;
 
 /**
  * This example gets all ad groups in a campaign. To get campaigns, run

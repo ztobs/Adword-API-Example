@@ -12,12 +12,12 @@ namespace Ztobs\Classes;
 use Google\AdsApi\AdWords\AdWordsServices;
 use Google\AdsApi\AdWords\AdWordsSession;
 use Google\AdsApi\AdWords\AdWordsSessionBuilder;
-use Google\AdsApi\AdWords\v201708\cm\Ad;
-use Google\AdsApi\AdWords\v201708\cm\AdGroupAd;
-use Google\AdsApi\AdWords\v201708\cm\AdGroupAdOperation;
-use Google\AdsApi\AdWords\v201708\cm\AdGroupAdService;
-use Google\AdsApi\AdWords\v201708\cm\AdGroupAdStatus;
-use Google\AdsApi\AdWords\v201708\cm\Operator;
+use Google\AdsApi\AdWords\v201802\cm\Ad;
+use Google\AdsApi\AdWords\v201802\cm\AdGroupAd;
+use Google\AdsApi\AdWords\v201802\cm\AdGroupAdOperation;
+use Google\AdsApi\AdWords\v201802\cm\AdGroupAdService;
+use Google\AdsApi\AdWords\v201802\cm\AdGroupAdStatus;
+use Google\AdsApi\AdWords\v201802\cm\Operator;
 use Google\AdsApi\Common\OAuth2TokenBuilder;
 
 /**

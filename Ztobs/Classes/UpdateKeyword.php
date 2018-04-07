@@ -11,11 +11,11 @@ namespace Ztobs\Classes;
 
 use Google\AdsApi\AdWords\AdWordsServices;
 use Google\AdsApi\AdWords\AdWordsSession;
-use Google\AdsApi\AdWords\v201708\cm\AdGroupCriterionOperation;
-use Google\AdsApi\AdWords\v201708\cm\AdGroupCriterionService;
-use Google\AdsApi\AdWords\v201708\cm\BiddableAdGroupCriterion;
-use Google\AdsApi\AdWords\v201708\cm\Criterion;
-use Google\AdsApi\AdWords\v201708\cm\Operator;
+use Google\AdsApi\AdWords\v201802\cm\AdGroupCriterionOperation;
+use Google\AdsApi\AdWords\v201802\cm\AdGroupCriterionService;
+use Google\AdsApi\AdWords\v201802\cm\BiddableAdGroupCriterion;
+use Google\AdsApi\AdWords\v201802\cm\Criterion;
+use Google\AdsApi\AdWords\v201802\cm\Operator;
 
 /**
  * This class updates the final URL of a keyword. To get keywords, run

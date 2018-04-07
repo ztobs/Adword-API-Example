@@ -12,14 +12,14 @@ namespace Ztobs\Classes;
 use Google\AdsApi\AdWords\AdWordsServices;
 use Google\AdsApi\AdWords\AdWordsSession;
 use Google\AdsApi\AdWords\AdWordsSessionBuilder;
-use Google\AdsApi\AdWords\v201708\cm\AdGroupCriterionService;
-use Google\AdsApi\AdWords\v201708\cm\CriterionType;
-use Google\AdsApi\AdWords\v201708\cm\OrderBy;
-use Google\AdsApi\AdWords\v201708\cm\Paging;
-use Google\AdsApi\AdWords\v201708\cm\Predicate;
-use Google\AdsApi\AdWords\v201708\cm\PredicateOperator;
-use Google\AdsApi\AdWords\v201708\cm\Selector;
-use Google\AdsApi\AdWords\v201708\cm\SortOrder;
+use Google\AdsApi\AdWords\v201802\cm\AdGroupCriterionService;
+use Google\AdsApi\AdWords\v201802\cm\CriterionType;
+use Google\AdsApi\AdWords\v201802\cm\OrderBy;
+use Google\AdsApi\AdWords\v201802\cm\Paging;
+use Google\AdsApi\AdWords\v201802\cm\Predicate;
+use Google\AdsApi\AdWords\v201802\cm\PredicateOperator;
+use Google\AdsApi\AdWords\v201802\cm\Selector;
+use Google\AdsApi\AdWords\v201802\cm\SortOrder;
 use Google\AdsApi\Common\OAuth2TokenBuilder;
 /**
  * This example gets all keywords in an ad group. To get ad groups, run

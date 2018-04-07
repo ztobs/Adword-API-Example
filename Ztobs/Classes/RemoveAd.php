@@ -11,11 +11,11 @@ namespace Ztobs\Classes;
 
 use Google\AdsApi\AdWords\AdWordsServices;
 use Google\AdsApi\AdWords\AdWordsSession;
-use Google\AdsApi\AdWords\v201708\cm\Ad;
-use Google\AdsApi\AdWords\v201708\cm\AdGroupAd;
-use Google\AdsApi\AdWords\v201708\cm\AdGroupAdOperation;
-use Google\AdsApi\AdWords\v201708\cm\AdGroupAdService;
-use Google\AdsApi\AdWords\v201708\cm\Operator;
+use Google\AdsApi\AdWords\v201802\cm\Ad;
+use Google\AdsApi\AdWords\v201802\cm\AdGroupAd;
+use Google\AdsApi\AdWords\v201802\cm\AdGroupAdOperation;
+use Google\AdsApi\AdWords\v201802\cm\AdGroupAdService;
+use Google\AdsApi\AdWords\v201802\cm\Operator;
 
 /**
  * This example removes an ad. To get text ads, run GetExpandedTextAds.php.
@@ -23,8 +23,12 @@ use Google\AdsApi\AdWords\v201708\cm\Operator;
 class RemoveAd {
 
 
-    public static function run(AdWordsServices $adWordsServices,
-                                      AdWordsSession $session, $adGroupId, $adId) {
+    public static function run(
+        AdWordsServices $adWordsServices,
+        AdWordsSession $session, 
+        $adGroupId, 
+        $adId
+        ) {
         $adGroupAdService =
             $adWordsServices->get($session, AdGroupAdService::class);
 

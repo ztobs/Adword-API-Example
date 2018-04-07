@@ -11,30 +11,36 @@ namespace Ztobs\Classes;
 
 use Google\AdsApi\AdWords\AdWordsServices;
 use Google\AdsApi\AdWords\AdWordsSession;
-use Google\AdsApi\AdWords\v201708\cm\AdGroup;
-use Google\AdsApi\AdWords\v201708\cm\AdGroupOperation;
-use Google\AdsApi\AdWords\v201708\cm\AdGroupService;
-use Google\AdsApi\AdWords\v201708\cm\AdGroupStatus;
-use Google\AdsApi\AdWords\v201708\cm\BiddingStrategyConfiguration;
-use Google\AdsApi\AdWords\v201708\cm\CpcBid;
-use Google\AdsApi\AdWords\v201708\cm\CriterionTypeGroup;
-use Google\AdsApi\AdWords\v201708\cm\Money;
-use Google\AdsApi\AdWords\v201708\cm\Operator;
-use Google\AdsApi\AdWords\v201708\cm\TargetingSetting;
-use Google\AdsApi\AdWords\v201708\cm\TargetingSettingDetail;
-use Google\AdsApi\AdWords\v201708\cm\ApiException;
-use Google\AdsApi\AdWords\v201708\cm\ExemptionRequest;
-use Google\AdsApi\AdWords\v201708\cm\PolicyViolationError;
+use Google\AdsApi\AdWords\AdWordsSessionBuilder;
+use Google\AdsApi\AdWords\v201802\cm\AdGroup;
+use Google\AdsApi\AdWords\v201802\cm\AdGroupAdRotationMode;
+use Google\AdsApi\AdWords\v201802\cm\AdGroupOperation;
+use Google\AdsApi\AdWords\v201802\cm\AdGroupService;
+use Google\AdsApi\AdWords\v201802\cm\AdGroupStatus;
+use Google\AdsApi\AdWords\v201802\cm\AdRotationMode;
+use Google\AdsApi\AdWords\v201802\cm\BiddingStrategyConfiguration;
+use Google\AdsApi\AdWords\v201802\cm\CpcBid;
+use Google\AdsApi\AdWords\v201802\cm\CriterionTypeGroup;
+use Google\AdsApi\AdWords\v201802\cm\Money;
+use Google\AdsApi\AdWords\v201802\cm\Operator;
+use Google\AdsApi\AdWords\v201802\cm\TargetingSetting;
+use Google\AdsApi\AdWords\v201802\cm\TargetingSettingDetail;
+use Google\AdsApi\Common\OAuth2TokenBuilder;
 
 /**
- * This example adds ad groups to a campaign. To get campaigns, run
- * GetCampaigns.php.
- */
+ *
+ **/
 class AddAdGroup {
 
 
-    public static function run(AdWordsServices $adWordsServices,
-                                      AdWordsSession $session, $campaignId, $groupName, $myBid, $status ) {
+    public static function run(
+        AdWordsServices $adWordsServices,
+        AdWordsSession $session, 
+        $campaignId, 
+        $groupName, 
+        $myBid, 
+        $status ) {
+
         //$session->setValidateOnly(true);
         $adGroupService = $adWordsServices->get($session, AdGroupService::class);
 

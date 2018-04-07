@@ -11,11 +11,11 @@ namespace Ztobs\Classes;
 
 use Google\AdsApi\AdWords\AdWordsServices;
 use Google\AdsApi\AdWords\AdWordsSession;
-use Google\AdsApi\AdWords\v201708\cm\AdGroup;
-use Google\AdsApi\AdWords\v201708\cm\AdGroupOperation;
-use Google\AdsApi\AdWords\v201708\cm\AdGroupService;
-use Google\AdsApi\AdWords\v201708\cm\AdGroupStatus;
-use Google\AdsApi\AdWords\v201708\cm\Operator;
+use Google\AdsApi\AdWords\v201802\cm\AdGroup;
+use Google\AdsApi\AdWords\v201802\cm\AdGroupOperation;
+use Google\AdsApi\AdWords\v201802\cm\AdGroupService;
+use Google\AdsApi\AdWords\v201802\cm\AdGroupStatus;
+use Google\AdsApi\AdWords\v201802\cm\Operator;
 
 /**
  * This example removes an ad group. To get ad groups, run GetAdGroups.php.
